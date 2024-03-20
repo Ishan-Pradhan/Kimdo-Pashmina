@@ -1,0 +1,344 @@
+import { NavLink } from "react-router-dom";
+import Logo from "./Logo";
+import "../index.css";
+import { useCartContext } from "../context/cartcontext";
+import { useAuthContext } from "../context/authcontext";
+import { useEffect, useState } from "react";
+import { useFilterContext } from "../context/womenfiltercontext";
+
+function Header() {
+  const { total_item } = useCartContext();
+  const [auth] = useAuthContext();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [showform, setShowform] = useState(false);
+
+  const showForm = () => {
+    setShowform(!showform);
+  };
+  const {
+    filters: { text },
+    updateFilterValue,
+  } = useFilterContext();
+
+  const { filter_products } = useFilterContext();
+  const [showModal, setShowModal] = useState(false);
+
+  const closeModal = () => {
+    setShowModal(false);
+    updateFilterValue("");
+  };
+
+  const handleInputChange = (event) => {
+    updateFilterValue(event);
+    setShowModal(true);
+  };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 450);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (showModal && !event.target.closest(".modal-content")) {
+        closeModal();
+      }
+    };
+
+    window.addEventListener("click", handleClickOutside);
+
+    return () => {
+      window.removeEventListener("click", handleClickOutside);
+    };
+  }, [showModal]);
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
+  return (
+    <nav
+      className={`container  mx-auto px-10 py-6 z-50 transition-all duration-250 ease-in  flex md:flex-row justify-center relative md:px-0 ${
+        isScrolled ? "w-full bg-background h-full" : ""
+      }`}
+    >
+      <div
+        className={`w-full ${
+          isScrolled
+            ? "bg-background shadow-md bg-opacity-100 fixed py-4 top-0 h-auto z-50 "
+            : ""
+        }`}
+      >
+        <div
+          className={`flex items-center justify-between gap-5 mx-auto z-50 ${
+            isScrolled ? "px-10" : ""
+          }`}
+        >
+          <div className="md:hidden cursor-pointer text-2xl">
+            <i className="fa-solid fa-bars" onClick={toggleMobileMenu}></i>
+          </div>
+
+          {isMobileMenuOpen && (
+            <div
+              className={`md:hidden fixed top-0 left-0 w-full h-full bg-background z-50 transition-all ease-in duration-300 ${
+                isMobileMenuOpen
+                  ? "opacity-100 pointer-events-auto"
+                  : "opacity-0 pointer-events-none"
+              }`}
+            >
+              {/* Mobile Menu Content */}
+              <div className="flex flex-col items-start p-8 bg-background">
+                <NavLink
+                  to="/WomenProduct"
+                  className="text-text text-xl hover:text-primary border-b-2 w-full py-3 flex gap-4 items-center"
+                  onClick={scrollToTop}
+                >
+                  <i className="fa-solid fa-venus"></i>
+                  Womens
+                </NavLink>
+                <NavLink
+                  to="/MenProduct"
+                  className="text-text text-xl hover:text-primary border-b-2 w-full py-3 flex gap-4 items-center"
+                  onClick={scrollToTop}
+                >
+                  <i className="fa-solid fa-mars"></i>
+                  Mens
+                </NavLink>
+
+                <NavLink
+                  to="/aboutus"
+                  className="text-text text-xl hover:text-primary border-b-2 w-full py-3 flex gap-4 items-center"
+                  onClick={scrollToTop}
+                >
+                  <i className="fa-solid fa-user-tie"></i>
+                  About us
+                </NavLink>
+                <NavLink
+                  to="/returnandexchange"
+                  className="text-text text-xl hover:text-primary border-b-2 w-full py-3 flex gap-4 items-center"
+                  onClick={scrollToTop}
+                >
+                  <i className="fa-solid fa-right-left"></i>
+                  Return and Exchange
+                </NavLink>
+                <NavLink
+                  to="/contactus"
+                  className="text-text text-xl hover:text-primary border-b-2 w-full py-3 flex gap-4 items-center"
+                  onClick={scrollToTop}
+                >
+                  <i className="fa-solid fa-phone"></i>
+                  Contact us
+                </NavLink>
+                <NavLink
+                  to={
+                    !auth.user
+                      ? "/Login"
+                      : auth.user.role === 0
+                      ? "/dashboard/user"
+                      : "/dashboard/admin"
+                  }
+                  className="text-text text-xl hover:text-primary border-b-2 w-full py-3 flex gap-4 items-center"
+                  onClick={scrollToTop}
+                >
+                  <i className="fa-solid fa-user"></i>
+                  {auth.user ? auth.user.name : "Login"}
+                </NavLink>
+              </div>
+
+              {/* Close Mobile Menu Button */}
+              <div className="absolute top-4 right-4 cursor-pointer text-2xl">
+                <i className="fa-solid fa-times" onClick={toggleMobileMenu}></i>
+              </div>
+            </div>
+          )}
+          <div className="logoandlinks flex gap-4">
+            <div className="z-30">
+              <Logo />
+            </div>
+
+            <div className="hidden items-center  font-bold uppercase gap-5 text-text md:flex">
+              <NavLink
+                to="/WomenProduct"
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-primary transition delay-50 hover:ease-in"
+                    : "transition text-text delay-50 hover:text-primary hover:ease-in"
+                }
+                onClick={scrollToTop}
+              >
+                Womens
+              </NavLink>
+              <NavLink
+                to="/MenProduct"
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-primary transition delay-50 hover:ease-in"
+                    : "transition text-text delay-50 hover:text-primary hover:ease-in"
+                }
+                onClick={scrollToTop}
+              >
+                Mens
+              </NavLink>
+              {/* <NavLink
+              to="/NewArrival"
+              className={({ isActive }) =>
+                isActive
+                  ? "text-primary transition delay-50 hover:ease-in"
+                  : "transition text-text delay-50 hover:text-primary hover:ease-in"
+              }
+              onClick={scrollToTop}
+            >
+              New Arrival
+            </NavLink> */}
+            </div>
+          </div>
+          <form
+            onSubmit={(e) => e.preventDefault()}
+            className="hidden relative z-50 md:flex"
+          >
+            <input
+              type="text"
+              name="text"
+              value={text}
+              placeholder="Search products..."
+              onChange={handleInputChange}
+              className="border-b border-text  bg-background px-4 w-96 font-medium focus:ring-0 focus:border-transparent focus:rounded-none "
+            />
+            <i className="fa-solid fa-magnifying-glass absolute top-1/2 transform -translate-y-1/2 right-4 text-gray-400"></i>
+            {showModal && text && (
+              <div className="absolute top-full left-0 w-full z-50 modal-content shadow-lg mt-4 ">
+                <div className="bg-white  w-full p-4">
+                  <ul className="flex flex-col ">
+                    {filter_products.length > 0 ? (
+                      filter_products.map((product) => (
+                        <NavLink
+                          to={`/SingleProducts/${product._id}`}
+                          key={product._id}
+                          className="flex gap-1 border-b py-1 items-center group"
+                        >
+                          <img
+                            src={product.productImg}
+                            alt=""
+                            className="w-10 h-10 object-cover"
+                          />
+                          <p className="group-hover:text-primary">
+                            {product.productName}
+                          </p>
+                        </NavLink>
+                      ))
+                    ) : (
+                      <p>no products found</p>
+                    )}
+                  </ul>
+                </div>
+              </div>
+            )}
+          </form>
+          <div className="flex items-center md:gap-5">
+            {!auth.user ? (
+              <div className="flex items-center gap-2">
+                <NavLink to={"/Login"} onClick={scrollToTop}>
+                  <button className="hidden text-lg  py-1 px-3 font-semibold  bg-secondary text-background hover:bg-primary  cursor-pointer transition delay-50 hover-ease-in md:flex">
+                    Login
+                  </button>
+                </NavLink>
+
+                <NavLink to={"/Register"} onClick={scrollToTop}>
+                  <button className="hidden text-lg text-text font-semibold py-1 px-3 ring-2 ring-secondary ring-inset hover:text-primary  cursor-pointer transition delay-50 hover-ease-in md:flex">
+                    Register
+                  </button>
+                </NavLink>
+              </div>
+            ) : auth.user.role === 0 ? (
+              <NavLink to={"/dashboard/user"} onClick={scrollToTop}>
+                <button className="hidden text-lg  py-1 px-3 font-semibold  text-text hover:ring hover:ring-inset hover:ring-primaryShadow hover:bg-primaryTint  cursor-pointer transition delay-50 hover-ease-in md:flex items-center gap-2">
+                  <i className="fa-solid fa-user "></i> {auth.user.name}
+                </button>
+              </NavLink>
+            ) : (
+              <NavLink to={"/dashboard/admin"} onClick={scrollToTop}>
+                <button className="text-lg  py-1 px-3 font-semibold  bg-secondary text-background hover:bg-primary  cursor-pointer transition delay-50 hover-ease-in md:flex">
+                  {auth.user.name}
+                </button>
+              </NavLink>
+            )}
+            <div className="flex gap-x-4 items-center" onClick={showForm}>
+              <i className="fa-solid fa-magnifying-glass text-2xl md:hidden"></i>
+              <NavLink to="/Cart" className="relative" onClick={scrollToTop}>
+                <i className="fa-solid fa-bag-shopping z-30 hover:text-primary cursor-pointer transition delay-50 hover-ease-in text-3xl"></i>
+                <div
+                  className={`text-sm bg-primary text-background absolute w-6 h-6 -top-2 -right-3 rounded-full p-1 flex justify-center items-center ${
+                    total_item > 0 ? "motion-safe:animate-bounce" : ""
+                  }`}
+                >
+                  {total_item}
+                </div>
+              </NavLink>
+            </div>
+          </div>
+        </div>
+        <form
+          onSubmit={(e) => e.preventDefault()}
+          className={`relative w-72 mx-auto mt-10  md:hidden ${
+            showform ? "flex" : "hidden"
+          }`}
+        >
+          <input
+            type="text"
+            name="text"
+            value={text}
+            placeholder="Search products..."
+            onChange={handleInputChange}
+            className="border border-text px-4 w-full font-medium "
+          />
+
+          {showModal && text && (
+            <div className="absolute top-full left-0 w-full z-50 modal-content shadow-lg mt-4 ">
+              <div className="bg-white  w-full p-4">
+                <ul className="flex flex-col ">
+                  {filter_products.length > 0 ? (
+                    filter_products.map((product) => (
+                      <NavLink
+                        to={`/SingleProducts/${product._id}`}
+                        key={product._id}
+                        className="flex gap-1 border-b py-1 items-center group"
+                      >
+                        <img
+                          src={product.productImg}
+                          alt=""
+                          className="w-10 h-10 object-cover"
+                        />
+                        <p className="group-hover:text-primary">
+                          {product.productName}
+                        </p>
+                      </NavLink>
+                    ))
+                  ) : (
+                    <p>no products found</p>
+                  )}
+                </ul>
+              </div>
+            </div>
+          )}
+        </form>
+      </div>
+    </nav>
+  );
+}
+
+export default Header;
