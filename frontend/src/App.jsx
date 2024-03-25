@@ -33,6 +33,7 @@ import AdminOrders from "./pages/Admin/AdminOrders";
 import NotFound from "./pages/NotFound";
 import NewArrivalPage from "./pages/NewArrivalPage";
 import BestsellersPage from "./pages/BestsellersPage";
+import AdminOrdersDetail from "./pages/Admin/AdminOrdersDetail";
 
 function App() {
   useEffect(() => {
@@ -67,6 +68,10 @@ function App() {
           <Route path="admin/feedbacks/:id" element={<SingleFeedback />} />
           <Route path="admin/users" element={<Users />} />
           <Route path="admin/adminorders" element={<AdminOrders />} />
+          <Route
+            path="admin/adminorders/:orderId"
+            element={<AdminOrdersDetail />}
+          />
           <Route path="admin/users/:id" element={<UpdateUsers />} />
         </Route>
 

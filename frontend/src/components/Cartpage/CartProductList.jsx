@@ -69,7 +69,7 @@ function CartProductList() {
           window.location.href = response.data.data.payment_url;
           clearCart();
         } else {
-          toast.success("Your order has been created");
+          toast.success("Your order has been registered");
           clearCart();
         }
       }

@@ -27,6 +27,7 @@ export default {
         text: "#373A58",
         background: "#f7f7f7",
         secondary: "#20736D",
+        secondaryTint: "#a5c7c4",
       },
       fontFamily: {
         head: ["Raleway"],

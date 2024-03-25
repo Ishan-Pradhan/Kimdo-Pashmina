@@ -32,7 +32,6 @@ function SingleFeedback() {
     e.preventDefault();
     try {
       const data = { isFeatured };
-      console.log(data);
       const response = await axios.put(`/api/v1/contact/${id}`, data);
       console.log(response);
       if (response.data.success) {

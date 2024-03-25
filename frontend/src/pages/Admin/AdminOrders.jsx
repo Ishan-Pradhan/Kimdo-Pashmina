@@ -1,6 +1,7 @@
 import axios from "axios";
 import AdminMenu from "../../components/AdminPage/AdminMenu";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 function AdminOrders() {
   const [userOrders, setUserOrders] = useState([]);
@@ -13,6 +14,7 @@ function AdminOrders() {
       try {
         const { data } = await axios.get("/api/v1/orders");
         setUserOrders(data);
+        filterOrders(data);
       } catch (error) {
         console.error("Error fetching user orders:", error);
       }
@@ -21,23 +23,20 @@ function AdminOrders() {
     fetchUserOrders();
   }, []);
 
-  useEffect(() => {
-    filterOrders();
-  }, [userOrders, displayOption]);
-
-  const filterOrders = () => {
-    let filtered = [...userOrders];
+  const filterOrders = (orders) => {
+    let filtered = [...orders];
     if (displayOption === "delivered") {
-      filtered = userOrders.filter((order) => order.status === "delivered");
+      filtered = orders.filter((order) => order.status === "delivered");
     } else if (displayOption === "paid") {
-      filtered = userOrders.filter((order) => order.status === "paid");
+      filtered = orders.filter((order) => order.status === "paid");
     } else if (displayOption === "cod") {
-      filtered = userOrders.filter(
-        (order) => order.status === "cash on delivery"
-      );
+      filtered = orders.filter((order) => order.status === "cash on delivery");
     } else if (displayOption === "cancelled") {
-      filtered = userOrders.filter((order) => order.status === "cancelled");
-    } else if (searchQuery) {
+      filtered = orders.filter((order) => order.status === "cancelled");
+    }
+
+    // Apply search query filter
+    if (searchQuery) {
       filtered = filtered.filter((order) => order._id.includes(searchQuery));
     }
 
@@ -46,6 +45,7 @@ function AdminOrders() {
 
   const handleDisplayOptionChange = (option) => {
     setDisplayOption(option);
+    filterOrders(userOrders);
   };
 
   const handleStatus = async (orderId, selectedStatus) => {
@@ -55,8 +55,23 @@ function AdminOrders() {
         order._id === orderId ? { ...order, status: selectedStatus } : order
       );
       setUserOrders(updatedOrders);
+      filterOrders(updatedOrders);
     } catch (error) {
       console.error("Error updating order status:", error);
+    }
+  };
+
+  const handleSearch = () => {
+    filterOrders(userOrders);
+  };
+
+  const handleSearchInputChange = (e) => {
+    setSearchQuery(e.target.value);
+  };
+
+  const handleSearchInputKeyPress = (e) => {
+    if (e.key === "Enter") {
+      filterOrders(userOrders);
     }
   };
 
@@ -65,15 +80,21 @@ function AdminOrders() {
       <section className=" flex justify-start items-start gap-10 mb-10 relative">
         <AdminMenu />
         <div className="mt-10">
+          <h2 className="text-2xl font-semibold text-center">Orders</h2>
           <div className="flex items-center justify-between mb-4 px-10">
-            <h2 className="text-2xl font-semibold ">Orders</h2>
-            <input
-              type="text"
-              placeholder="Search Order ID"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="border border-gray-300 rounded px-2 py-1 ml-4"
-            />
+            <div>
+              <input
+                type="text"
+                placeholder="Search Order ID"
+                value={searchQuery}
+                onChange={handleSearchInputChange}
+                onKeyPress={handleSearchInputKeyPress}
+                className="border border-gray-300 border-r-0 rounded rounded-r-none px-2 py-1"
+              />
+              <button onClick={handleSearch}>
+                <i className="fa-solid fa-magnifying-glass border rounded rounded-l-none border-l-0  border-gray-300 bg-primary text-background p-2 hover:bg-primaryShadow"></i>
+              </button>
+            </div>
             <div className="flex items-center">
               <label htmlFor="displayOption" className="font-semibold">
                 Sort:
@@ -92,26 +113,26 @@ function AdminOrders() {
               </select>
             </div>
           </div>
-          <div className="overflow-x-auto text-[10px]">
-            <div className="grid grid-cols-11 mb-5 gap-4 mt-10">
-              <span className="font-bold font-head col-span-2">Id</span>
+          <div className="overflow-x-auto text-sm">
+            <div className="grid grid-cols-9 mb-5 gap-4 mt-10 py-2 border-b">
+              <span className="font-bold font-head col-span-3">Id</span>
               <span className="font-bold font-head col-span-2">Products</span>
-              <span className="font-bold font-head">Quantity</span>
+              {/* <span className="font-bold font-head">Quantity</span> */}
               <span className="font-bold font-head">Total Price</span>
-              <span className="font-bold font-head">Address</span>
-              <span className="font-bold font-head">Paid-Through</span>
+              {/* <span className="font-bold font-head">Address</span> */}
+              {/* <span className="font-bold font-head">Paid-Through</span> */}
               <span className="font-bold font-head">Status</span>
               <span className="font-bold font-head">Ordered By</span>
-              <span className="font-bold font-head">Ordered on</span>
+              {/* <span className="font-bold font-head">Ordered on</span> */}
             </div>
             {filteredOrders.map((order) => (
               <div
-                className={`grid grid-cols-11 border-b-2 py-4 gap-4 ${
+                className={`grid grid-cols-9 border-b-2 py-4 gap-4 items-center  ${
                   order.status === "cancelled" ? "bg-red-200" : ""
                 }`}
                 key={order._id}
               >
-                <div className="col-span-2 flex flex-col">
+                <div className="col-span-3 flex flex-col">
                   <span>
                     <span className="font-bold">Order_id </span>
                     {order._id}
@@ -126,15 +147,15 @@ function AdminOrders() {
                     <span key={product.identity}>{product.product}</span>
                   ))}
                 </div>
-                <div className="flex flex-col">
+                {/* <div className="flex flex-col">
                   {order.products.map((product) => (
                     <span key={product.identity}>{product.quantity}</span>
                   ))}
-                </div>
+                </div> */}
 
                 <span> {order.amount}</span>
-                <span>{order.address}</span>
-                <span>{order.payment_method}</span>
+                {/* <span>{order.address}</span>
+                <span>{order.payment_method}</span> */}
                 <div>
                   <select
                     className={`px-2 py-1 rounded text-center ${
@@ -164,7 +185,13 @@ function AdminOrders() {
                   <div>{order.customer_information.name}</div>(
                   {order.customer_information.phone})
                 </div>
-                <div>{new Date(order.createdAt).toLocaleDateString()}</div>
+                {/* <div>{new Date(order.createdAt).toLocaleDateString()}</div> */}
+                <Link to={`/dashboard/admin/adminorders/${order._id}`}>
+                  <button className="group text-secondary font-bold  hover:underline transition-all duration-300">
+                    {/* <i className="fa-solid fa-arrow-right text-lg group-hover:text-primary transition-all duration-300 group-hover:translate-x-2"></i> */}
+                    View Details
+                  </button>
+                </Link>
               </div>
             ))}
           </div>

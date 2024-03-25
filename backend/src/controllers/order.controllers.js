@@ -11,6 +11,21 @@ export const getAllOrders = async (req, res) => {
   }
 };
 
+export const getOrderDetails = async (req, res) => {
+  try {
+    const orderId = req.params.orderId;
+    const order = await Order.findById(orderId);
+    if (!order) {
+      return res.status(404).json({ error: "Order not found" });
+    }
+
+    res.json(order);
+  } catch (err) {
+    console.error("Error fetching order details:", error);
+    res.status(500).json({ error: "Internal server error" });
+  }
+};
+
 export const createOrder = async (req, res) => {
   try {
     const { customer_info, products_details, payment_method } = req.body;
@@ -127,8 +142,6 @@ export const updateOrderStatus = async (req, res) => {
           console.error(`Product not found: ${productDetail.product}`);
           continue;
         }
-
-        // Increment the stock for each product in the cancelled order
         product.stock += productDetail.quantity;
         product.quantitySold -= productDetail.quantity;
 

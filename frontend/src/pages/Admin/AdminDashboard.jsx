@@ -170,18 +170,20 @@ function AdminDashboard() {
             </div>
           </div>
 
-          <div className="my-10">
-            <h1 className="font-head font-extrabold mb-5 text-3xl">
-              Revenue Over Time
-            </h1>
-            <Line data={chartData} />
-          </div>
+          <div className="flex justify-between gap-4">
+            <div className="my-10 w-[500px]">
+              <h1 className="font-head font-extrabold mb-5 text-3xl">
+                Revenue Over Time
+              </h1>
+              <Line data={chartData} className="" />
+            </div>
 
-          <div className="my-10">
-            <h1 className="font-head font-extrabold mb-5 text-3xl">
-              Top Selling Products
-            </h1>
-            <Bar data={topSellingProductsChartData} />
+            <div className="my-10 w-[500px]">
+              <h1 className="font-head font-extrabold mb-5 text-3xl">
+                Top Selling Products
+              </h1>
+              <Bar data={topSellingProductsChartData} />
+            </div>
           </div>
         </div>
       </section>

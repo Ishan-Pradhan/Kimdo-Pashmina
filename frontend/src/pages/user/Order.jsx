@@ -82,10 +82,10 @@ function Order() {
 
           {filteredOrders.map((order) => (
             <div
-              className="grid grid-cols-6 gap-4 md:grid-cols-7 md:gap-x-10 items-center justify-center border-b-2 py-4 "
+              className="grid grid-cols-7 gap-4 md:grid-cols-8 md:gap-x-10 items-center justify-center border-b-2 py-4 "
               key={order._id}
             >
-              <span className="col-span-6 md:col-span-7">
+              <span className="col-span-7 md:col-span-8">
                 <span className="font-bold">Order_id </span>
                 {order._id}
                 <div className="text-sm text-gray-500">
@@ -120,13 +120,13 @@ function Order() {
               </span>
               {/* <span className="hidden md:flex">{order.address}</span> */}
 
-              <div>
+              <div className="col-span-2">
                 <span className="hidden md:flex">
                   {/* <span className="font-semibold">Paid Through</span>{" "} */}
                   {/* {order.payment_method} */}
                 </span>
                 <span
-                  className={`  rounded text-center uppercase font-semibold text-sm ${
+                  className={`rounded text-center uppercase font-semibold text-sm ${
                     order.status === "paid"
                       ? "bg-green-300 text-green-800 px-4 md:px-4 w-full py-1"
                       : order.status === "delivered"

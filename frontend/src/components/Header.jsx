@@ -259,7 +259,7 @@ function Header() {
                 </NavLink>
 
                 <NavLink to={"/Register"} onClick={scrollToTop}>
-                  <button className="hidden text-lg text-text font-semibold py-1 px-3 ring-2 ring-secondary ring-inset hover:text-primary  cursor-pointer transition delay-50 hover-ease-in md:flex">
+                  <button className="hidden text-lg text-text font-semibold py-1 px-3 ring-2 ring-secondary ring-inset  hover:bg-secondaryTint  cursor-pointer transition delay-50 hover-ease-in md:flex">
                     Register
                   </button>
                 </NavLink>
