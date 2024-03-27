@@ -1,10 +1,29 @@
+import { useState } from "react";
 import AdminMenu from "../../components/AdminPage/AdminMenu";
 import { useProductContext } from "../../context/productcontext";
-
 import { NavLink } from "react-router-dom";
 
 function ManageProducts() {
   const { products } = useProductContext();
+  const [searchTerm, setSearchTerm] = useState("");
+  const [showZeroStock, setShowZeroStock] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState("all");
+
+  const filteredProducts = products.filter(
+    (product) =>
+      product.productName.toLowerCase().includes(searchTerm.toLowerCase()) &&
+      (selectedCategory === "all" ||
+        product.generalCategory === selectedCategory) &&
+      (showZeroStock ? product.stock === 0 : true)
+  );
+
+  const toggleShowZeroStock = () => {
+    setShowZeroStock(!showZeroStock);
+  };
+
+  const handleCategoryChange = (e) => {
+    setSelectedCategory(e.target.value);
+  };
 
   return (
     <>
@@ -12,28 +31,80 @@ function ManageProducts() {
         <AdminMenu />
         <div className="mt-10">
           <h2 className="text-2xl font-semibold mb-4">Manage Products</h2>
-          <div className="flex gap-10 justify-evenly flex-wrap  mb-10 mt-10">
-            {products?.map((product) => {
+
+          <div className="">
+            <div className="flex justify-between items-center">
+              <input
+                type="text"
+                placeholder="Search by product name..."
+                className="border border-gray-300 p-2 rounded-md mb-4"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+              />
+
+              <select
+                value={selectedCategory}
+                onChange={handleCategoryChange}
+                className="border border-gray-300 p-2 rounded-md mb-4"
+              >
+                <option value="all">All Categories</option>
+                <option value="shawl">Shawl</option>
+                <option value="muffler">Muffler</option>
+                <option value="poncho">Poncho</option>
+                <option value="blanket">Blanket</option>
+              </select>
+            </div>
+
+            <label className="flex items-center mb-4">
+              <input
+                type="checkbox"
+                checked={showZeroStock}
+                onChange={toggleShowZeroStock}
+                className="mr-2"
+              />
+              Show products with 0 stock
+            </label>
+
+            <div
+              className={`grid grid-cols-5 gap-10 justify-center border-b-2  mb-10 mt-10 p-2`}
+            >
+              <span className="font-bold">Product</span>
+              <span className="font-bold">Product Name</span>
+              <span className="font-bold">Gender Category</span>
+              <span className="font-bold">Stock left</span>
+            </div>
+
+            {filteredProducts.map((product) => {
               return (
-                <NavLink
+                <div
+                  className={`grid grid-cols-5 gap-10 justify-center items-center flex-wrap  mb-10 mt-10 p-2 border-b`}
                   key={product._id}
-                  to={`/dashboard/admin/manage-product/${product._id}`}
                 >
-                  <div
-                    className={`flex  flex-col gap-4 border p-4 shadow-md hover:-translate-y-3 transition-transform ease-in-out duration-500 ${
-                      product.stock === 0 ? "bg-red-200" : ""
-                    }`}
-                  >
+                  <div className="h-32 w-32  overflow-hidden">
                     <img
-                      className="w-52 h-60 object-cover "
+                      className="h-full w-full object-contain"
                       src={product.productImg}
+                      alt=""
                     />
-                    <div className="flex flex-col justify-between items-center">
-                      <div className="font-bold">{product.productName}</div>
-                      <div className="text-sm">Stock: {product.stock}</div>
-                    </div>
                   </div>
-                </NavLink>
+                  <span
+                    className={` ${product.stock === 0 ? "text-red-500" : ""}`}
+                  >
+                    {product.productName}
+                  </span>
+                  <span>{product.genderCategory}</span>
+                  <span
+                    className={` ${product.stock === 0 ? "text-red-500" : ""}`}
+                  >
+                    {product.stock}
+                  </span>
+                  <NavLink
+                    to={`/dashboard/admin/manage-product/${product._id}`}
+                    className="text-secondary font-bold hover:underline uppercase"
+                  >
+                    update
+                  </NavLink>
+                </div>
               );
             })}
           </div>

@@ -88,10 +88,15 @@ function Profile() {
   return (
     <>
       <Header />
-
       <section className="flex flex-col container mx-auto md:flex-row justify-start items-start gap-10 px-5 md:px-0">
         <UserMenu />
-        <form className="self-center w-full md:w-96" onSubmit={handleSubmit}>
+        <form
+          className="self-center w-full md:w-[500px] shadow-lg border  p-10"
+          onSubmit={handleSubmit}
+        >
+          <h3 className="text-center text-2xl font-bold mb-5">
+            Your Information
+          </h3>
           <div className="mb-5">
             <label
               htmlFor="name"
@@ -183,13 +188,14 @@ function Profile() {
               ))}
             </li>
           </ul>
-
-          <button
-            type="submit"
-            className="text-white bg-primary hover:bg-primaryShadow focus:ring-4 focus:outline-none focus:primary font-medium rounded-sm text-sm px-5 py-2.5 text-center "
-          >
-            Update your account
-          </button>
+          <div className="flex justify-end">
+            <button
+              type="submit"
+              className="text-white bg-primary hover:bg-primaryShadow focus:ring-4 focus:outline-none focus:primary font-medium rounded-sm text-sm px-5 py-2.5 text-center "
+            >
+              Update your account
+            </button>
+          </div>
         </form>
       </section>
       <Footer />

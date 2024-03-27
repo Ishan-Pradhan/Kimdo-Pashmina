@@ -108,17 +108,19 @@ function CreateProduct() {
 
   return (
     <>
-      <section className="container  flex justify-start items-start gap-10 mb-10 relative">
+      <section className="container flex justify-start items-start gap-10 mb-10 relative">
         <AdminMenu />
         <div className="mt-10">
           <h2 className="text-2xl font-semibold mb-4">Add Products</h2>
           <form
             onSubmit={handleSubmit}
             encType="multipart/form-data"
-            className="border-2  p-10 grid grid-cols-3 gap-4 relative mt-10"
+            className="border-2 shadow-lg bg-white p-10 grid grid-cols-3 gap-4 relative mt-10"
           >
             {/* <div className="flex gap-10"> */}
-            <label htmlFor="productImg">Product Image:</label>
+            <label className="text-[#222]" htmlFor="productImg">
+              Product Image:
+            </label>
             <input
               className="col-span-2"
               type="file"
@@ -129,9 +131,11 @@ function CreateProduct() {
             {/* </div> */}
 
             {/* <div className="flex gap-10"> */}
-            <label htmlFor="productName">Product Name:</label>
+            <label className="text-[#222]" htmlFor="productName">
+              Product Name:
+            </label>
             <input
-              className=" border col-span-2 px-2"
+              className=" border border-[#555] col-span-2 px-2"
               type="text"
               id="productName"
               onChange={handleNameChange}
@@ -139,9 +143,11 @@ function CreateProduct() {
             {/* </div> */}
 
             {/* <div className="flex gap-10"> */}
-            <label htmlFor="description">Description:</label>
+            <label className="text-[#222]" htmlFor="description">
+              Description:
+            </label>
             <textarea
-              className=" border col-span-2 px-2"
+              className=" border border-[#555] col-span-2 px-2"
               rows="6"
               id="description"
               onChange={handleDescriptionChange}
@@ -149,9 +155,11 @@ function CreateProduct() {
             {/* </div> */}
 
             {/* <div className="flex gap-10"> */}
-            <label htmlFor="price">Price:</label>
+            <label className="text-[#222]" htmlFor="price">
+              Price:
+            </label>
             <input
-              className=" border col-span-2  px-2"
+              className=" border border-[#555] col-span-2  px-2"
               type="text"
               id="price"
               onChange={handlePriceChange}
@@ -159,9 +167,11 @@ function CreateProduct() {
             {/* </div> */}
 
             {/* <div className="flex gap-10"> */}
-            <label htmlFor="discount">Discount:</label>
+            <label className="text-[#222]" htmlFor="discount">
+              Discount:
+            </label>
             <input
-              className=" border col-span-2 px-2"
+              className=" border border-[#555] col-span-2 px-2"
               type="text"
               id="discount"
               onChange={handleDiscountChange}
@@ -169,7 +179,9 @@ function CreateProduct() {
             {/* </div> */}
 
             {/* <div className="flex gap-10"> */}
-            <label htmlFor="featured">Featured:</label>
+            <label className="text-[#222]" htmlFor="featured">
+              Featured:
+            </label>
             <div className="col-span-2 px-2 flex gap-3">
               <input
                 className="   "
@@ -186,9 +198,11 @@ function CreateProduct() {
             {/* </div> */}
 
             {/* <div className="flex gap-10"> */}
-            <label htmlFor="generalCategory">General Category:</label>
+            <label className="text-[#222]" htmlFor="generalCategory">
+              General Category:
+            </label>
             <select
-              className=" border px-3 col-span-2"
+              className=" border border-[#555] px-3 col-span-2"
               id="generalCategory"
               value={generalCategory}
               onChange={handleGeneralCategoryChange}
@@ -201,9 +215,11 @@ function CreateProduct() {
             {/* </div> */}
 
             {/* <div className="flex gap-10"> */}
-            <label htmlFor="genderCategory">Gender Category:</label>
+            <label className="text-[#222]" htmlFor="genderCategory">
+              Gender Category:
+            </label>
             <select
-              className=" border px-3 col-span-2"
+              className=" border border-[#555] px-3 col-span-2"
               id="genderCategory"
               value={genderCategory}
               onChange={handleGenderCategoryChange}
@@ -214,9 +230,11 @@ function CreateProduct() {
             {/* </div> */}
 
             {/* <div className="flex gap-10"> */}
-            <label htmlFor="stock">Stock:</label>
+            <label className="text-[#222]" htmlFor="stock">
+              Stock:
+            </label>
             <input
-              className=" border col-span-2 px-2"
+              className=" border border-[#555] col-span-2 px-2"
               type="number"
               id="stock"
               onChange={handleStockChange}
@@ -224,9 +242,11 @@ function CreateProduct() {
             {/* </div> */}
 
             {/* <div className="flex gap-10"> */}
-            <label htmlFor="composition">Composition:</label>
+            <label className="text-[#222]" htmlFor="composition">
+              Composition:
+            </label>
             <input
-              className=" border col-span-2 px-2"
+              className=" border border-[#555] col-span-2 px-2"
               type="text"
               id="composition"
               onChange={handleCompositionChange}
@@ -234,9 +254,11 @@ function CreateProduct() {
             {/* </div> */}
 
             {/* <div className="flex gap-10"> */}
-            <label htmlFor="weight">Weight:</label>
+            <label className="text-[#222]" htmlFor="weight">
+              Weight:
+            </label>
             <input
-              className=" border col-span-2 px-2"
+              className=" border border-[#555] col-span-2 px-2"
               type="text"
               id="weight"
               onChange={handleWeightChange}
@@ -244,16 +266,19 @@ function CreateProduct() {
             {/* </div> */}
 
             {/* <div className="flex gap-10"> */}
-            <label htmlFor="size">Size:</label>
+            <label className="text-[#222]" htmlFor="size">
+              Size:
+            </label>
             <input
-              className=" border col-span-2 px-2"
+              className=" border border-[#555] col-span-2 px-2"
               type="text"
               id="size"
               onChange={handleSizeChange}
             />
             {/* </div> */}
-
-            <div>
+            <div></div>
+            <div></div>
+            <div className="flex justify-end h-8">
               <Button disabled={isLoading}>Add Product</Button>
             </div>
           </form>

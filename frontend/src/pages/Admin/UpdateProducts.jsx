@@ -170,14 +170,18 @@ function UpdateProducts() {
     <>
       <section className="container  flex justify-start items-start gap-10 ">
         <AdminMenu />
+
         <form
           encType="multipart/form-data"
-          className="border-2 w-1/2  p-10 grid grid-cols-3 gap-4 items-center my-10"
+          className="border border-[#222]-2 w-1/2  p-10 grid grid-cols-3 gap-4 items-center my-10 bg-white shadow-lg"
         >
+          <h3 className="col-span-3 text-center font-bold text-2xl">
+            Update Product
+          </h3>
           {/* <div className="flex gap-10"> */}
           <label htmlFor="productImg" className=" w-40 place-items-center">
             {productImg ? (
-              <img className=" shadow-lg" src={productImg} />
+              <img className="border shadow-lg" src={productImg} />
             ) : (
               <div>new photo</div>
             )}
@@ -192,9 +196,11 @@ function UpdateProducts() {
           {/* </div> */}
 
           {/* <div className="flex gap-10"> */}
-          <label htmlFor="productName">Product Name:</label>
+          <label className="text-[#222]" htmlFor="productName">
+            Product Name:
+          </label>
           <input
-            className=" border px-3 col-span-2"
+            className=" border border-[#222] px-3 col-span-2"
             type="text"
             id="productName"
             value={productName}
@@ -203,9 +209,11 @@ function UpdateProducts() {
           {/* </div> */}
 
           {/* <div className="flex gap-10"> */}
-          <label htmlFor="description">Description:</label>
+          <label className="text-[#222]" htmlFor="description">
+            Description:
+          </label>
           <textarea
-            className=" border px-3 col-span-2"
+            className=" border border-[#222] px-3 col-span-2"
             rows="6"
             id="description"
             value={description}
@@ -214,9 +222,11 @@ function UpdateProducts() {
           {/* </div> */}
 
           {/* <div className="flex gap-10"> */}
-          <label htmlFor="price">Price:</label>
+          <label className="text-[#222]" htmlFor="price">
+            Price:
+          </label>
           <input
-            className=" border px-3 col-span-2 "
+            className=" border border-[#222] px-3 col-span-2 "
             type="text"
             id="price"
             value={price}
@@ -225,9 +235,11 @@ function UpdateProducts() {
           {/* </div> */}
 
           {/* <div className="flex gap-10"> */}
-          <label htmlFor="discount">Discount:</label>
+          <label className="text-[#222]" htmlFor="discount">
+            Discount:
+          </label>
           <input
-            className=" border px-3 col-span-2"
+            className=" border border-[#222] px-3 col-span-2"
             type="text"
             id="discount"
             value={discount}
@@ -236,7 +248,9 @@ function UpdateProducts() {
           {/* </div> */}
 
           {/* <div className="flex gap-10"> */}
-          <label htmlFor="featured">Featured:</label>
+          <label className="text-[#222]" htmlFor="featured">
+            Featured:
+          </label>
           <div className="col-span-2 px-2 flex gap-3">
             <input
               className="   "
@@ -253,9 +267,11 @@ function UpdateProducts() {
           {/* </div> */}
 
           {/* <div className="flex gap-10"> */}
-          <label htmlFor="generalCategory">General Category:</label>
+          <label className="text-[#222]" htmlFor="generalCategory">
+            General Category:
+          </label>
           <select
-            className=" border px-3 col-span-2"
+            className=" border border-[#222] px-3 col-span-2"
             id="generalCategory"
             value={generalCategory}
             onChange={handleGeneralCategoryChange}
@@ -268,9 +284,11 @@ function UpdateProducts() {
           {/* </div> */}
 
           {/* <div className="flex gap-10"> */}
-          <label htmlFor="genderCategory">Gender Category:</label>
+          <label className="text-[#222]" htmlFor="genderCategory">
+            Gender Category:
+          </label>
           <select
-            className=" border px-3 col-span-2"
+            className=" border border-[#222] px-3 col-span-2"
             id="genderCategory"
             value={genderCategory}
             onChange={handleGenderCategoryChange}
@@ -282,9 +300,11 @@ function UpdateProducts() {
           {/* </div> */}
 
           {/* <div className="flex gap-10"> */}
-          <label htmlFor="stock">Stock:</label>
+          <label className="text-[#222]" htmlFor="stock">
+            Stock:
+          </label>
           <input
-            className=" border px-3 col-span-2"
+            className=" border border-[#222] px-3 col-span-2"
             type="number"
             id="stock"
             value={stock}
@@ -293,9 +313,11 @@ function UpdateProducts() {
           {/* </div> */}
 
           {/* <div className="flex gap-10"> */}
-          <label htmlFor="composition">Composition:</label>
+          <label className="text-[#222]" htmlFor="composition">
+            Composition:
+          </label>
           <input
-            className=" border px-3 col-span-2"
+            className=" border border-[#222] px-3 col-span-2"
             type="text"
             id="composition"
             value={composition}
@@ -304,9 +326,11 @@ function UpdateProducts() {
           {/* </div> */}
 
           {/* <div className="flex gap-10"> */}
-          <label htmlFor="weight">Weight:</label>
+          <label className="text-[#222]" htmlFor="weight">
+            Weight:
+          </label>
           <input
-            className=" border px-3 col-span-2"
+            className=" border border-[#222] px-3 col-span-2"
             type="text"
             id="weight"
             value={weight}
@@ -315,22 +339,24 @@ function UpdateProducts() {
           {/* </div> */}
 
           {/* <div className="flex gap-10"> */}
-          <label htmlFor="size">Size:</label>
+          <label className="text-[#222]" htmlFor="size">
+            Size:
+          </label>
           <input
-            className=" border px-3 col-span-2"
+            className=" border border-[#222] px-3 col-span-2"
             type="text"
             id="size"
             value={size}
             onChange={handleSizeChange}
           />
           {/* </div> */}
-          <div className="flex justify-between col-span-3 mt-10">
+          <div className="flex justify-between col-span-3 mt-10 h-8">
             <Button disabled={isLoading} onClick={handleSubmit}>
               Update Product
             </Button>
 
             <button
-              className="bg-red-500 text-background font-semibold py-3 px-6 text-md rounded-full transition delay-50 hover:bg-red-600 hover:ease-in-out md:w-auto flex gap-3 items-center"
+              className="bg-red-500 text-background font-semibold py-3 px-6 text-md h-8  transition delay-50 hover:bg-red-600 hover:ease-in-out md:w-auto flex gap-3 items-center"
               onClick={handleDelete}
             >
               Delete

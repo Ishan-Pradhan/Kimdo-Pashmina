@@ -168,17 +168,17 @@ const updateProduct = async (req, res) => {
 
 const newArrivalProduct = async (req, res) => {
   try {
-    const oneWeekAgo = new Date();
-    oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
+    const oneMonthAgo = new Date();
+    oneMonthAgo.setDate(oneMonthAgo.getDate() - 30);
     const newArrivalProducts = await Product.find({
-      createdAt: { $gte: oneWeekAgo },
+      createdAt: { $gte: oneMonthAgo },
     })
       .sort({ createdAt: -1 })
       .limit(10)
       .exec();
     res.send(newArrivalProducts);
   } catch (error) {
-    res.status(500).send({ message: "Problem new arrivals the product" });
+    res.status(500).send({ message: "Problem finding new arrivals product" });
   }
 };
 

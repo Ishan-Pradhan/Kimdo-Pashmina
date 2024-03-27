@@ -12,7 +12,7 @@ function NewArrival({ product }) {
           </span>
         </div>
         <div className="hover:-translate-y-3 transition-transform ease-in duration-200 hover:shadow-lg">
-          <div className="relative h-60 w-60" data-aos="fade-in">
+          <div className="relative h-60 w-full" data-aos="fade-in">
             <img
               src={product.productImg}
               alt=""
@@ -60,9 +60,9 @@ function NewArrival({ product }) {
   return (
     <NavLink
       to={`/SingleProducts/${product._id} `}
-      className="relative hover:-translate-y-3 transition-transform ease-in duration-200 hover:shadow-lg"
+      className="relative hover:-translate-y-3 transition-transform ease-in duration-200 hover:shadow-lg border w-60"
     >
-      <div className="relative h-60 w-60" data-aos="fade-in">
+      <div className="relative h-60 w-full" data-aos="fade-in">
         <img
           src={product.productImg}
           alt=""
@@ -70,17 +70,17 @@ function NewArrival({ product }) {
         />
       </div>
       <div className="px-3 py-3 bg-white border-t flex flex-col  ">
-        <h3 className="text-lg  font-head font-extrabold mb-1">
+        <h3 className="text-lg font-head font-extrabold mb-1 overflow-hidden whitespace-nowrap overflow-ellipsis">
           {product.productName}
         </h3>
         <div className="flex justify-between items-center mb-2">
           {product.discount > 0 ? (
             <span className="text-xl font-semibold text-secondary">
-              {product.price - product.price * (product.discount / 100)}
+              Rs. {product.price - product.price * (product.discount / 100)}
             </span>
           ) : (
             <span className="text-xl font-semibold text-secondary">
-              {product.price}
+              Rs. {product.price}
             </span>
           )}
           <div className="flex gap-1">
@@ -89,7 +89,7 @@ function NewArrival({ product }) {
                 product.discount > 0 ? "line-through" : "text-secondary"
               }`}
             >
-              {product.discount > 0 ? <span>{product.price}</span> : ""}
+              {product.discount > 0 ? <span> Rs. {product.price}</span> : ""}
             </span>
             {product.discount > 0 ? (
               <span className={`text-md text-gray-500`}>

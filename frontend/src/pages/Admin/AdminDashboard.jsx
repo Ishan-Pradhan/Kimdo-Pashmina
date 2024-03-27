@@ -144,42 +144,73 @@ function AdminDashboard() {
               {auth.user.email}
             </span>
           </div>
-          <h1 className="font-head font-extrabold mt-10 mb-5 text-3xl">
+          <h1 className="font-head font-extrabold mt-10 mb-5 text-2xl">
             Stats
           </h1>
-          <div className="flex flex-wrap gap-20">
-            <div className="flex flex-col gap-2 justify-center items-center shadow-xl border-l-4 border-primary  relative px-10 py-3 w-64 hover:bg-primary text-white transition-all ease-in duration-100">
-              <span className="font-head font-bold">Total Products</span>
-              <div className="text-6xl">{products.length}</div>
+          <div className="flex flex-wrap gap-10">
+            <div className="flex gap-4 justify-center items-center shadow-xl   relative px-5 py-2  text-white transition-all ease-in duration-100 border">
+              <i className="fa-solid fa-boxes-stacked h-14 w-14 flex justify-center items-center text-2xl bg-secondaryTint text-secondary rounded-full p-3"></i>
+              <div>
+                <span className="font-head font-medium text-sm">
+                  Total Products
+                </span>
+                <div className="text-xl font-bold ">{products.length}</div>
+              </div>
             </div>
-            <div className="flex flex-col gap-2 justify-center items-center shadow-xl border-l-4 border-primary  relative px-10 py-3 w-64  hover:bg-primary text-white transition-all ease-in duration-100">
-              <span className="font-head font-bold">Orders to deliver</span>
-              <div className="text-6xl">{paidOrders.length}</div>
+
+            <div className="flex gap-4 justify-center items-center shadow-xl   relative px-5 py-2  text-white transition-all ease-in duration-100 border">
+              <i className="fa-solid fa-hourglass-start h-14 w-14 flex items-center justify-center text-2xl bg-[#dedede] text-[#9d9d9d] rounded-full p-3"></i>
+              <div>
+                <span className="font-head font-medium text-sm">
+                  Orders to deliver
+                </span>
+                <div className="text-xl font-bold ">{paidOrders.length}</div>
+              </div>
             </div>
-            <div className="flex flex-col gap-2 justify-center items-center shadow-xl border-l-4 border-primary  relative px-10 py-3 w-64  hover:bg-primary text-white transition-all ease-in duration-100">
-              <span className="font-head font-bold">Delivered Orders</span>
-              <div className="text-6xl ">{deliveredOrders.length}</div>
+
+            <div className="flex gap-4 justify-center items-center shadow-xl   relative px-5 py-2  text-white transition-all ease-in duration-100 border">
+              <i className="fa-solid fa-truck h-14 w-14 flex justify-center items-center text-2xl bg-green-300 text-green-700 rounded-full p-3"></i>
+              <div>
+                <span className="font-head font-medium text-sm">
+                  Delivered Orders
+                </span>
+                <div className="text-xl font-bold ">
+                  {deliveredOrders.length}
+                </div>
+              </div>
             </div>
-            <div className="flex flex-col gap-2 justify-center items-center shadow-xl border-l-4 border-primary  relative px-10 py-3 w-64  hover:bg-primary text-white transition-all ease-in duration-100">
-              <span className="font-head font-bold">Total Users</span>
-              <div className="text-6xl ">{users.length}</div>
+
+            <div className="flex gap-4 justify-center items-center shadow-xl   relative px-5 py-2  text-white transition-all ease-in duration-100 border">
+              <i className="fa-solid fa-users h-14 w-14 flex justify-center items-center text-2xl bg-blue-300 text-blue-900 rounded-full p-3"></i>
+              <div>
+                <span className="font-head font-medium text-sm">
+                  Total Users
+                </span>
+                <div className="text-xl font-bold ">{users.length}</div>
+              </div>
             </div>
-            <div className="flex flex-col gap-2 justify-center items-center shadow-xl border-l-4 border-primary  relative px-10 py-3 w-64  hover:bg-primary text-white transition-all ease-in duration-100">
-              <span className="font-head font-bold">Total Revenues</span>
-              <div className="text-4xl ">Rs.{totalRevenue}</div>
+
+            <div className="flex gap-4 justify-center items-center shadow-xl   relative px-5 py-2  text-white transition-all ease-in duration-100 border">
+              <i className="fa-solid fa-indian-rupee-sign h-14 w-14 flex justify-center items-center text-2xl bg-[#F9E486] text-[#E1A95F] rounded-full p-3"></i>
+              <div>
+                <span className="font-head font-medium text-sm">
+                  Total Revenues
+                </span>
+                <div className="text-xl font-bold ">Rs.{totalRevenue}</div>
+              </div>
             </div>
           </div>
 
-          <div className="flex justify-between gap-4">
+          <div className="flex justify-between gap-4 mt-10">
             <div className="my-10 w-[500px]">
-              <h1 className="font-head font-extrabold mb-5 text-3xl">
+              <h1 className="font-head font-extrabold mb-5 text-2xl">
                 Revenue Over Time
               </h1>
               <Line data={chartData} className="" />
             </div>
 
             <div className="my-10 w-[500px]">
-              <h1 className="font-head font-extrabold mb-5 text-3xl">
+              <h1 className="font-head font-extrabold mb-5 text-2xl">
                 Top Selling Products
               </h1>
               <Bar data={topSellingProductsChartData} />

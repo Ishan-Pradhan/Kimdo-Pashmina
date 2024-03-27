@@ -21,7 +21,7 @@ function AdminOrders() {
     };
 
     fetchUserOrders();
-  }, []);
+  }, [userOrders]);
 
   const filterOrders = (orders) => {
     let filtered = [...orders];
@@ -61,10 +61,6 @@ function AdminOrders() {
     }
   };
 
-  const handleSearch = () => {
-    filterOrders(userOrders);
-  };
-
   const handleSearchInputChange = (e) => {
     setSearchQuery(e.target.value);
   };
@@ -89,11 +85,8 @@ function AdminOrders() {
                 value={searchQuery}
                 onChange={handleSearchInputChange}
                 onKeyPress={handleSearchInputKeyPress}
-                className="border border-gray-300 border-r-0 rounded rounded-r-none px-2 py-1"
+                className="border border-gray-300  rounded px-2 py-1"
               />
-              <button onClick={handleSearch}>
-                <i className="fa-solid fa-magnifying-glass border rounded rounded-l-none border-l-0  border-gray-300 bg-primary text-background p-2 hover:bg-primaryShadow"></i>
-              </button>
             </div>
             <div className="flex items-center">
               <label htmlFor="displayOption" className="font-semibold">
@@ -114,7 +107,7 @@ function AdminOrders() {
             </div>
           </div>
           <div className="overflow-x-auto text-sm">
-            <div className="grid grid-cols-9 mb-5 gap-4 mt-10 py-2 border-b">
+            <div className="grid grid-cols-10 mb-5 gap-4 mt-10 py-2 border-b">
               <span className="font-bold font-head col-span-3">Id</span>
               <span className="font-bold font-head col-span-2">Products</span>
               {/* <span className="font-bold font-head">Quantity</span> */}
@@ -123,11 +116,11 @@ function AdminOrders() {
               {/* <span className="font-bold font-head">Paid-Through</span> */}
               <span className="font-bold font-head">Status</span>
               <span className="font-bold font-head">Ordered By</span>
-              {/* <span className="font-bold font-head">Ordered on</span> */}
+              <span className="font-bold font-head">Ordered on</span>
             </div>
             {filteredOrders.map((order) => (
               <div
-                className={`grid grid-cols-9 border-b-2 py-4 gap-4 items-center  ${
+                className={`grid grid-cols-10 border-b-2 py-4 gap-4 items-center  ${
                   order.status === "cancelled" ? "bg-red-200" : ""
                 }`}
                 key={order._id}
@@ -185,7 +178,7 @@ function AdminOrders() {
                   <div>{order.customer_information.name}</div>(
                   {order.customer_information.phone})
                 </div>
-                {/* <div>{new Date(order.createdAt).toLocaleDateString()}</div> */}
+                <div>{new Date(order.createdAt).toLocaleDateString()}</div>
                 <Link to={`/dashboard/admin/adminorders/${order._id}`}>
                   <button className="group text-secondary font-bold  hover:underline transition-all duration-300">
                     {/* <i className="fa-solid fa-arrow-right text-lg group-hover:text-primary transition-all duration-300 group-hover:translate-x-2"></i> */}

@@ -30,9 +30,9 @@ function NewArrivalSection() {
             </span>
           </NavLink>
         </div>
-        <div className="flex flex-col gap-y-10  md:flex-row items-center justify-between my-10 flex-wrap">
+        <div className="flex flex-col gap-y-10  md:flex-row items-center justify-start gap-[4rem] my-10 flex-wrap">
           {newArrivalProducts &&
-            newArrivalProducts.map((product) => {
+            newArrivalProducts.slice(0, 8).map((product) => {
               return <NewArrival key={product._id} product={product} />;
             })}
         </div>

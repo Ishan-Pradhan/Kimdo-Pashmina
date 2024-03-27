@@ -251,17 +251,23 @@ function Header() {
           </form>
           <div className="flex items-center md:gap-5">
             {!auth.user ? (
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-3">
                 <NavLink to={"/Login"} onClick={scrollToTop}>
-                  <button className="hidden text-lg  py-1 px-3 font-semibold  bg-secondary text-background hover:bg-primary  cursor-pointer transition delay-50 hover-ease-in md:flex">
+                  <button className="hidden text-lg  py-1  font-semibold  text-text hover:text-primary  cursor-pointer transition delay-50 hover-ease-in md:flex uppercase">
                     Login
                   </button>
+                  {/* <button className="hidden text-lg  py-1 px-3 font-semibold  bg-secondary text-background hover:bg-primary  cursor-pointer transition delay-50 hover-ease-in md:flex">
+                    Login
+                  </button> */}
                 </NavLink>
-
+                <i className="fa-solid fa-grip-lines-vertical"></i>
                 <NavLink to={"/Register"} onClick={scrollToTop}>
-                  <button className="hidden text-lg text-text font-semibold py-1 px-3 ring-2 ring-secondary ring-inset  hover:bg-secondaryTint  cursor-pointer transition delay-50 hover-ease-in md:flex">
+                  <button className="hidden text-lg text-text font-semibold py-1     hover:text-primary  cursor-pointer transition delay-50 hover-ease-in md:flex uppercase">
                     Register
                   </button>
+                  {/* <button className="hidden text-lg text-text font-semibold py-1 px-3 ring-2 ring-secondary ring-inset  hover:bg-secondaryTint  cursor-pointer transition delay-50 hover-ease-in md:flex">
+                    Register
+                  </button> */}
                 </NavLink>
               </div>
             ) : auth.user.role === 0 ? (

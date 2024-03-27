@@ -72,32 +72,39 @@ function AdminOrderDetails() {
               ))}
             </div>
             <div className="flex gap-2 mt-4">
-              <div className="flex gap-1 items-center">
-                <i className="fa-solid fa-location-dot"></i>
+              <div className="flex gap-1 items-center text-gray-500">
+                <i className="fa-solid fa-location-dot text-gray-500"></i>
                 Delivery Address
               </div>
-              <span className="text-gray-500"> {orderDetails.address}</span>
+              <span className="font-semibold"> {orderDetails.address}</span>
             </div>
             <div className="flex gap-2 ">
-              <div className="flex gap-1 items-center">
-                <i className="fa-solid fa-phone"></i>
+              <div className="flex gap-1 items-center text-gray-500">
+                <i className="fa-solid fa-phone text-gray-500"></i>
                 Phone
               </div>
-              <span className="text-gray-500">
+              <span className="font-semibold">
                 {" "}
                 {orderDetails.customer_information.phone}
               </span>
             </div>
-            <div className="mt-4 bg-yellow-200 p-5 flex justify-between">
+            <div className="mt-4 bg-yellow-200 border border-yellow-300 p-5 flex justify-between items-center">
               <span className="text-yellow-800">
                 Total Price Rs.{orderDetails.amount}
               </span>
-              <span className="text-yellow-800 uppercase">
-                {orderDetails.payment_method === "khalti"
-                  ? "Paid Through Khalti"
-                  : orderDetails.status === "delivered"
-                  ? "Paid at property"
-                  : "Will pay at property"}
+              <span className="text-yellow-800 flex flex-col">
+                <div className="text-yellow-800 uppercase">
+                  {orderDetails.payment_method === "khalti"
+                    ? `Paid Through Khalti`
+                    : orderDetails.status === "delivered"
+                    ? "Paid at property"
+                    : "Will pay at property"}
+                </div>
+                <div className="text-yellow-800  text-sm">
+                  {orderDetails.payment_method === "khalti"
+                    ? `Txn_Id: ${orderDetails.transaction_code}`
+                    : ""}
+                </div>
               </span>
             </div>
             <div className="flex justify-end text-sm text-gray-500 mt-2">

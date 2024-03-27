@@ -19,13 +19,12 @@ function UpdateUsers() {
         const response = await axios.get(
           `http://localhost:8000/api/v1/auth/users/${id}`
         );
-        console.log(response);
+
         if (response.data) {
           const userData = response.data;
           setName(userData.name);
           setEmail(userData.email);
           setRole(userData.role);
-          console.log(userData.role);
         } else {
           throw new Error(response.data.message);
         }
@@ -91,27 +90,28 @@ function UpdateUsers() {
     <>
       <section className="container  flex justify-start items-start gap-10 mb-10">
         <AdminMenu />
-        <div className="flex flex-col mt-10">
+        <div className="flex flex-col mt-10 border p-10 py-5">
+          <h3 className="font-bold text-2xl text-center mb-5">Update User</h3>
           <form className="grid grid-cols-2 gap-4">
             <label htmlFor="name">Name</label>
             <input
               type="text"
               value={name}
-              className="border-2 rounded-3xl px-2"
+              className="border-2 rounded px-2"
               disabled
             />
             <label htmlFor="name">Email</label>
             <input
               type="text"
               value={email}
-              className="border-2 rounded-3xl px-2"
+              className="border-2 rounded px-2"
               disabled
             />
 
             <label htmlFor="featured">Set as Admin</label>
             <select
               name=""
-              className="rounded-3xl px-2"
+              className="rounded px-2"
               id="featured"
               value={role}
               onChange={(e) => setRole(e.target.value)}
@@ -121,7 +121,7 @@ function UpdateUsers() {
             </select>
             <div className="mt-2">
               <button
-                className="bg-primary text-background rounded-3xl px-5 py-1"
+                className="bg-primary hover:bg-primaryShadow text-background rounded px-5 py-1"
                 onClick={handleSubmit}
               >
                 Update
@@ -129,7 +129,7 @@ function UpdateUsers() {
             </div>
             <div className="mt-2">
               <button
-                className="bg-red-500 text-background rounded-3xl  px-5 py-1"
+                className="bg-red-500 hover:bg-red-700 text-background rounded  px-5 py-1"
                 onClick={handleDelete}
               >
                 Delete
