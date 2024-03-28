@@ -1,4 +1,4 @@
-# MERN Stack Project
+# E-Commerce Website for Kimdo Pashmina
 
 E-commerce website for viewing and purchasing shawls, mufflers, poncho and blankets integrated with khalti test API.
 
