@@ -9,7 +9,7 @@ const ReturnAndExchangePage = () => {
       <PageNavigation title="Return and Exchange" />
 
       <section className="mx-auto py-12 px-3 md:px-16">
-        <div className="container mx-auto p-6 md:p-12 rounded-xl md:border border-text">
+        <div className="container mx-auto p-6 md:p-12  md:border border shadow-md">
           <h2 className="text-4xl font-semibold mb-8 text-center font-head">
             Return and Exchange Policy
           </h2>

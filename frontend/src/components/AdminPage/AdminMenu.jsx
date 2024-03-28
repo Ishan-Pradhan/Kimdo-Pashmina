@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { useAuthContext } from "../../context/authcontext";
 import { toast } from "react-toastify";
+import Logo from "../Logo";
 
 function AdminMenu() {
   const [auth, setAuth] = useAuthContext();
@@ -14,7 +15,12 @@ function AdminMenu() {
     <div className="max-w-2xl ">
       <aside className="w-64 " aria-label="Sidebar">
         <div className="px-3 w-64 py-4 overflow-y-auto border bg-gray-50 fixed h-full">
-          <h3 className="text-center mb-4">Admin Panel</h3>
+          <div className="flex items-center justify-center my-5">
+            <Logo />
+          </div>
+          <h3 className="text-center mb-4 font-bold text-xl font-head">
+            Admin Panel
+          </h3>
           <ul className="space-y-2">
             <li>
               <NavLink

@@ -171,7 +171,7 @@ function Header() {
               <Logo />
             </div>
 
-            <div className="hidden items-center  font-bold uppercase gap-5 text-text md:flex">
+            <div className="hidden items-center  font-bold  gap-5 text-text md:flex">
               <NavLink
                 to="/WomenProduct"
                 className={({ isActive }) =>
@@ -251,18 +251,19 @@ function Header() {
           </form>
           <div className="flex items-center md:gap-5">
             {!auth.user ? (
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-1">
                 <NavLink to={"/Login"} onClick={scrollToTop}>
-                  <button className="hidden text-lg  py-1  font-semibold  text-text hover:text-primary  cursor-pointer transition delay-50 hover-ease-in md:flex uppercase">
+                  <button className="hidden text-md  font-bold  text-secondary hover:text-primary  cursor-pointer transition delay-50 hover-ease-in md:flex uppercase">
                     Login
                   </button>
                   {/* <button className="hidden text-lg  py-1 px-3 font-semibold  bg-secondary text-background hover:bg-primary  cursor-pointer transition delay-50 hover-ease-in md:flex">
                     Login
                   </button> */}
                 </NavLink>
-                <i className="fa-solid fa-grip-lines-vertical"></i>
+                {/* <i className="fa-solid fa-grip-lines-vertical"></i> */}
+                <span className="font-extrabold">/</span>
                 <NavLink to={"/Register"} onClick={scrollToTop}>
-                  <button className="hidden text-lg text-text font-semibold py-1     hover:text-primary  cursor-pointer transition delay-50 hover-ease-in md:flex uppercase">
+                  <button className="hidden text-md text-text font-bold  hover:text-primary  cursor-pointer transition delay-50 hover-ease-in md:flex uppercase">
                     Register
                   </button>
                   {/* <button className="hidden text-lg text-text font-semibold py-1 px-3 ring-2 ring-secondary ring-inset  hover:bg-secondaryTint  cursor-pointer transition delay-50 hover-ease-in md:flex">

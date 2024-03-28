@@ -107,7 +107,7 @@ function AdminOrders() {
             </div>
           </div>
           <div className="overflow-x-auto text-sm">
-            <div className="grid grid-cols-10 mb-5 gap-4 mt-10 py-2 border-b">
+            <div className="grid grid-cols-10 mb-5 gap-4 mt-10 py-2 border-b-2 border-text">
               <span className="font-bold font-head col-span-3">Id</span>
               <span className="font-bold font-head col-span-2">Products</span>
               {/* <span className="font-bold font-head">Quantity</span> */}

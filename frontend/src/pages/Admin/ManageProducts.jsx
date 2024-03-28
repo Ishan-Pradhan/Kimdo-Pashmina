@@ -66,7 +66,7 @@ function ManageProducts() {
             </label>
 
             <div
-              className={`grid grid-cols-5 gap-10 justify-center border-b-2  mb-10 mt-10 p-2`}
+              className={`grid grid-cols-5 gap-10 justify-center border-b-2  mb-10 mt-10 p-2 border-text`}
             >
               <span className="font-bold">Product</span>
               <span className="font-bold">Product Name</span>

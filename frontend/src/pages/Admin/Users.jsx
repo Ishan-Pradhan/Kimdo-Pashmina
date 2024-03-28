@@ -32,12 +32,12 @@ function Users() {
             <input
               type="text"
               placeholder="Search by user email..."
-              className="border border-gray-300 p-2 rounded-md mb-4"
+              className="border border-gray-300 px-2 rounded mb-4"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
             />
           </div>
-          <div className="grid grid-cols-5 border-b-2  px-10 py-5 gap-10">
+          <div className="grid grid-cols-5 border-b-2  px-10 py-5 gap-10 border-text">
             <span className="font-bold font-head">Name</span>
             <span className="font-bold font-head col-span-2">Email</span>
             <span className="font-bold font-head">Roles</span>

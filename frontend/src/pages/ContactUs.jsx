@@ -60,36 +60,28 @@ const ContactUsPage = () => {
     <>
       <Header />
       <PageNavigation title="Contact Us" />
-      <div className="relative h-80">
-        <iframe
-          className="w-full h-full rounded-lg"
-          title="Kimdo Pashmina"
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.4813252737495!2d85.29614537418263!3d27.702421425711048!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb194731e91ebb%3A0x6b370ce68a5bd649!2sKimdo%20Pashmina!5e0!3m2!1sen!2snp!4v1705893016045!5m2!1sen!2snp"
-          style={{ border: 0 }}
-          allowFullScreen
-        ></iframe>
-      </div>
-      <section className="my-10 flex flex-col md:flex-row container mx-auto justify-center  md:border shadow-xl gap-10 md:gap-10 bg-transparent">
-        <div className=" p-6 w-full ">
+
+      <section className="my-10 flex flex-col md:flex-row container mx-auto gap-10  md:gap-20 bg-transparent">
+        <div className=" p-6 md:w-[2200px]">
           <div>
-            <h2 className="text-4xl font-semibold mb-8 text-center">
+            <h2 className="text-6xl font-head font-semibold mb-4">
               Contact Us
             </h2>
 
             <div className="mb-8">
-              <p className=" text-center">
+              <p className="">
                 We&lsquo;d love to hear from you! Feel free to reach out to us
                 with any questions, concerns, or feedback.
               </p>
             </div>
 
-            <form className="max-w-lg mx-auto" onSubmit={handleSubmit}>
+            <form className="max-w-lg" onSubmit={handleSubmit}>
               <div className="mb-4">
                 <label className="block  text-sm font-bold mb-2" htmlFor="name">
                   Your Name
                 </label>
                 <input
-                  className="border rounded w-full py-2 px-3 focus:outline-none focus:ring focus:border-primary-300"
+                  className="border border-text rounded w-full py-2 px-3 focus:outline-none focus:ring focus:border-primary-300"
                   type="text"
                   value={name}
                   onChange={handleName}
@@ -107,7 +99,7 @@ const ContactUsPage = () => {
                   Email Address
                 </label>
                 <input
-                  className="border rounded w-full py-2 px-3 focus:outline-none focus:ring focus:border-primary-300"
+                  className="border border-text rounded w-full py-2 px-3 focus:outline-none focus:ring focus:border-primary-300"
                   type="email"
                   value={email}
                   onChange={handleEmail}
@@ -125,7 +117,7 @@ const ContactUsPage = () => {
                   Your Message
                 </label>
                 <textarea
-                  className="border rounded w-full py-2 px-3 focus:outline-none focus:ring focus:border-primary-300"
+                  className="border border-text rounded w-full py-2 px-3 focus:outline-none focus:ring focus:border-primary-300"
                   id="message"
                   value={message}
                   onChange={handleMessage}
@@ -144,31 +136,55 @@ const ContactUsPage = () => {
             </form>
           </div>
         </div>
-        <div className="flex flex-col justify-center  gap-10 bg-primary md:bg-text p-20 md:px-20 ">
-          <div className="flex flex-col">
-            <span className="text-xl font-semibold font-head text-background">
-              Call us
-            </span>
-            <span className="text-lg font-thin text-background">
-              01-4286149
-            </span>
+        <div className="flex flex-col justify-center gap-10 w-full">
+          <div>
+            <div className="text-xl border-b border-gray-700  w-full pb-3">
+              Let&apos;s Connect on Social Media
+            </div>
+            <div className="flex gap-5 mt-4">
+              <i className="fa-brands fa-instagram text-3xl"></i>
+              <i className="fa-brands fa-facebook text-3xl"></i>
+              <i className="fa-brands fa-whatsapp text-3xl"></i>
+            </div>
           </div>
-          <div className="flex flex-col">
-            <span className="text-xl font-semibold font-head text-background">
-              Email at
-            </span>
-            <span className="text-lg font-thin text-background">
-              kimdo@pashmina.com
-            </span>
+
+          <div>
+            <div className="text-xl border-b border-gray-700  w-full pb-3">
+              Contact Details
+            </div>
+            <div className="flex flex-col gap-5 mt-4">
+              <div className="flex gap-3 items-center">
+                <i className="fa-solid fa-location-dot text-2xl text-secondary"></i>
+                <span className="text-text">
+                  44600, Tahachal, Kathmandu, Nepal
+                </span>
+              </div>
+              <div className="flex gap-3 items-center">
+                <i className="fa-solid fa-phone text-2xl text-secondary"></i>
+                <span className="text-text">+977 9841347653</span>
+              </div>
+              <div className="flex gap-3 items-center">
+                <i className="fa-solid fa-envelope text-2xl text-secondary"></i>
+                <span className="text-text">kimdopashmina6@gmail.com</span>
+              </div>
+            </div>
           </div>
-          <div className="flex flex-col">
-            <span className="text-xl font-semibold font-head text-background">
-              Located at
-            </span>
-            <span className="text-lg font-thin text-background">
-              Tahachal, Kathmandu
-            </span>
-          </div>
+        </div>
+      </section>
+
+      <section className="container mx-auto px-16 ">
+        {" "}
+        <h2 className="text-3xl font-semibold font-head mb-4 text-center">
+          Locate Us
+        </h2>
+        <div className="relative h-80 border-4 border-white shadow-lg">
+          <iframe
+            className="w-full h-full"
+            title="Kimdo Pashmina"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.4813252737495!2d85.29614537418263!3d27.702421425711048!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb194731e91ebb%3A0x6b370ce68a5bd649!2sKimdo%20Pashmina!5e0!3m2!1sen!2snp!4v1705893016045!5m2!1sen!2snp"
+            style={{ border: 0 }}
+            allowFullScreen
+          ></iframe>
         </div>
       </section>
 

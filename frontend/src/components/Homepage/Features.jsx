@@ -9,7 +9,7 @@ const featureImages = [
 function Features() {
   return (
     <section id="features" className="my-20 " data-aos="zoom-in">
-      <div className="container mx-auto px-16 flex flex-col gap-5 md:flex-row">
+      <div className="container mx-auto px-16 flex flex-col gap-5 md:flex-row items-center justify-center">
         <Feature
           images={featureImages[0]}
           title={"Product Customization"}

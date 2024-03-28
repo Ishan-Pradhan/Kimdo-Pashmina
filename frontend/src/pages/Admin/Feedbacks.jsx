@@ -23,7 +23,7 @@ function Feedbacks() {
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="search by email..."
-            className="px-2"
+            className="px-2 border"
           />
           <div className="grid grid-cols-5 border-b-2 border-text  py-5 mt-10 gap-10 font-semibold">
             <span>Name</span>
@@ -37,7 +37,7 @@ function Feedbacks() {
             ) : (
               filteredFeedback.map((contact) => (
                 <div
-                  className="grid grid-cols-5 my-6  py-5 gap-10 "
+                  className="grid grid-cols-5 my-6  py-5 gap-10 border-b"
                   key={contact._id}
                 >
                   <div>{contact.name}</div>
