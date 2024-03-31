@@ -30,14 +30,16 @@ function ManageProducts() {
       <section className="container flex justify-start items-start gap-10 ">
         <AdminMenu />
         <div className="mt-10">
-          <h2 className="text-2xl font-semibold mb-4">Manage Products</h2>
+          <h2 className="text-2xl underline underline-offset-8 uppercase font-head font-semibold mb-4 text-center">
+            Manage Products
+          </h2>
 
           <div className="">
             <div className="flex justify-between items-center">
               <input
                 type="text"
                 placeholder="Search by product name..."
-                className="border border-gray-300 p-2 rounded-md mb-4"
+                className="border border-gray-300 px-2 py-1 rounded mb-4"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
               />
@@ -60,7 +62,7 @@ function ManageProducts() {
                 type="checkbox"
                 checked={showZeroStock}
                 onChange={toggleShowZeroStock}
-                className="mr-2"
+                className="mr-2  "
               />
               Show products with 0 stock
             </label>

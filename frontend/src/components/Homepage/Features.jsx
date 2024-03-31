@@ -8,8 +8,8 @@ const featureImages = [
 
 function Features() {
   return (
-    <section id="features" className="my-20 " data-aos="zoom-in">
-      <div className="container mx-auto px-16 flex flex-col gap-5 md:flex-row items-center justify-center">
+    <section id="features" className="mt-12 md:my-5 " data-aos="zoom-in">
+      <div className="container mx-auto md:px-16 flex flex-col gap-10 md:gap-5 md:flex-row items-center justify-between">
         <Feature
           images={featureImages[0]}
           title={"Product Customization"}

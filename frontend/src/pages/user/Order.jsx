@@ -121,10 +121,6 @@ function Order() {
               {/* <span className="hidden md:flex">{order.address}</span> */}
 
               <div className="col-span-2">
-                <span className="hidden md:flex">
-                  {/* <span className="font-semibold">Paid Through</span>{" "} */}
-                  {/* {order.payment_method} */}
-                </span>
                 <span
                   className={`rounded text-center uppercase font-semibold text-sm ${
                     order.status === "paid"

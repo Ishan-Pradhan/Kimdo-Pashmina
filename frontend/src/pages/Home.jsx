@@ -10,6 +10,7 @@ import Footer from "../components/Footer";
 import { useEffect, useState } from "react";
 import NewArrivalSection from "../components/Homepage/NewArrivalSection";
 import BestsellersSection from "../components/Homepage/BestsellersSection";
+import CategoriesSection from "../components/Homepage/CategoriesSection";
 
 function Home() {
   const [scrollY, setScrollY] = useState(0);
@@ -42,7 +43,7 @@ function Home() {
       <FeaturedProductsSection />
       <NewArrivalSection />
       <BestsellersSection />
-      <TestimonialSection />
+      {/* <TestimonialSection /> */}
       <Footer />
       <button
         onClick={scrollToTop}

@@ -1,15 +1,19 @@
+import { scrollToTop } from "../utils/scrollTop";
+
 /* eslint-disable  */
 function Pagination({ currentPage, itemsPerPage, totalItems, onPageChange }) {
   const totalPages = Math.ceil(totalItems / itemsPerPage);
 
   const handlePrevClick = () => {
     if (currentPage > 1) {
+      scrollToTop();
       onPageChange(currentPage - 1);
     }
   };
 
   const handleNextClick = () => {
     if (currentPage < totalPages) {
+      scrollToTop();
       onPageChange(currentPage + 1);
     }
   };

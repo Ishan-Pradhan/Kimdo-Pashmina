@@ -111,7 +111,9 @@ function CreateProduct() {
       <section className="container flex justify-start items-start gap-10 mb-10 relative">
         <AdminMenu />
         <div className="mt-10">
-          <h2 className="text-2xl font-semibold mb-4">Add Products</h2>
+          <h2 className="text-2xl underline underline-offset-8 uppercase font-head font-semibold mb-4 text-center">
+            Add Products
+          </h2>
           <form
             onSubmit={handleSubmit}
             encType="multipart/form-data"

@@ -97,18 +97,25 @@ function SingleFeedback() {
               <option value="true">Yes</option>
               <option value="false">No</option>
             </select>
-            <button
-              className="bg-primary text-background "
-              onClick={handleSubmit}
-            >
-              Update
-            </button>
-            <button
-              className="bg-red-500 text-background "
-              onClick={handleDelete}
-            >
-              Delete
-            </button>
+            <div></div>
+            <div className="flex justify-between items-center">
+              <div>
+                <button
+                  className="bg-red-300  text-red-700 px-4 py-1"
+                  onClick={handleDelete}
+                >
+                  Delete
+                </button>
+              </div>
+              <div>
+                <button
+                  className="bg-primary text-background px-4 py-1"
+                  onClick={handleSubmit}
+                >
+                  Update
+                </button>
+              </div>
+            </div>
           </form>
         </div>
       </section>

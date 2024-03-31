@@ -42,7 +42,7 @@ function AdminDashboard() {
       .reduce((total, order) => total + order.amount, 0);
 
     const paidOrders = orders.filter(
-      (order) => order.status === "paid" || order.status === "cashOnDelivery"
+      (order) => order.status === "paid" || order.status === "cash on delivery"
     );
     setPaidOrders(paidOrders);
 
@@ -80,6 +80,7 @@ function AdminDashboard() {
         data: revenueByMonthData,
         fill: true,
         borderColor: "#B76E79",
+        backgroundColor: "rgba(211,168,174,0.2)",
         tension: 0,
       },
     ],

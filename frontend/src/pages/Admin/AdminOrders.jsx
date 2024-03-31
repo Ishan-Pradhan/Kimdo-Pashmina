@@ -2,17 +2,30 @@ import axios from "axios";
 import AdminMenu from "../../components/AdminPage/AdminMenu";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Pagination from "../../components/Pagination";
 
 function AdminOrders() {
   const [userOrders, setUserOrders] = useState([]);
   const [displayOption, setDisplayOption] = useState("all");
   const [filteredOrders, setFilteredOrders] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 10;
+
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
+  const totalItems = filteredOrders.length;
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const productsForCurrentPage = filteredOrders.slice(startIndex, endIndex);
 
   useEffect(() => {
     const fetchUserOrders = async () => {
       try {
         const { data } = await axios.get("/api/v1/orders");
+        data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
         setUserOrders(data);
         filterOrders(data);
       } catch (error) {
@@ -73,10 +86,12 @@ function AdminOrders() {
 
   return (
     <>
-      <section className=" flex justify-start items-start gap-10 mb-10 relative">
+      <section className=" flex justify-start items-start gap-10 mr-8 relative">
         <AdminMenu />
         <div className="mt-10">
-          <h2 className="text-2xl font-semibold text-center">Orders</h2>
+          <h2 className="text-2xl underline underline-offset-8 uppercase font-head font-semibold mb-4 text-center">
+            orders
+          </h2>{" "}
           <div className="flex items-center justify-between mb-4 px-10">
             <div>
               <input
@@ -107,7 +122,7 @@ function AdminOrders() {
             </div>
           </div>
           <div className="overflow-x-auto text-sm">
-            <div className="grid grid-cols-10 mb-5 gap-4 mt-10 py-2 border-b-2 border-text">
+            <div className="grid grid-cols-9 mb-5 gap-4 mt-10 px-4 py-2 border-b-2 border-text">
               <span className="font-bold font-head col-span-3">Id</span>
               <span className="font-bold font-head col-span-2">Products</span>
               {/* <span className="font-bold font-head">Quantity</span> */}
@@ -116,11 +131,11 @@ function AdminOrders() {
               {/* <span className="font-bold font-head">Paid-Through</span> */}
               <span className="font-bold font-head">Status</span>
               <span className="font-bold font-head">Ordered By</span>
-              <span className="font-bold font-head">Ordered on</span>
+              {/* <span className="font-bold font-head">Ordered on</span> */}
             </div>
-            {filteredOrders.map((order) => (
+            {productsForCurrentPage.map((order) => (
               <div
-                className={`grid grid-cols-10 border-b-2 py-4 gap-4 items-center  ${
+                className={`grid grid-cols-9 border-b-2 px-4 py-4 gap-4 items-center  ${
                   order.status === "cancelled" ? "bg-red-200" : ""
                 }`}
                 key={order._id}
@@ -133,6 +148,10 @@ function AdminOrders() {
                   <span>
                     <span className="font-bold">Txn_id</span>{" "}
                     {order.transaction_code}
+                  </span>
+                  <span>
+                    <span className="text-sm font-semibold">Date</span>{" "}
+                    {new Date(order.createdAt).toLocaleDateString()}
                   </span>
                 </div>
                 <div className="flex flex-col col-span-2">
@@ -178,7 +197,7 @@ function AdminOrders() {
                   <div>{order.customer_information.name}</div>(
                   {order.customer_information.phone})
                 </div>
-                <div>{new Date(order.createdAt).toLocaleDateString()}</div>
+                {/* <div>{new Date(order.createdAt).toLocaleDateString()}</div> */}
                 <Link to={`/dashboard/admin/adminorders/${order._id}`}>
                   <button className="group text-secondary font-bold  hover:underline transition-all duration-300">
                     {/* <i className="fa-solid fa-arrow-right text-lg group-hover:text-primary transition-all duration-300 group-hover:translate-x-2"></i> */}
@@ -190,6 +209,14 @@ function AdminOrders() {
           </div>
         </div>
       </section>
+      <div className="mr-8 mb-8">
+        <Pagination
+          currentPage={currentPage}
+          itemsPerPage={itemsPerPage}
+          totalItems={totalItems}
+          onPageChange={handlePageChange}
+        />
+      </div>
     </>
   );
 }

@@ -30,7 +30,7 @@ function UserFeedback() {
         <UserMenu />
         <div className="flex flex-col">
           <h2 className="text-2xl font-semibold mb-4">My Feedback</h2>
-          <div className="grid grid-cols-4 my-3">
+          <div className="grid grid-cols-4 my-3 border-b-2 py-4 border-text">
             <span className="font-bold">Name</span>
             <span className="hidden font-bold md:flex">Email</span>
             <span className="col-span-3 md:col-span-2 font-bold"> Message</span>

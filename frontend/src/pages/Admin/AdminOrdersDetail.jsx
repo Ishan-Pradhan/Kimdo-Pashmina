@@ -98,7 +98,7 @@ function AdminOrderDetails() {
                     ? `Paid Through Khalti`
                     : orderDetails.status === "delivered"
                     ? "Paid at property"
-                    : "Will pay at property"}
+                    : "Cash on Delivery"}
                 </div>
                 <div className="text-yellow-800  text-sm">
                   {orderDetails.payment_method === "khalti"
@@ -107,11 +107,17 @@ function AdminOrderDetails() {
                 </div>
               </span>
             </div>
-            <div className="flex justify-end text-sm text-gray-500 mt-2">
+            <div
+              className={`flex justify-end text-sm text-gray-500 mt-2 ${
+                orderDetails.status === "cancelled" ? "text-red-500" : ""
+              }`}
+            >
               {orderDetails.status === "delivered"
                 ? `Delivered on ${new Date(
                     orderDetails.updatedAt
                   ).toLocaleDateString()}`
+                : orderDetails.status === "cancelled"
+                ? "This ordered is cancelled"
                 : "To be delivered"}
             </div>
           </div>

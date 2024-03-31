@@ -27,20 +27,22 @@ function Users() {
       <section className="container flex justify-start items-start gap-10">
         <AdminMenu />
         <div className="mt-10">
-          <div className="flex justify-between items-center">
-            <h2 className="text-2xl font-semibold mb-4">Users</h2>
-            <input
-              type="text"
-              placeholder="Search by user email..."
-              className="border border-gray-300 px-2 rounded mb-4"
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-            />
-          </div>
-          <div className="grid grid-cols-5 border-b-2  px-10 py-5 gap-10 border-text">
-            <span className="font-bold font-head">Name</span>
-            <span className="font-bold font-head col-span-2">Email</span>
-            <span className="font-bold font-head">Roles</span>
+          {/* <div className="flex justify-between items-center"> */}
+          <h2 className="text-2xl underline underline-offset-8 uppercase font-head font-semibold mb-4 text-center">
+            Users
+          </h2>
+          <input
+            type="text"
+            placeholder="Search by user email..."
+            className="border border-gray-300 px-2 rounded mb-4"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
+
+          <div className="grid grid-cols-9 border-b-2  px-10 py-5 gap-10 border-text ">
+            <span className="font-bold font-head col-span-3">Name</span>
+            <span className="font-bold font-head col-span-3">Email</span>
+            <span className="font-bold font-head col-span-2">Roles</span>
           </div>
           <div>
             {filteredUsers.length === 0 && search !== "" ? (
@@ -49,13 +51,15 @@ function Users() {
               filteredUsers.map((user) => (
                 <div
                   key={user._id}
-                  className="grid grid-cols-5 px-10 py-5 border-b-2  gap-10"
+                  className="grid grid-cols-9 px-10 py-5 border-b-2  gap-10"
                 >
-                  <div>{user.name}</div>
-                  <div className="col-span-2">{user.email}</div>
+                  <div className="col-span-3">{user.name}</div>
+                  <div className="col-span-3">{user.email}</div>
                   <div
                     className={
-                      user.role === 1 ? "text-secondary font-bold" : "text-text"
+                      user.role === 1
+                        ? "text-secondary font-bold col-span-2"
+                        : "text-text col-span-2"
                     }
                   >
                     {user.role === 0 ? "User" : "Admin"}

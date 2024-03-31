@@ -46,14 +46,6 @@ const ContactUsPage = () => {
   };
 
   if (!auth.user) {
-    return (
-      <>
-        <Header />
-        <div className="flex justify-center items-center h-lvh font-head font-semibold drop-shadow-2xl">
-          Please login to contact us
-        </div>
-      </>
-    );
   }
 
   return (
@@ -74,69 +66,78 @@ const ContactUsPage = () => {
                 with any questions, concerns, or feedback.
               </p>
             </div>
-
-            <form className="max-w-lg" onSubmit={handleSubmit}>
-              <div className="mb-4">
-                <label className="block  text-sm font-bold mb-2" htmlFor="name">
-                  Your Name
-                </label>
-                <input
-                  className="border border-text rounded w-full py-2 px-3 focus:outline-none focus:ring focus:border-primary-300"
-                  type="text"
-                  value={name}
-                  onChange={handleName}
-                  id="name"
-                  name="name"
-                  placeholder="Your Name"
-                />
+            {!auth.user ? (
+              <div className="flex justify-center items-center h-96 font-head font-semibold drop-shadow-2xl">
+                Please login to contact us
               </div>
+            ) : (
+              <form className="max-w-lg" onSubmit={handleSubmit}>
+                <div className="mb-4">
+                  <label
+                    className="block  text-sm font-bold mb-2"
+                    htmlFor="name"
+                  >
+                    Your Name
+                  </label>
+                  <input
+                    className="border border-text rounded w-full py-2 px-3 focus:outline-none focus:ring focus:border-primary-300"
+                    type="text"
+                    value={name}
+                    onChange={handleName}
+                    id="name"
+                    name="name"
+                    placeholder="Your Name"
+                  />
+                </div>
 
-              <div className="mb-4">
-                <label
-                  className="block  text-sm font-bold mb-2"
-                  htmlFor="email"
-                >
-                  Email Address
-                </label>
-                <input
-                  className="border border-text rounded w-full py-2 px-3 focus:outline-none focus:ring focus:border-primary-300"
-                  type="email"
-                  value={email}
-                  onChange={handleEmail}
-                  id="email"
-                  name="email"
-                  placeholder="Email Address"
-                />
-              </div>
+                <div className="mb-4">
+                  <label
+                    className="block  text-sm font-bold mb-2"
+                    htmlFor="email"
+                  >
+                    Email Address
+                  </label>
+                  <input
+                    className="border border-text rounded w-full py-2 px-3 focus:outline-none focus:ring focus:border-primary-300"
+                    type="email"
+                    value={email}
+                    onChange={handleEmail}
+                    id="email"
+                    name="email"
+                    placeholder="Email Address"
+                  />
+                </div>
 
-              <div className="mb-4">
-                <label
-                  className="block  text-sm font-bold mb-2"
-                  htmlFor="message"
-                >
-                  Your Message
-                </label>
-                <textarea
-                  className="border border-text rounded w-full py-2 px-3 focus:outline-none focus:ring focus:border-primary-300"
-                  id="message"
-                  value={message}
-                  onChange={handleMessage}
-                  name="message"
-                  rows="4"
-                  placeholder="Write your message here..."
-                />
-              </div>
-
-              <button
-                className="bg-primary text-white py-2 px-4  hover:bg-primaryShadow transition"
-                type="submit"
-              >
-                Send Message
-              </button>
-            </form>
+                <div className="mb-4">
+                  <label
+                    className="block  text-sm font-bold mb-2"
+                    htmlFor="message"
+                  >
+                    Your Message
+                  </label>
+                  <textarea
+                    className="border border-text rounded w-full py-2 px-3 focus:outline-none focus:ring focus:border-primary-300"
+                    id="message"
+                    value={message}
+                    onChange={handleMessage}
+                    name="message"
+                    rows="4"
+                    placeholder="Write your message here..."
+                  />
+                </div>
+                <div className="flex justify-end md:justify-start">
+                  <button
+                    className="bg-primary text-white py-2 px-4  hover:bg-primaryShadow transition  "
+                    type="submit"
+                  >
+                    Send Message
+                  </button>
+                </div>
+              </form>
+            )}
           </div>
         </div>
-        <div className="flex flex-col justify-center gap-10 w-full">
+        <div className="flex flex-col justify-center gap-10 w-full p-6 md:p-0">
           <div>
             <div className="text-xl border-b border-gray-700  w-full pb-3">
               Let&apos;s Connect on Social Media
@@ -172,7 +173,7 @@ const ContactUsPage = () => {
         </div>
       </section>
 
-      <section className="container mx-auto px-16 ">
+      <section className="container mx-auto px-2 md:px-16 ">
         {" "}
         <h2 className="text-3xl font-semibold font-head mb-4 text-center">
           Locate Us

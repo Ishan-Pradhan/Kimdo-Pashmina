@@ -209,7 +209,7 @@ function Header() {
           </div>
           <form
             onSubmit={(e) => e.preventDefault()}
-            className="hidden relative z-50 md:flex"
+            className="hidden relative z-50 md:flex focus-visible:ring-0 "
           >
             <input
               type="text"
@@ -217,7 +217,7 @@ function Header() {
               value={text}
               placeholder="Search products..."
               onChange={handleInputChange}
-              className="border-b border-text  bg-background px-4 w-96 font-medium focus:ring-0 focus:border-transparent focus:rounded-none "
+              className="border-b border-text  bg-background px-4 w-96 font-medium focus:ring-0 focus:border-transparent focus:rounded-none focus-visible:ring-0 focus-visible:ring-primary"
             />
             <i className="fa-solid fa-magnifying-glass absolute top-1/2 transform -translate-y-1/2 right-4 text-gray-400"></i>
             {showModal && text && (
@@ -261,7 +261,7 @@ function Header() {
                   </button> */}
                 </NavLink>
                 {/* <i className="fa-solid fa-grip-lines-vertical"></i> */}
-                <span className="font-extrabold">/</span>
+                <span className="hidden md:flex font-extrabold">/</span>
                 <NavLink to={"/Register"} onClick={scrollToTop}>
                   <button className="hidden text-md text-text font-bold  hover:text-primary  cursor-pointer transition delay-50 hover-ease-in md:flex uppercase">
                     Register

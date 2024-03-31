@@ -11,7 +11,44 @@ function Footer() {
 
   return (
     <footer className="bg-text pt-10 mt-28">
-      <div className="container mx-auto px-16 grid grid-cols-1 md:grid-cols-3 md:grid-flow-row justify-center items-start place-items-center gap-10">
+      <div className="container mx-auto px-16 grid grid-cols-1 md:grid-cols-4 md:grid-flow-row justify-center text-center md:text-start md:items-start md:place-items-center gap-10">
+        <div className="flex flex-col gap-2">
+          <div>
+            <span className="text-gray-300 font-semibold text-xl">
+              Collections
+            </span>
+          </div>
+          <div className="flex flex-col">
+            <NavLink
+              to={"/menproduct"}
+              className="text-background hover:underline"
+              onClick={scrollToTop}
+            >
+              Mens Collection
+            </NavLink>
+            <NavLink
+              to={"/womenproduct"}
+              className="text-background hover:underline"
+              onClick={scrollToTop}
+            >
+              Womens Collection
+            </NavLink>
+            <NavLink
+              to={"/newarrival"}
+              className="text-background hover:underline"
+              onClick={scrollToTop}
+            >
+              New Arrivals
+            </NavLink>
+            <NavLink
+              to={"/bestsellers"}
+              className="text-background hover:underline"
+              onClick={scrollToTop}
+            >
+              Bestsellers
+            </NavLink>
+          </div>
+        </div>
         <div className="flex flex-col gap-2 ">
           <span className="text-gray-300 font-semibold text-xl">
             Customer Care

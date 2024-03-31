@@ -98,7 +98,7 @@ function CartProductList() {
             Price
           </div>
           <div className="col-span-1 font-extrabold text-lg">Quantity</div>
-          <div className="col-span-1 font-extrabold text-lg">Total</div>
+          <div className="col-span-1 font-extrabold text-lg">Sub Total</div>
         </div>
 
         {cart.map((item) => (
@@ -120,7 +120,7 @@ function CartProductList() {
           </h3>
         </div>
 
-        <div className="flex flex-col container md:px-10 mt-4">
+        <div className="flex flex-col container md:px-10 mt-4 ">
           <div className="flex flex-col justify-center border border-gray-300 md:flex-row">
             {auth.user && (
               <div className="flex flex-col gap-4 px-10 py-5 ">
@@ -132,9 +132,9 @@ function CartProductList() {
                   <span>{auth.user.name}</span>
                   <span className="font-bold">Email</span>
                   <span>{auth.user.email}</span>
-                  <span className="font-bold">Phone</span>
+                  <span className="font-bold">Phone Number</span>
                   <span>{auth.user.phone}</span>
-                  <span className="font-bold">Address</span>
+                  <span className="font-bold">Delivery Address</span>
                   <span>{auth.user.address}</span>
                 </div>
               </div>
@@ -158,7 +158,7 @@ function CartProductList() {
                     onChange={handleBillingInfoChange}
                   />
                   <label htmlFor="address" className="font-bold">
-                    Address
+                    Delivery Address
                   </label>
                   <input
                     id="address"
@@ -205,9 +205,8 @@ function CartProductList() {
                 </label>
               </div>
             </div>
-
             <button
-              className="bg-primary text-background hover:bg-primaryShadow px-6 py-3 "
+              className="bg-secondary text-background hover:bg-primaryShadow px-6 py-3 "
               onClick={handleCheckout}
             >
               Checkout
