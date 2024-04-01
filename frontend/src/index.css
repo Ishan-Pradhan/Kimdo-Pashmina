@@ -43,3 +43,44 @@ body {
   opacity: 0;
   transform: translateY(-20px);
 }
+
+.mobile-menu {
+  opacity: 0;
+  animation: mobileheaderanimation 0.5s ease-in forwards;
+}
+
+.stickyheader {
+  opacity: 0;
+  animation: headeranimation 0.5s ease-in forwards;
+}
+
+@keyframes mobileheaderanimation {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes headeranimation {
+  0% {
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.tippy-box {
+  background-color: #171e33;
+  color: black;
+  border: 1px solid #ededed;
+  border-radius: 0;
+}

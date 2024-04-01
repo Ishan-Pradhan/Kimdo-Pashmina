@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import CategoriesBtn from "./CategoriesBtn";
+import { scrollToTop } from "../utils/scrollTop";
 /* eslint-disable react/prop-types */
 function Categories({ children, images }) {
   return (
@@ -8,8 +9,19 @@ function Categories({ children, images }) {
       style={{
         backgroundImage: `linear-gradient(to right, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.25)),url(${images})`,
       }}
+      data-aos="fade-up"
     >
-      <Link to="/MenProduct" className="w-full">
+      <Link
+        to={
+          children === "New Arrivals"
+            ? "/newarrival"
+            : children === "Best Sellers"
+            ? "/bestsellers"
+            : "/menproduct"
+        }
+        onClick={scrollToTop}
+        className="w-full"
+      >
         <CategoriesBtn>{children}</CategoriesBtn>
       </Link>
     </div>

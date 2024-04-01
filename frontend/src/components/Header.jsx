@@ -73,14 +73,14 @@ function Header() {
 
   return (
     <nav
-      className={`container  mx-auto px-10 py-6 z-50 transition-all duration-250 ease-in  flex md:flex-row justify-center relative md:px-0 ${
-        isScrolled ? "w-full bg-background h-full" : ""
+      className={` container  mx-auto px-10 py-6 z-50 transition-all duration-250 ease-in  flex md:flex-row justify-center relative md:px-0 ${
+        isScrolled ? " w-full bg-background h-full " : ""
       }`}
     >
       <div
         className={`w-full ${
           isScrolled
-            ? "bg-background shadow-md bg-opacity-100 fixed py-4 top-0 h-auto z-50 "
+            ? "bg-background shadow-md bg-opacity-100 fixed py-4 top-0 h-auto z-50 stickyheader"
             : ""
         }`}
       >
@@ -95,7 +95,7 @@ function Header() {
 
           {isMobileMenuOpen && (
             <div
-              className={`md:hidden fixed top-0 left-0 w-full h-full bg-background z-50 transition-all ease-in duration-300 ${
+              className={`md:hidden fixed top-0 left-0 w-full h-full bg-background z-50 transition-all ease-in duration-300 mobile-menu ${
                 isMobileMenuOpen
                   ? "opacity-100 pointer-events-auto"
                   : "opacity-0 pointer-events-none"
@@ -272,9 +272,9 @@ function Header() {
                 </NavLink>
               </div>
             ) : auth.user.role === 0 ? (
-              <NavLink to={"/dashboard/user"} onClick={scrollToTop}>
+              <NavLink to={"/dashboard/user/profile"} onClick={scrollToTop}>
                 <button className="hidden text-lg  py-1 px-3 font-semibold  text-text hover:ring hover:ring-inset hover:ring-primaryShadow hover:bg-primaryTint  cursor-pointer transition delay-50 hover-ease-in md:flex items-center gap-2">
-                  <i className="fa-solid fa-user "></i> {auth.user.name}
+                  <i className="fa-solid fa-user"></i> {auth.user.name}
                 </button>
               </NavLink>
             ) : (
@@ -287,9 +287,9 @@ function Header() {
             <div className="flex gap-x-4 items-center" onClick={showForm}>
               <i className="fa-solid fa-magnifying-glass text-2xl md:hidden"></i>
               <NavLink to="/Cart" className="relative" onClick={scrollToTop}>
-                <i className="fa-solid fa-bag-shopping z-30 hover:text-primary cursor-pointer transition delay-50 hover-ease-in text-3xl"></i>
+                <i className="fa-solid fa-cart-shopping z-30 hover:text-primary cursor-pointer transition delay-50 hover-ease-in text-2xl"></i>
                 <div
-                  className={`text-sm bg-primary text-background absolute w-6 h-6 -top-2 -right-3 rounded-full p-1 flex justify-center items-center ${
+                  className={`text-[12px] bg-primary text-background absolute w-5 h-5 -top-2 -right-3 rounded-full p-1 flex justify-center items-center ${
                     total_item > 0 ? "motion-safe:animate-bounce" : ""
                   }`}
                 >

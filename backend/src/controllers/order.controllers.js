@@ -67,6 +67,7 @@ export const createOrder = async (req, res) => {
         }
 
         product.stock -= productDetail.quantity;
+        product.quantitySold += productDetail.quantity;
 
         await product.save();
       }

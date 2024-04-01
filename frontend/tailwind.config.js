@@ -22,7 +22,7 @@ export default {
       colors: {
         primary: "#B76E79",
         primaryTint: "#D3A8AE",
-        footer: "",
+        primaryTint2: "#e2c5c9",
         primaryShadow: "#a4636c",
         text: "#373A58",
         background: "#f7f7f7",

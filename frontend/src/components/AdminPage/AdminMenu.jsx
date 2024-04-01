@@ -2,6 +2,7 @@ import { NavLink } from "react-router-dom";
 import { useAuthContext } from "../../context/authcontext";
 import { toast } from "react-toastify";
 import Logo from "../Logo";
+import { scrollToTop } from "../../utils/scrollTop";
 
 function AdminMenu() {
   const [auth, setAuth] = useAuthContext();
@@ -30,6 +31,7 @@ function AdminMenu() {
                     ? "flex items-center p-2 text-base font-normal text-gray-900  bg-primaryTint transition delay-50 hover:ease-in gap-2"
                     : " flex items-center p-2 text-base font-normal text-gray-900   hover:bg-primaryTint gap-2"
                 }
+                onClick={scrollToTop}
               >
                 <i className="fa-solid fa-chart-line"></i>
                 <div>Dashboard</div>
@@ -43,6 +45,7 @@ function AdminMenu() {
                     ? "flex items-center p-2 text-base font-normal text-gray-900  bg-primaryTint transition delay-50 hover:ease-in gap-2"
                     : " flex items-center p-2 text-base font-normal text-gray-900   hover:bg-primaryTint gap-2"
                 }
+                onClick={scrollToTop}
               >
                 <i className="fa-solid fa-plus"></i>
                 <div>Add Product</div>
@@ -56,6 +59,7 @@ function AdminMenu() {
                     ? "flex items-center p-2 text-base font-normal text-gray-900  bg-primaryTint transition delay-50 hover:ease-in gap-2"
                     : " flex items-center p-2 text-base font-normal text-gray-900   hover:bg-primaryTint gap-2"
                 }
+                onClick={scrollToTop}
               >
                 <i className="fa-solid fa-pen-to-square"></i>
                 <div>Manage Products</div>
@@ -69,6 +73,7 @@ function AdminMenu() {
                     ? "flex items-center p-2 text-base font-normal text-gray-900  bg-primaryTint transition delay-50 hover:ease-in gap-2"
                     : " flex items-center p-2 text-base font-normal text-gray-900   hover:bg-primaryTint gap-2"
                 }
+                onClick={scrollToTop}
               >
                 <i className="fa-solid fa-users"></i>
                 <div>Users</div>
@@ -82,6 +87,7 @@ function AdminMenu() {
                     ? "flex items-center p-2 text-base font-normal text-gray-900  bg-primaryTint transition delay-50 hover:ease-in gap-2"
                     : " flex items-center p-2 text-base font-normal text-gray-900   hover:bg-primaryTint gap-2"
                 }
+                onClick={scrollToTop}
               >
                 <i className="fa-solid fa-comment"></i>
                 <div>Feedbacks</div>
@@ -95,6 +101,7 @@ function AdminMenu() {
                     ? "flex items-center p-2 text-base font-normal text-gray-900  bg-primaryTint transition delay-50 hover:ease-in gap-2"
                     : " flex items-center p-2 text-base font-normal text-gray-900   hover:bg-primaryTint gap-2"
                 }
+                onClick={scrollToTop}
               >
                 <i className="fa-solid fa-bag-shopping"></i>
                 <div>Orders</div>

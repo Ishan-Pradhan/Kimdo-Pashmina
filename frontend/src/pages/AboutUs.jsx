@@ -175,7 +175,9 @@ function AboutUs() {
 
         {/* Our Features */}
         <div className="flex flex-col gap-1 md:gap-10">
-          <h3 className="font-semibold text-2xl md:text-4xl">Our Features</h3>
+          <h3 className="font-semibold font-head text-2xl md:text-4xl">
+            Our Features
+          </h3>
           <Features />
         </div>
       </section>

@@ -70,7 +70,7 @@ const handleKhaltiCallback = async (req, res, next) => {
       return res.status(400).json({ error: "Payment not completed" });
     }
 
-    console.log(purchase_order_id);
+
     req.transaction_uuid = purchase_order_id;
     req.transaction_code = idx;
 

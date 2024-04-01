@@ -37,9 +37,9 @@ function Home() {
     <main className="relative">
       <Header />
       <HeroSection />
-      {/* <CategoriesSection /> */}
       {/* <Features /> */}
       {/* <GridCategoriesSection scrollToTop={scrollToTop} /> */}
+      <CategoriesSection />
       <FeaturedProductsSection />
       <NewArrivalSection />
       <BestsellersSection />
@@ -52,6 +52,7 @@ function Home() {
             ? `p-4 h-12 w-12 rounded-full bg-secondary  fixed bottom-10 right-6 flex items-center justify-center shadow-xl group transition-all ease-in-out duration-1000 opacity-100`
             : `hidden`
         }
+        data-aos="fade-up"
       >
         <i className="fa-solid fa-angle-up group-hover:animate-bounce text-background text-xl"></i>
       </button>

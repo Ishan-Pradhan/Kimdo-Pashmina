@@ -11,7 +11,7 @@ function UserMenu() {
     toast.success("Logged out successfully");
   };
   return (
-    <div className="w-full md:w-auto md:max-w-2xl ">
+    <div className="w-full md:w-auto md:max-w-2xl md:sticky md:top-24 ">
       <aside className="w-full md:w-64 ">
         <div className="px-3 py-4 overflow-y-auto border   bg-gray-50">
           <h3 className="text-center mb-4">User Panel</h3>

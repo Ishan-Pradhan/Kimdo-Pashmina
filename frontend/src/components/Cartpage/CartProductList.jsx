@@ -8,6 +8,9 @@ import CartProducts from "./CartProducts";
 import FeatureProducts from "../FeatureProducts";
 import { useProductContext } from "../../context/productcontext";
 import { scrollToTop } from "../../utils/scrollTop";
+import Tippy from "@tippyjs/react";
+import "tippy.js/dist/tippy.css";
+import "tippy.js/themes/light.css";
 
 function CartProductList() {
   const { isLoading, featureProducts } = useProductContext();
@@ -115,7 +118,7 @@ function CartProductList() {
         </div>
 
         <div className="mt-8">
-          <h3 className="text-xl font-semibold px-10">
+          <h3 className="text-xl font-semibold md:px-16">
             Order Total: Rs.{total_price}
           </h3>
         </div>
@@ -123,15 +126,25 @@ function CartProductList() {
         <div className="flex flex-col container md:px-10 mt-4 ">
           <div className="flex flex-col justify-center border border-gray-300 md:flex-row">
             {auth.user && (
-              <div className="flex flex-col gap-4 px-10 py-5 ">
+              <div className="flex flex-col gap-4 px-4 md:px-10 py-5 ">
                 <p className="text-center font-semibold uppercase">
                   Billing Information
                 </p>
-                <div className="grid grid-cols-2 gap-y-2">
+                <div className="grid grid-cols-2 gap-y-2 items-center">
                   <span className="font-bold">Name</span>
                   <span>{auth.user.name}</span>
                   <span className="font-bold">Email</span>
-                  <span>{auth.user.email}</span>
+                  <span className="flex">
+                    <Tippy
+                      theme={"light"}
+                      interactive={true}
+                      content={auth.user.email}
+                    >
+                      <span className=" overflow-hidden overflow-ellipsis whitespace-nowrap">
+                        {auth.user.email}
+                      </span>
+                    </Tippy>
+                  </span>
                   <span className="font-bold">Phone Number</span>
                   <span>{auth.user.phone}</span>
                   <span className="font-bold">Delivery Address</span>

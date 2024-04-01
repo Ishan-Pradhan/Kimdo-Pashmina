@@ -149,7 +149,10 @@ function AdminDashboard() {
             Stats
           </h1>
           <div className="flex flex-wrap gap-10">
-            <div className="flex gap-4 justify-center items-center shadow-xl   relative px-5 py-2  text-white transition-all ease-in duration-100 border">
+            <div
+              className="flex gap-4 justify-center items-center shadow-xl   relative px-5 py-2  text-white transition-all ease-in duration-100 border"
+              data-aos="fade-up"
+            >
               <i className="fa-solid fa-boxes-stacked h-14 w-14 flex justify-center items-center text-2xl bg-secondaryTint text-secondary rounded-full p-3"></i>
               <div>
                 <span className="font-head font-medium text-sm">
@@ -159,7 +162,10 @@ function AdminDashboard() {
               </div>
             </div>
 
-            <div className="flex gap-4 justify-center items-center shadow-xl   relative px-5 py-2  text-white transition-all ease-in duration-100 border">
+            <div
+              className="flex gap-4 justify-center items-center shadow-xl   relative px-5 py-2  text-white transition-all ease-in duration-100 border"
+              data-aos="fade-up"
+            >
               <i className="fa-solid fa-hourglass-start h-14 w-14 flex items-center justify-center text-2xl bg-[#dedede] text-[#9d9d9d] rounded-full p-3"></i>
               <div>
                 <span className="font-head font-medium text-sm">
@@ -169,7 +175,10 @@ function AdminDashboard() {
               </div>
             </div>
 
-            <div className="flex gap-4 justify-center items-center shadow-xl   relative px-5 py-2  text-white transition-all ease-in duration-100 border">
+            <div
+              className="flex gap-4 justify-center items-center shadow-xl   relative px-5 py-2  text-white transition-all ease-in duration-100 border"
+              data-aos="fade-up"
+            >
               <i className="fa-solid fa-truck h-14 w-14 flex justify-center items-center text-2xl bg-green-300 text-green-700 rounded-full p-3"></i>
               <div>
                 <span className="font-head font-medium text-sm">
@@ -181,7 +190,10 @@ function AdminDashboard() {
               </div>
             </div>
 
-            <div className="flex gap-4 justify-center items-center shadow-xl   relative px-5 py-2  text-white transition-all ease-in duration-100 border">
+            <div
+              className="flex gap-4 justify-center items-center shadow-xl   relative px-5 py-2  text-white transition-all ease-in duration-100 border"
+              data-aos="fade-up"
+            >
               <i className="fa-solid fa-users h-14 w-14 flex justify-center items-center text-2xl bg-blue-300 text-blue-900 rounded-full p-3"></i>
               <div>
                 <span className="font-head font-medium text-sm">
@@ -191,7 +203,10 @@ function AdminDashboard() {
               </div>
             </div>
 
-            <div className="flex gap-4 justify-center items-center shadow-xl   relative px-5 py-2  text-white transition-all ease-in duration-100 border">
+            <div
+              className="flex gap-4 justify-center items-center shadow-xl   relative px-5 py-2  text-white transition-all ease-in duration-100 border"
+              data-aos="fade-up"
+            >
               <i className="fa-solid fa-indian-rupee-sign h-14 w-14 flex justify-center items-center text-2xl bg-[#F9E486] text-[#E1A95F] rounded-full p-3"></i>
               <div>
                 <span className="font-head font-medium text-sm">
@@ -203,14 +218,14 @@ function AdminDashboard() {
           </div>
 
           <div className="flex justify-between gap-4 mt-10">
-            <div className="my-10 w-[500px]">
+            <div className="my-10 w-[500px]" data-aos="fade-up">
               <h1 className="font-head font-extrabold mb-5 text-2xl">
                 Revenue Over Time
               </h1>
               <Line data={chartData} className="" />
             </div>
 
-            <div className="my-10 w-[500px]">
+            <div className="my-10 w-[500px]" data-aos="fade-up">
               <h1 className="font-head font-extrabold mb-5 text-2xl">
                 Top Selling Products
               </h1>

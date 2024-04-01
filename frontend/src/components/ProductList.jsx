@@ -33,7 +33,7 @@ function ProductList({ genderCategory }) {
   }
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col w-full">
       <div className="flex gap-y-20 md:gap-y-10 flex-wrap items-center justify-center md:justify-start gap-[4.8rem] container">
         {productsForCurrentPage.map((product) => (
           <FeatureProducts key={product._id} product={product} />

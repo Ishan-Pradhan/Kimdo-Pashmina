@@ -351,15 +351,18 @@ function UpdateProducts() {
           />
           {/* </div> */}
           <div className="flex justify-between col-span-3 mt-10 h-8">
-            <Button disabled={isLoading} onClick={handleSubmit}>
-              Update Product
-            </Button>
-
             <button
-              className="bg-red-500 text-background font-semibold py-3 px-6 text-md h-8  transition delay-50 hover:bg-red-600 hover:ease-in-out md:w-auto flex gap-3 items-center"
+              className="bg-red-300 text-red-700 font-semibold py-3 px-6 text-md h-8  transition delay-50 ease-in hover:bg-red-600 hover:text-background hover:ease-in-out md:w-auto flex gap-3 items-center"
               onClick={handleDelete}
             >
               Delete
+            </button>
+            <button
+              className="bg-secondary text-background font-semibold py-3 px-3 text-md h-8  transition delay-50 ease-in hover:bg-secondaryTint hover:text-text hover:ease-in-out md:w-auto flex gap-3 items-center"
+              disabled={isLoading}
+              onClick={handleSubmit}
+            >
+              Update Product
             </button>
           </div>
         </form>

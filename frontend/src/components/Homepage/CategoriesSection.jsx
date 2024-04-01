@@ -16,34 +16,14 @@ function CategoriesSection() {
           <span className="font-head text-3xl font-semibold text-center">
             Explore by categories
           </span>
-          <span className="hidden md:flex ">
-            <Link
-              to="/MenProduct"
-              className="uppercase text-sm font-bold flex gap-2"
-            >
-              View More
-              <span>
-                <i className="fa-solid fa-arrow-right-long"></i>
-              </span>
-            </Link>
-          </span>
+          <span className="hidden md:flex "></span>
         </div>
         <div className="flex flex-col gap-5 md:flex-row my-10 w-full ">
           <Categories images={catImages[0]}>New Arrivals</Categories>
           <Categories images={catImages[1]}>Best Sellers</Categories>
           <Categories images={catImages[2]}>Men&apos;s Collection</Categories>
         </div>
-        <span className="flex items-center justify-center md:hidden ">
-          <Link
-            to="/MenProduct"
-            className="uppercase text-sm font-bold flex gap-2"
-          >
-            View More
-            <span>
-              <i className="fa-solid fa-arrow-right-long"></i>
-            </span>
-          </Link>
-        </span>
+        <span className="flex items-center justify-center md:hidden "></span>
       </div>
     </section>
   );

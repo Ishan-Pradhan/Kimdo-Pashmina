@@ -44,7 +44,7 @@ function Order() {
       <Header />
       <section className="flex flex-col container mx-auto md:flex-row justify-start items-start gap-10 px-5 md:px-0">
         <UserMenu />
-        <div>
+        <div className="w-full">
           <div className="flex justify-between border-b items-center">
             <h2 className="text-2xl font-semibold ">My orders</h2>
             <div>
@@ -82,10 +82,10 @@ function Order() {
 
           {filteredOrders.map((order) => (
             <div
-              className="grid grid-cols-7 gap-4 md:grid-cols-8 md:gap-x-10 items-center justify-center border-b-2 py-4 "
+              className="grid grid-cols-6 gap-4 md:grid-cols-7 md:gap-x-10 items-center justify-center border-b-2 py-4 "
               key={order._id}
             >
-              <span className="col-span-7 md:col-span-8">
+              <span className="col-span-6 md:col-span-7">
                 <span className="font-bold">Order_id </span>
                 {order._id}
                 <div className="text-sm text-gray-500">
@@ -120,22 +120,22 @@ function Order() {
               </span>
               {/* <span className="hidden md:flex">{order.address}</span> */}
 
-              <div className="col-span-2">
+              <div className="flex md:items-center col-span-2 md:col-span-1">
                 <span
                   className={`rounded text-center uppercase font-semibold text-sm ${
                     order.status === "paid"
-                      ? "bg-green-300 text-green-800 px-4 md:px-4 w-full py-1"
+                      ? "bg-green-300 text-green-800 px-4 md:px-2 w-full py-1"
                       : order.status === "delivered"
-                      ? "bg-slate-300 text-slate-800 px-1 md:px-4 w-full py-1"
+                      ? "bg-slate-300 text-slate-800 px-1 md:px-2 w-full py-1"
                       : order.status === "cancelled"
-                      ? "bg-red-300 text-red-800 px-1 md:px-4 w-full py-1"
-                      : "bg-gray-300 text-gray-800 px-1 md:px-4 w-full py-1"
+                      ? "bg-red-300 text-red-800 px-1 md:px-2 w-full py-1"
+                      : "bg-gray-300 text-gray-800 px-4 md:px-2 w-full py-1"
                   }`}
                 >
-                  {order.status}
+                  {order.status === "cash on delivery" ? "COD" : order.status}
                 </span>
               </div>
-              <div className="hidden md:flex col-span-2 gap-2">
+              <div className="hidden md:flex col-span-3 md:col-span-2 gap-2">
                 {order.status === "delivered" ? (
                   <div>
                     <span className="font-semibold">Delivered on</span>{" "}

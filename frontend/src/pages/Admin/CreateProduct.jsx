@@ -94,10 +94,20 @@ function CreateProduct() {
       });
 
       if (data.success) {
+        setProductImg("");
+        setProductName("");
+        setDescription("");
+        setPrice("");
+        setDiscount("");
+        setFeatured(false);
+        setGeneralCategory("shawl");
+        setGenderCategory("men");
+        setStock(1);
+        setComposition("");
+        setWeight("");
+        setSize("");
         toast.success("Product created sucessfully");
       }
-
-      console.log(data);
     } catch (error) {
       toast.error("Fail to create product");
       console.log("error adding products", error);

@@ -2,6 +2,9 @@
 import { NavLink } from "react-router-dom";
 import AddToCart from "./AddToCart";
 import { scrollToTop } from "../utils/scrollTop";
+import Tippy from "@tippyjs/react";
+import "tippy.js/dist/tippy.css";
+import "tippy.js/themes/light.css";
 
 function FeatureProducts({ product }) {
   if (product.stock === 0) {
@@ -62,7 +65,7 @@ function FeatureProducts({ product }) {
     <NavLink
       to={`/SingleProducts/${product._id} `}
       data-aos="zoom-in-down"
-      className="  w-60"
+      className="w-60"
     >
       <div className="hover:-translate-y-3 transition-transform ease-in duration-200 hover:shadow-lg border">
         <div className="relative h-60 w-full">
@@ -73,8 +76,17 @@ function FeatureProducts({ product }) {
           />
         </div>
         <div className="px-3 py-3 bg-white border-t flex flex-col  ">
-          <h3 className="text-lg font-head font-extrabold mb-1 overflow-hidden whitespace-nowrap overflow-ellipsis">
-            {product.productName}
+          <h3 className="flex text-lg font-head font-extrabold mb-1 overflow-hidden whitespace-nowrap overflow-ellipsis">
+            <Tippy
+              theme={"light"}
+              interactive={true}
+              content={product.productName}
+            >
+              <span className="overflow-hidden whitespace-nowrap overflow-ellipsis">
+                {" "}
+                {product.productName}
+              </span>
+            </Tippy>
           </h3>
           <div className="flex justify-between items-center mb-2">
             {product.discount > 0 ? (

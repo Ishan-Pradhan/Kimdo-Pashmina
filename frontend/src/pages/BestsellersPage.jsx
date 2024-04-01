@@ -6,10 +6,18 @@ import FeatureProducts from "../components/FeatureProducts";
 import PageNavigation from "../components/PageNavigation";
 import Header from "../components/Header";
 import { useState } from "react";
+import FilterSection from "../components/FilterSection";
+import { useFilterContext } from "../context/womenfiltercontext";
 
 function BestsellersPage() {
   const { isLoading, products } = useProductContext();
-  const bestsellers = products.filter((products) => products.quantitySold >= 5);
+  const { filter_products } = useFilterContext();
+
+  // Check if filter_products exist, if not, use all products
+  const bestsellers =
+    filter_products.length > 0
+      ? filter_products.filter((product) => product.quantitySold >= 5)
+      : products.filter((product) => product.quantitySold >= 5);
 
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 10;
@@ -34,20 +42,18 @@ function BestsellersPage() {
 
       <div className="container px-16 mx-auto">
         <div className="flex flex-col md:flex-row gap-10 justify-start">
+          <FilterSection />
           <section className="flex flex-col container ">
             <div
-              className={`flex flex-col gap-y-14  md:flex-row items-center my-10 flex-wrap ${
+              className={`flex flex-col gap-y-14  md:flex-row items-center mb-10 flex-wrap ${
                 bestsellers.length <= 3
                   ? "justify-start gap-x-16"
                   : "justify-between"
               }`}
             >
-              {productsForCurrentPage &&
-                productsForCurrentPage.map((product) => {
-                  return (
-                    <FeatureProducts key={product._id} product={product} />
-                  );
-                })}
+              {productsForCurrentPage.map((product) => (
+                <FeatureProducts key={product._id} product={product} />
+              ))}
             </div>
             <Pagination
               currentPage={currentPage}
