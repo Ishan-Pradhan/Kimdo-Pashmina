@@ -50,10 +50,10 @@ REACT_APP_API=
 1. Navigate to the `backend` directory:
    cd backend
 2. Start the backend server:
-   npm start
+   npm run dev
 
 ### Frontend
 1. Navigate to the `frontend` directory:
    cd frontend
 2. Start the backend server:
-   npm start
+   npm run dev
