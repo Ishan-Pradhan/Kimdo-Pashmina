@@ -120,177 +120,173 @@ function CreateProduct() {
     <>
       <section className="container flex justify-start items-start gap-10 mb-10 relative">
         <AdminMenu />
-        <div className="mt-10">
-          <h2 className="text-2xl underline underline-offset-8 uppercase font-head font-semibold mb-4 text-center">
+        <div className="mt-10 flex flex-col w-full justify-center items-center">
+          <h2 className="text-2xl uppercase font-head font-bold mb-1 text-center">
             Add Products
           </h2>
           <form
             onSubmit={handleSubmit}
             encType="multipart/form-data"
-            className="border-2 shadow-lg bg-white p-10 grid grid-cols-3 gap-4 relative mt-10"
+            className="border-2 shadow-lg bg-white p-10 grid grid-cols-1 gap-4 relative mt-5 "
           >
-            {/* <div className="flex gap-10"> */}
-            <label className="text-[#222]" htmlFor="productImg">
-              Product Image:
-            </label>
-            <input
-              className="col-span-2"
-              type="file"
-              id="productImg"
-              accept="image/*"
-              onChange={handleImageChange}
-            />
-            {/* </div> */}
-
-            {/* <div className="flex gap-10"> */}
-            <label className="text-[#222]" htmlFor="productName">
-              Product Name:
-            </label>
-            <input
-              className=" border border-[#555] col-span-2 px-2"
-              type="text"
-              id="productName"
-              onChange={handleNameChange}
-            />
-            {/* </div> */}
-
-            {/* <div className="flex gap-10"> */}
-            <label className="text-[#222]" htmlFor="description">
-              Description:
-            </label>
-            <textarea
-              className=" border border-[#555] col-span-2 px-2"
-              rows="6"
-              id="description"
-              onChange={handleDescriptionChange}
-            ></textarea>
-            {/* </div> */}
-
-            {/* <div className="flex gap-10"> */}
-            <label className="text-[#222]" htmlFor="price">
-              Price:
-            </label>
-            <input
-              className=" border border-[#555] col-span-2  px-2"
-              type="text"
-              id="price"
-              onChange={handlePriceChange}
-            />
-            {/* </div> */}
-
-            {/* <div className="flex gap-10"> */}
-            <label className="text-[#222]" htmlFor="discount">
-              Discount:
-            </label>
-            <input
-              className=" border border-[#555] col-span-2 px-2"
-              type="text"
-              id="discount"
-              onChange={handleDiscountChange}
-            />
-            {/* </div> */}
-
-            {/* <div className="flex gap-10"> */}
-            <label className="text-[#222]" htmlFor="featured">
-              Featured:
-            </label>
-            <div className="col-span-2 px-2 flex gap-3">
+            <div className="flex gap-10">
+              <label className="text-[#222]" htmlFor="productImg">
+                Product Image
+              </label>
               <input
-                className="   "
-                type="checkbox"
-                id="featured"
-                checked={featured}
-                onChange={handleFeaturedChange}
+                className="col-span-2"
+                type="file"
+                id="productImg"
+                accept="image/*"
+                onChange={handleImageChange}
               />
-              <p className="text-sm">
-                Click to feature this product in the homepage
-              </p>
             </div>
 
-            {/* </div> */}
+            <div className="flex flex-col mb-2 gap-2">
+              <label className="text-[#222]" htmlFor="productName">
+                Product Name
+              </label>
+              <input
+                className=" border border-[#888] col-span-2 px-2 py-1"
+                type="text"
+                id="productName"
+                onChange={handleNameChange}
+              />
+            </div>
 
-            {/* <div className="flex gap-10"> */}
-            <label className="text-[#222]" htmlFor="generalCategory">
-              General Category:
-            </label>
-            <select
-              className=" border border-[#555] px-3 col-span-2"
-              id="generalCategory"
-              value={generalCategory}
-              onChange={handleGeneralCategoryChange}
-            >
-              <option value="shawl">Shawl</option>
-              <option value="muffler">Muffler</option>
-              <option value="poncho">Poncho</option>
-              <option value="blanket">Blanket</option>
-            </select>
-            {/* </div> */}
+            <div className="flex flex-col mb-2 gap-2">
+              <label className="text-[#222]" htmlFor="description">
+                Description:
+              </label>
+              <textarea
+                className=" border border-[#888] col-span-2 px-2 py-1"
+                rows="6"
+                id="description"
+                onChange={handleDescriptionChange}
+              ></textarea>
+            </div>
 
-            {/* <div className="flex gap-10"> */}
-            <label className="text-[#222]" htmlFor="genderCategory">
-              Gender Category:
-            </label>
-            <select
-              className=" border border-[#555] px-3 col-span-2"
-              id="genderCategory"
-              value={genderCategory}
-              onChange={handleGenderCategoryChange}
-            >
-              <option value="men">Men</option>
-              <option value="women">Women</option>
-            </select>
-            {/* </div> */}
+            <div className="flex flex-col mb-2 gap-2">
+              <label className="text-[#222]" htmlFor="price">
+                Price:
+              </label>
+              <input
+                className=" border border-[#888] col-span-2  px-2 py-1"
+                type="text"
+                id="price"
+                onChange={handlePriceChange}
+              />
+            </div>
 
-            {/* <div className="flex gap-10"> */}
-            <label className="text-[#222]" htmlFor="stock">
-              Stock:
-            </label>
-            <input
-              className=" border border-[#555] col-span-2 px-2"
-              type="number"
-              id="stock"
-              onChange={handleStockChange}
-            />
-            {/* </div> */}
+            <div className="flex flex-col mb-2 gap-2">
+              <label className="text-[#222]" htmlFor="discount">
+                Discount:
+              </label>
+              <input
+                className=" border border-[#888] col-span-2 px-2 py-1"
+                type="text"
+                id="discount"
+                onChange={handleDiscountChange}
+              />
+            </div>
+            <div className="flex  gap-10">
+              <label className="text-[#222]" htmlFor="featured">
+                Featured:
+              </label>
+              <div className="col-span-2 px-2 flex gap-3">
+                <input
+                  className="   "
+                  type="checkbox"
+                  id="featured"
+                  checked={featured}
+                  onChange={handleFeaturedChange}
+                />
+                <p className="">
+                  Click to feature this product in the homepage
+                </p>
+              </div>
+            </div>
 
-            {/* <div className="flex gap-10"> */}
-            <label className="text-[#222]" htmlFor="composition">
-              Composition:
-            </label>
-            <input
-              className=" border border-[#555] col-span-2 px-2"
-              type="text"
-              id="composition"
-              onChange={handleCompositionChange}
-            />
-            {/* </div> */}
+            <div className="flex flex-col mb-2 gap-2">
+              <label className="text-[#222]" htmlFor="generalCategory">
+                General Category:
+              </label>
+              <select
+                className=" border border-[#888] px-3 py-1 col-span-2"
+                id="generalCategory"
+                value={generalCategory}
+                onChange={handleGeneralCategoryChange}
+              >
+                <option value="shawl">Shawl</option>
+                <option value="muffler">Muffler</option>
+                <option value="poncho">Poncho</option>
+                <option value="blanket">Blanket</option>
+              </select>
+            </div>
 
-            {/* <div className="flex gap-10"> */}
-            <label className="text-[#222]" htmlFor="weight">
-              Weight:
-            </label>
-            <input
-              className=" border border-[#555] col-span-2 px-2"
-              type="text"
-              id="weight"
-              onChange={handleWeightChange}
-            />
-            {/* </div> */}
+            <div className="flex flex-col mb-2 gap-2">
+              <label className="text-[#222]" htmlFor="genderCategory">
+                Gender Category:
+              </label>
+              <select
+                className=" border border-[#888] px-3 py-1 col-span-2 "
+                id="genderCategory"
+                value={genderCategory}
+                onChange={handleGenderCategoryChange}
+              >
+                <option value="men">Men</option>
+                <option value="women">Women</option>
+              </select>
+            </div>
 
-            {/* <div className="flex gap-10"> */}
-            <label className="text-[#222]" htmlFor="size">
-              Size:
-            </label>
-            <input
-              className=" border border-[#555] col-span-2 px-2"
-              type="text"
-              id="size"
-              onChange={handleSizeChange}
-            />
-            {/* </div> */}
-            <div></div>
-            <div></div>
-            <div className="flex justify-end h-8">
+            <div className="flex flex-col mb-2 gap-2">
+              <label className="text-[#222]" htmlFor="stock">
+                Stock:
+              </label>
+              <input
+                className=" border border-[#888] col-span-2 px-2 py-1"
+                type="number"
+                id="stock"
+                onChange={handleStockChange}
+              />
+            </div>
+
+            <div className="flex flex-col mb-2 gap-2">
+              <label className="text-[#222]" htmlFor="composition">
+                Composition:
+              </label>
+              <input
+                className=" border border-[#888] col-span-2 px-2 py-1"
+                type="text"
+                id="composition"
+                onChange={handleCompositionChange}
+              />
+            </div>
+
+            <div className="flex flex-col mb-2 gap-2">
+              <label className="text-[#222]" htmlFor="weight">
+                Weight:
+              </label>
+              <input
+                className=" border border-[#888] col-span-2 px-2 py-1"
+                type="text"
+                id="weight"
+                onChange={handleWeightChange}
+              />
+            </div>
+
+            <div className="flex flex-col mb-2 gap-2">
+              <label className="text-[#222]" htmlFor="size">
+                Size:
+              </label>
+              <input
+                className=" border border-[#888] col-span-2 px-2 py-1"
+                type="text"
+                id="size"
+                onChange={handleSizeChange}
+              />
+            </div>
+            <div className="flex justify-end h-10 ">
               <Button disabled={isLoading}>Add Product</Button>
             </div>
           </form>

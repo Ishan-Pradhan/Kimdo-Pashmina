@@ -100,23 +100,25 @@ function Login() {
               </div>
             </div>
 
-            <div className="flex items-center mb-5 gap-1">
+            <div className="flex justify-end ">
+              <button
+                type="submit"
+                className="text-white w-full bg-primary hover:bg-primaryShadow focus:ring-4 focus:outline-secondary  font-medium  text-sm px-8 py-2.5  text-center "
+              >
+                Login
+              </button>
+            </div>
+            <div className="flex items-center mt-8 gap-1 ">
               <label
                 htmlFor="Sign In"
                 className="ms-2 text-sm font-medium text-gray-900 "
               >
                 Not Registered yet?
               </label>
-              <NavLink to="/Register" className="text-secondary">
+              <NavLink to="/Register" className="text-secondary text-sm">
                 Register Now
               </NavLink>
             </div>
-            <button
-              type="submit"
-              className="text-white bg-primary hover:bg-primaryShadow focus:ring-4 focus:outline-secondary  font-medium  text-sm px-5 py-2.5 text-center "
-            >
-              Login Now
-            </button>
           </form>
         </div>
       </div>

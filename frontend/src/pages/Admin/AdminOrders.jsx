@@ -89,7 +89,8 @@ function AdminOrders() {
       <section className=" flex justify-start items-start gap-10 mr-8 relative">
         <AdminMenu />
         <div className="mt-10">
-          <h2 className="text-2xl underline underline-offset-8 uppercase font-head font-semibold mb-4 text-center">
+          <h2 className="text-2xl uppercase font-head font-bold mb-1 text-center">
+            {" "}
             orders
           </h2>{" "}
           <div className="flex items-center justify-between mb-4 px-10">
@@ -142,16 +143,21 @@ function AdminOrders() {
               >
                 <div className="col-span-3 flex flex-col">
                   <span>
-                    <span className="font-bold">Order_id </span>
+                    <span className="font-bold">Order_Id </span>
                     {order._id}
                   </span>
-                  <span>
-                    <span className="font-bold">Txn_id</span>{" "}
-                    {order.transaction_code}
-                  </span>
-                  <span>
-                    <span className="text-sm font-semibold">Date</span>{" "}
-                    {new Date(order.createdAt).toLocaleDateString()}
+                  {order.status === "paid" ? (
+                    <span>
+                      <span className="font-bold">Txn_Id</span>{" "}
+                      {order.transaction_code}
+                    </span>
+                  ) : (
+                    ""
+                  )}
+                  <span className="mt-2">
+                    <span className="text-sm">
+                      Order on: {new Date(order.createdAt).toLocaleDateString()}
+                    </span>{" "}
                   </span>
                 </div>
                 <div className="flex flex-col col-span-2">

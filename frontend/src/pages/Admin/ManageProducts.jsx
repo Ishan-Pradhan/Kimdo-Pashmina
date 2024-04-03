@@ -2,6 +2,7 @@ import { useState } from "react";
 import AdminMenu from "../../components/AdminPage/AdminMenu";
 import { useProductContext } from "../../context/productcontext";
 import { NavLink } from "react-router-dom";
+import { scrollToTop } from "../../utils/scrollTop";
 
 function ManageProducts() {
   const { products } = useProductContext();
@@ -30,11 +31,11 @@ function ManageProducts() {
       <section className="container flex justify-start items-start gap-10 ">
         <AdminMenu />
         <div className="mt-10">
-          <h2 className="text-2xl underline underline-offset-8 uppercase font-head font-semibold mb-4 text-center">
+          <h2 className="text-2xl uppercase font-head font-bold mb-1 text-center">
             Manage Products
           </h2>
 
-          <div className="">
+          <div className="flex flex-col justify-center">
             <div className="flex justify-between items-center">
               <input
                 type="text"
@@ -103,6 +104,7 @@ function ManageProducts() {
                   <NavLink
                     to={`/dashboard/admin/manage-product/${product._id}`}
                     className="text-secondary font-bold hover:underline uppercase"
+                    onClick={scrollToTop}
                   >
                     update
                   </NavLink>

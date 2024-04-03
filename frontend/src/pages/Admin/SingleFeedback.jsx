@@ -62,57 +62,81 @@ function SingleFeedback() {
     <>
       <section className="container  flex justify-start items-start gap-10 ">
         <AdminMenu />
-        <div className="flex flex-col mb-10 mt-10 w-3/5">
-          <form className="grid grid-cols-2 gap-4">
-            <label htmlFor="name">Name</label>
-            <input
-              type="text"
-              value={name}
-              className="border-2  px-2"
-              disabled
-            />
-            <label htmlFor="name">Email</label>
-            <input
-              type="text"
-              value={email}
-              className="border-2  px-2"
-              disabled
-            />
-            <label htmlFor="name">Message</label>
-            <textarea
-              type="text"
-              rows="6"
-              value={message}
-              className="border-2  px-2"
-              disabled
-            ></textarea>
+        <div className="my-10 flex flex-col w-full justify-center items-center">
+          <h2 className="text-2xl uppercase font-head font-bold mb-1 text-center">
+            Manage Feedback
+          </h2>
+          <form
+            onSubmit={handleSubmit}
+            encType="multipart/form-data"
+            className="border-2 shadow-lg w-1/2 bg-white p-10 grid grid-cols-1 gap-4 relative mt-5 "
+          >
+            <div className="flex flex-col gap-2 mb-2">
+              <label htmlFor="name" className="font-semibold">
+                Name
+              </label>
+              <input
+                type="text"
+                value={name}
+                className="border-2  px-2"
+                disabled
+              />
+            </div>
+            <div className="flex flex-col gap-2 mb-2">
+              <label htmlFor="email" className="font-semibold">
+                Email
+              </label>
+              <input
+                id="email"
+                type="text"
+                value={email}
+                className="border-2  px-2"
+                disabled
+              />
+            </div>
+            <div className="flex flex-col gap-2 mb-2">
+              <label htmlFor="message" className="font-semibold">
+                Message
+              </label>
+              <textarea
+                id="message"
+                type="text"
+                rows="6"
+                value={message}
+                className="border-2  px-2"
+                disabled
+              ></textarea>
+            </div>
             <label htmlFor="featured">Set as Featured</label>
-            <select
-              name=""
-              className="bg-background border-2 px-2"
-              id="featured"
-              value={isFeatured}
-              onChange={(e) => setIsFeatured(e.target.value)}
-            >
-              <option value="true">Yes</option>
-              <option value="false">No</option>
-            </select>
-            <div></div>
+            <div className="flex flex-col gap-2 mb-2">
+              <select
+                name=""
+                className="bg-background border-2 px-2"
+                id="featured"
+                value={isFeatured}
+                onChange={(e) => setIsFeatured(e.target.value)}
+              >
+                <option value="true">Yes</option>
+                <option value="false">No</option>
+              </select>
+            </div>
+
             <div className="flex justify-between items-center">
               <div>
                 <button
-                  className="bg-red-300  text-red-700 px-4 py-1"
+                  className="bg-red-300 group text-red-700 font-semibold py-2 px-6 text-md  transition-all duration-300 ease-in hover:bg-red-600 hover:text-background hover:ease-in-out md:w-auto flex gap-3 items-center"
                   onClick={handleDelete}
                 >
                   Delete
+                  <i className="fa-solid fa-trash text-red-700 transition group:duration-300 ease-in group-hover:text-background"></i>
                 </button>
               </div>
               <div>
                 <button
-                  className="bg-primary text-background px-4 py-1"
+                  className="bg-secondary text-background font-semibold py-2 px-3 text-md   transition duration-300 ease-in hover:bg-secondaryTint hover:text-text hover:ease-in-out md:w-auto flex gap-3 items-center"
                   onClick={handleSubmit}
                 >
-                  Update
+                  Update Feedback
                 </button>
               </div>
             </div>

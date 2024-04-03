@@ -16,7 +16,7 @@ function FilterSection() {
   const categoryOnlyData = getUniqueData(all_products, "generalCategory");
 
   return (
-    <div className="flex flex-col gap-10 w-[229px]">
+    <div className="flex flex-col gap-10 w-[229px] sticky top-28 ">
       {/* <div>
         <form onSubmit={(e) => e.preventDefault()}>
           <input

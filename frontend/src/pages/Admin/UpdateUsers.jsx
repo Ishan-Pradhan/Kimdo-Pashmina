@@ -88,51 +88,67 @@ function UpdateUsers() {
 
   return (
     <>
-      <section className="container  flex justify-start items-start gap-10 mb-10">
+      <section className="container flex justify-start items-start gap-10 mb-10">
         <AdminMenu />
-        <div className="flex flex-col mt-10 border p-10 py-5">
-          <h3 className="font-bold text-2xl text-center mb-5">Update User</h3>
-          <form className="grid grid-cols-2 gap-4">
-            <label htmlFor="name">Name</label>
-            <input
-              type="text"
-              value={name}
-              className="border-2 rounded px-2"
-              disabled
-            />
-            <label htmlFor="name">Email</label>
-            <input
-              type="text"
-              value={email}
-              className="border-2 rounded px-2"
-              disabled
-            />
-
-            <label htmlFor="featured">Set as Admin</label>
-            <select
-              name=""
-              className="rounded px-2"
-              id="featured"
-              value={role}
-              onChange={(e) => setRole(e.target.value)}
-            >
-              <option value="1">Yes</option>
-              <option value="0">No</option>
-            </select>
-            <div className="mt-2">
-              <button
-                className="bg-primary hover:bg-primaryShadow text-background rounded px-5 py-1"
-                onClick={handleSubmit}
-              >
-                Update
-              </button>
+        <div className="mt-10 flex flex-col w-full justify-center items-center">
+          <h2 className="text-2xl uppercase font-head font-bold mb-1 text-center">
+            Manage User
+          </h2>
+          <form
+            onSubmit={handleSubmit}
+            encType="multipart/form-data"
+            className="border-2 shadow-lg w-1/2 bg-white p-10 grid grid-cols-1 gap-4 relative mt-5 "
+          >
+            <div className="flex flex-col gap-2 mb-2">
+              <label htmlFor="name" className="font-semibold">
+                Name
+              </label>
+              <input
+                type="text"
+                value={name}
+                className="border border-[#888] py-1 px-2"
+                disabled
+              />
             </div>
-            <div className="mt-2">
+            <div className="flex flex-col gap-2 mb-2">
+              <label htmlFor="name" className="font-semibold">
+                Email
+              </label>
+              <input
+                type="text"
+                value={email}
+                className="border border-[#888] py-1 px-2"
+                disabled
+              />
+            </div>
+            <div className="flex flex-col gap-2 mb-2">
+              <label htmlFor="featured" className="font-semibold">
+                Set as Admin
+              </label>
+              <select
+                name=""
+                className="border border-[#888] py-1 px-2"
+                id="featured"
+                value={role}
+                onChange={(e) => setRole(e.target.value)}
+              >
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+              </select>
+            </div>
+            <div className="flex justify-between">
               <button
-                className="bg-red-500 hover:bg-red-700 text-background rounded  px-5 py-1"
+                className="bg-red-300 group text-red-700 font-semibold py-2 px-6 text-md  transition-all duration-300 ease-in hover:bg-red-600 hover:text-background hover:ease-in-out md:w-auto flex gap-3 items-center"
                 onClick={handleDelete}
               >
                 Delete
+                <i className="fa-solid fa-trash text-red-700 transition group:duration-300 ease-in group-hover:text-background"></i>
+              </button>
+              <button
+                className="bg-secondary text-background font-semibold py-2 px-3 text-md   transition delay-50 ease-in hover:bg-secondaryTint hover:text-text hover:ease-in-out md:w-auto flex gap-3 items-center"
+                onClick={handleSubmit}
+              >
+                Update User
               </button>
             </div>
           </form>

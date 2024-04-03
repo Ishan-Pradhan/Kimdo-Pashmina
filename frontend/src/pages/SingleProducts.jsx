@@ -7,6 +7,7 @@ import PageNavigation from "../components/PageNavigation";
 import Footer from "../components/Footer";
 import AddToCart from "../components/AddToCart";
 import Loading from "../components/Loading";
+import { scrollToTop } from "../utils/scrollTop";
 
 const API = "http://localhost:8000/api/v1/product";
 
@@ -49,7 +50,7 @@ function SingleProducts() {
               <img
                 src={productImg}
                 alt=""
-                className="w-[500px] object-cover object-top"
+                className="w-[500px] h-[500px] object-contain object-top"
               />
             </div>
             <div className="flex flex-col gap-10 justify-center items-start md:w-1/2">
@@ -58,27 +59,37 @@ function SingleProducts() {
                   <p className="font-head font-bold capitalize text-4xl">
                     {productName}
                   </p>
-
-                  <div className="flex gap-5 items-center">
+                  <div className="flex justify-between items-center">
+                    <div className="flex gap-5 items-center ">
+                      <span
+                        className={`text-2xl ${
+                          discount > 0 ? "line-through text-gray-500" : ""
+                        }`}
+                      >
+                        Rs. {price}
+                      </span>
+                      {discount > 0 ? (
+                        <span className="text-2xl text-secondary font-semibold">
+                          Rs. {price - price * (discount / 100)}
+                        </span>
+                      ) : (
+                        ""
+                      )}
+                    </div>
                     <span
-                      className={`text-xl ${
-                        discount > 0 ? "line-through text-gray-500" : ""
+                      className={`font-bold text-sm ${
+                        stock < 5 ? "text-red-400" : "text-green-500"
                       }`}
                     >
-                      Rs. {price}
+                      {stock} in stock
                     </span>
-                    {discount > 0 ? (
-                      <span className="text-2xl text-secondary font-semibold">
-                        Rs. {price - price * (discount / 100)}
-                      </span>
-                    ) : (
-                      ""
-                    )}
                   </div>
                 </div>
                 <div className="flex flex-col gap-5">
                   <div>
-                    <p className="text-lg">{description}</p>
+                    <p className="text-lg text-justify leading-6">
+                      {description}
+                    </p>
                   </div>
                   <div className="grid grid-cols-2 gap-2">
                     <h3 className="text-lg text-gray-500 border-b-2 py-1 col-span-2 mb-2">
@@ -98,11 +109,21 @@ function SingleProducts() {
                     </span>
                   </div>
                 </div>
-                <span className="text-gray-400 text-sm">{stock} in stock</span>
               </div>
 
-              <NavLink to="/Cart">
-                <AddToCart product={singleProduct} buttonText="Add to Cart" />
+              <NavLink to="/Cart" className="w-full flex justify-end">
+                <button
+                  className={`bg-primary w-full  py-3 px-6 text-md  transition delay-50 hover:bg-primaryShadow hover:ease-in-out  flex gap-3 justify-center items-center `}
+                  onClick={scrollToTop}
+                >
+                  <span className="text-background font-semibold">
+                    Add to Cart{" "}
+                  </span>{" "}
+                  <i
+                    className="fa-solid fa-cart-shopping text-background
+"
+                  ></i>
+                </button>
               </NavLink>
             </div>
           </div>

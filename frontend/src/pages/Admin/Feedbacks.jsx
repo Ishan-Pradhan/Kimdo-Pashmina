@@ -17,7 +17,7 @@ function Feedbacks() {
       <section className="container  flex justify-start items-start gap-10 mb-10">
         <AdminMenu />
         <div className="mt-10">
-          <h2 className="text-2xl underline underline-offset-8 uppercase font-head font-semibold mb-4 text-center">
+          <h2 className="text-2xl uppercase font-head font-bold mb-1 text-center">
             Feedbacks
           </h2>
           <input

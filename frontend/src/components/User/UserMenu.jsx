@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { useAuthContext } from "../../context/authcontext";
 import { toast } from "react-toastify";
+import { scrollToTop } from "../../utils/scrollTop";
 
 function UserMenu() {
   const [auth, setAuth] = useAuthContext();
@@ -24,6 +25,7 @@ function UserMenu() {
                     ? "flex items-center p-2 text-base font-normal text-text  bg-primaryTint transition delay-50 hover:ease-in gap-2"
                     : " flex items-center p-2 text-base font-normal text-text   hover:bg-primaryTint gap-2"
                 }
+                onClick={scrollToTop}
               >
                 <i className="fa-solid fa-user"></i>
                 <div>Profile</div>
@@ -37,6 +39,7 @@ function UserMenu() {
                     ? "flex items-center p-2 text-base font-normal text-text  bg-primaryTint transition delay-50 hover:ease-in gap-2"
                     : " flex items-center p-2 text-base font-normal text-text   hover:bg-primaryTint gap-2"
                 }
+                onClick={scrollToTop}
               >
                 <i className="fa-solid fa-bag-shopping"></i>
                 <div>Orders</div>
@@ -50,6 +53,7 @@ function UserMenu() {
                     ? "flex items-center p-2 text-base font-normal text-text  bg-primaryTint transition delay-50 hover:ease-in gap-2"
                     : " flex items-center p-2 text-base font-normal text-text   hover:bg-primaryTint gap-2"
                 }
+                onClick={scrollToTop}
               >
                 <i className="fa-solid fa-comment"></i>
                 <div>Feedbacks</div>

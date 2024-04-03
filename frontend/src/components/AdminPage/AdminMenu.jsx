@@ -13,7 +13,7 @@ function AdminMenu() {
     toast.success("Logged out successfully");
   };
   return (
-    <div className="max-w-2xl ">
+    <div className="max-w-2xl">
       <aside className="w-64 " aria-label="Sidebar">
         <div className="px-3 w-64 py-4 overflow-y-auto border bg-gray-50 fixed h-full">
           <div className="flex items-center justify-center my-5">
