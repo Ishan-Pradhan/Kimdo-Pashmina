@@ -45,7 +45,7 @@ function Order() {
       <section className="flex flex-col container mx-auto md:flex-row justify-start items-start gap-10 px-5 md:px-0">
         <UserMenu />
         <div className="w-full">
-          <div className="flex justify-between border-b items-center">
+          <div className="flex justify-between border-b items-center py-3">
             <h2 className="text-2xl font-semibold ">My orders</h2>
             <div>
               <label htmlFor="status">Filter by Status:</label>

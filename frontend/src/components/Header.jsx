@@ -73,7 +73,7 @@ function Header() {
 
   return (
     <nav
-      className={` container  mx-auto px-10 py-6 z-50 transition-all duration-250 ease-in  flex md:flex-row justify-center relative md:px-0 ${
+      className={` container  mx-auto px-10 py-4 z-50 transition-all duration-250 ease-in  flex md:flex-row justify-center relative md:px-0 ${
         isScrolled ? " w-full bg-background h-full " : ""
       }`}
     >

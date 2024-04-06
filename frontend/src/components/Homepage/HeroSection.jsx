@@ -2,7 +2,7 @@ import { useReducer } from "react";
 import Button from "../Button";
 import { Link } from "react-router-dom";
 
-const images = ["images/hero1.jpg", "images/hero2.jpg"];
+const images = ["images/hero4.jpg", "images/hero2.jpg"];
 
 const initialState = {
   currentImage: 0,
@@ -28,7 +28,9 @@ function HeroSection() {
   return (
     <section id="hero" className="relative w-full">
       <div
-        className="h-[85vh] p-10 md:h-[80vh] bg-cover bg-bottom md:bg-center  flex flex-col justify-center items-start md:p-20 gap-5 mx-auto "
+        className={`h-[85vh] p-10 md:h-[86vh] bg-cover ${
+          state.contentType === "women" ? "bg-right" : "bg:left"
+        }  md:bg-top  flex flex-col justify-center items-start md:p-20 gap-5 mx-auto `}
         style={{
           backgroundImage: `linear-gradient(to right, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)),url(${
             images[state.currentImage]
@@ -46,7 +48,7 @@ function HeroSection() {
           >
             <div className="md:w-1/2" data-aos="fade-up">
               <h1
-                className="font-head text-5xl md:text-7xl font-semibold text-background my-5 "
+                className="font-head text-6xl md:text-7xl font-semibold text-background my-5 "
                 data-aos="fade-up"
               >
                 {state.contentType === "women"
