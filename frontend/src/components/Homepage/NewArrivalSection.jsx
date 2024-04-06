@@ -12,7 +12,7 @@ function NewArrivalSection() {
   }
 
   return (
-    <section id="feature-products" className="my-20" data-aos="fade-right">
+    <section id="feature-products" className="my-20" data-aos="zoom-in-down">
       <div className="container mx-auto px-16">
         <div className="flex justify-center md:justify-between items-center">
           <span className="font-head text-3xl font-semibold text-center">

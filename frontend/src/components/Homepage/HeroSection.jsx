@@ -32,7 +32,9 @@ function HeroSection() {
           state.contentType === "women" ? "bg-right" : "bg:left"
         }  md:bg-top  flex flex-col justify-center items-start md:p-20 gap-5 mx-auto `}
         style={{
-          backgroundImage: `linear-gradient(to right, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)),url(${
+          backgroundImage: `linear-gradient(${
+            state.contentType === "women" ? "to right" : "to left"
+          }, rgba(0, 0, 0, 0.35) 50%, rgba(0, 0, 0, 0.0)),url(${
             images[state.currentImage]
           })`,
         }}

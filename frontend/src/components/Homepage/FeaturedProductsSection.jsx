@@ -16,7 +16,7 @@ function FeaturedProductsSection() {
   }
 
   return (
-    <section id="feature-products" className="my-20" data-aos="fade-right">
+    <section id="feature-products" className="my-20" data-aos="zoom-in-down">
       <div className="container mx-auto px-5 md:px-16">
         {/* categories title */}
         <div className="flex justify-center md:justify-between items-center">

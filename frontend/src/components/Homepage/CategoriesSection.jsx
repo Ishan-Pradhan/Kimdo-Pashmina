@@ -9,7 +9,7 @@ const catImages = [
 
 function CategoriesSection() {
   return (
-    <section id="categories" className="my-20">
+    <section id="categories" className="my-20" data-aos="zoom-in-down">
       <div className="px-5 container mx-auto relative flex flex-col md:px-16">
         {/* categories title */}
         <div className="flex justify-center md:justify-between items-center">
