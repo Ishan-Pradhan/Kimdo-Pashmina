@@ -91,12 +91,12 @@ function Profile() {
       <section className="flex flex-col container mx-auto md:flex-row justify-start items-start gap-10 px-5 md:px-0">
         <UserMenu />
         <form
-          className="self-center w-full md:w-[500px] shadow-lg border  p-10"
+          className="self-center w-full md:w-[500px] shadow-lg border  p-8"
           onSubmit={handleSubmit}
         >
-          <h3 className="text-center text-2xl font-bold mb-5">
-            Your Information
-          </h3>
+          <h2 className="text-2xl uppercase font-head font-bold mb-1 text-center">
+            Your Profile
+          </h2>
           <div className="mb-5">
             <label
               htmlFor="name"
@@ -144,6 +144,7 @@ function Profile() {
               onChange={(e) => setPassword(e.target.value)}
               id="password"
               className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-sm focus:primary focus:border-blue-500 block w-full p-2.5 "
+              placeholder="Type your new password"
             />
           </div>
 

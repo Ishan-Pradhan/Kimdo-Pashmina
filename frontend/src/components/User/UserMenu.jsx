@@ -23,7 +23,7 @@ function UserMenu() {
                 className={({ isActive }) =>
                   isActive
                     ? "flex items-center p-2 text-base font-normal text-text  bg-primaryTint transition delay-50 hover:ease-in gap-2"
-                    : " flex items-center p-2 text-base font-normal text-text   hover:bg-primaryTint gap-2"
+                    : " flex items-center p-2 text-base font-normal text-text   hover:bg-primaryTint2 gap-2"
                 }
                 onClick={scrollToTop}
               >
@@ -37,7 +37,7 @@ function UserMenu() {
                 className={({ isActive }) =>
                   isActive
                     ? "flex items-center p-2 text-base font-normal text-text  bg-primaryTint transition delay-50 hover:ease-in gap-2"
-                    : " flex items-center p-2 text-base font-normal text-text   hover:bg-primaryTint gap-2"
+                    : " flex items-center p-2 text-base font-normal text-text   hover:bg-primaryTint2 gap-2"
                 }
                 onClick={scrollToTop}
               >
@@ -51,7 +51,7 @@ function UserMenu() {
                 className={({ isActive }) =>
                   isActive
                     ? "flex items-center p-2 text-base font-normal text-text  bg-primaryTint transition delay-50 hover:ease-in gap-2"
-                    : " flex items-center p-2 text-base font-normal text-text   hover:bg-primaryTint gap-2"
+                    : " flex items-center p-2 text-base font-normal text-text   hover:bg-primaryTint2 gap-2"
                 }
                 onClick={scrollToTop}
               >
@@ -65,7 +65,7 @@ function UserMenu() {
                 className={({ isActive }) =>
                   isActive
                     ? "flex items-center p-2 text-base font-normal text-text  bg-primaryTint transition delay-50 hover:ease-in gap-2"
-                    : " flex items-center p-2 text-base font-normal text-text   hover:bg-primaryTint gap-2"
+                    : " flex items-center p-2 text-base font-normal text-text   hover:bg-primaryTint2 gap-2"
                 }
                 onClick={handleLogout}
               >

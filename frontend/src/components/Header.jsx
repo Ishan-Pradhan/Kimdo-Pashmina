@@ -273,8 +273,11 @@ function Header() {
               </div>
             ) : auth.user.role === 0 ? (
               <NavLink to={"/dashboard/user/profile"} onClick={scrollToTop}>
-                <button className="hidden text-lg  py-1 px-3 font-semibold  text-text hover:ring hover:ring-inset hover:ring-primaryShadow hover:bg-primaryTint  cursor-pointer transition delay-50 hover-ease-in md:flex items-center gap-2">
-                  <i className="fa-solid fa-user"></i> {auth.user.name}
+                <button className="hidden text-lg  py-1 px-3 font-semibold  text-text hover:ring-1 hover:ring-inset hover:ring-primary group  cursor-pointer transition delay-50 hover-ease-in md:flex items-center gap-2">
+                  <i className="fa-solid fa-user group-hover:text-primary"></i>{" "}
+                  <span className="group-hover:text-primary">
+                    {auth.user.name}
+                  </span>
                 </button>
               </NavLink>
             ) : (
