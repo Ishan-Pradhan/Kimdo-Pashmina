@@ -80,7 +80,7 @@ function Register() {
   return (
     <>
       <Header />
-      <div className="max-w-xl mx-auto border-2  shadow-xl p-10">
+      <div className="max-w-xl mx-auto border-2 mt-10  shadow-xl p-10">
         <h1 className="text-center text-3xl font-bold font-head mb-4">
           Register Page
         </h1>
@@ -188,7 +188,22 @@ function Register() {
             />
           </div>
 
-          <div className="flex items-center mb-5 gap-1">
+          <div className="text-red-500 text-sm mt-1">
+            {Object.values(errors).map((error, index) => (
+              <div className="text-red-500 my-4" key={index}>
+                {error}
+              </div>
+            ))}
+          </div>
+          <div className="flex justify-end mt-8 mb-5 w-full">
+            <button
+              type="submit"
+              className="text-white w-full bg-primary hover:bg-primaryShadow focus:ring-4 focus:outline-none focus:primary font-medium  text-sm px-5 py-2.5 text-center "
+            >
+              Register new account
+            </button>
+          </div>
+          <div className="flex items-center justify-center  gap-1">
             <label
               htmlFor="Sign In"
               className="ms-2 text-sm font-medium text-gray-900 "
@@ -199,20 +214,6 @@ function Register() {
               Sign In
             </NavLink>
           </div>
-          <div className="text-red-500 text-sm mt-1">
-            {Object.values(errors).map((error, index) => (
-              <div className="text-red-500 my-4" key={index}>
-                {error}
-              </div>
-            ))}
-          </div>
-
-          <button
-            type="submit"
-            className="text-white bg-primary hover:bg-primaryShadow focus:ring-4 focus:outline-none focus:primary font-medium  text-sm px-5 py-2.5 text-center "
-          >
-            Register new account
-          </button>
         </form>
       </div>
       <Footer />

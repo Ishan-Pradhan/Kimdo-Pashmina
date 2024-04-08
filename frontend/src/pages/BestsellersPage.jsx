@@ -13,14 +13,13 @@ function BestsellersPage() {
   const { isLoading, products } = useProductContext();
   const { filter_products } = useFilterContext();
 
-  // Check if filter_products exist, if not, use all products
   const bestsellers =
     filter_products.length > 0
       ? filter_products.filter((product) => product.quantitySold >= 5)
       : products.filter((product) => product.quantitySold >= 5);
 
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 10;
+  const itemsPerPage = 9;
 
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
