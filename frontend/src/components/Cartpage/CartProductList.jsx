@@ -104,18 +104,26 @@ function CartProductList() {
           <div className="col-span-1 font-extrabold text-lg">Sub Total</div>
         </div>
 
-        {cart.map((item) => (
-          <CartProducts key={item._id} item={item} />
-        ))}
-
-        <div className="flex justify-end">
-          <button
-            className=" text-red-600 hover:underline  mt-5"
-            onClick={clearCart}
-          >
-            Clear Cart
-          </button>
-        </div>
+        {cart.length === 0 ? (
+          <div className="flex flex-col justify-center items-center w-full">
+            <img src="/images/empty-cart.png" alt="" className="w-44 h-44" />
+            <span>Your Cart is Empty.</span>
+          </div>
+        ) : (
+          cart.map((item) => <CartProducts key={item._id} item={item} />)
+        )}
+        {cart.length === 0 ? (
+          ""
+        ) : (
+          <div className="flex justify-end">
+            <button
+              className=" text-red-600 hover:underline  mt-5"
+              onClick={clearCart}
+            >
+              Clear Cart
+            </button>
+          </div>
+        )}
 
         <div className="mt-8">
           <h3 className="text-xl font-semibold md:px-16">
