@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import { useCartContext } from "../context/cartcontext";
 import { scrollToTop } from "../utils/scrollTop";
 
-function AddToCart({ product, buttonText }) {
+function AddToCart({ product, buttonText, disabled }) {
   const { addToCart } = useCartContext();
 
   const { _id, stock, price } = product;
@@ -15,8 +15,9 @@ function AddToCart({ product, buttonText }) {
     >
       {buttonText ? (
         <button
-          className={`bg-primary w-full  py-1 px-6 text-md  transition delay-50 hover:bg-primaryShadow hover:ease-in-out  flex gap-3 justify-center items-center `}
+          className={`bg-primary w-full  py-1 px-6 text-md  transition delay-50 hover:bg-primaryShadow hover:ease-in-out  flex gap-3 justify-center items-center`}
           onClick={scrollToTop}
+          disabled={disabled}
         >
           <span className="text-background font-semibold">Add to Cart </span>{" "}
           <i

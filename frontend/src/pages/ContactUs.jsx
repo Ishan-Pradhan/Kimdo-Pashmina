@@ -36,6 +36,7 @@ const ContactUsPage = () => {
     try {
       const res = await axios.post("/api/v1/contact", { name, email, message });
       if (res.data.success) {
+        setMessage("");
         toast.success(res.data.message);
       } else {
         throw new Error(res.data.message);
@@ -44,9 +45,6 @@ const ContactUsPage = () => {
       toast.error(error.message);
     }
   };
-
-  if (!auth.user) {
-  }
 
   return (
     <>

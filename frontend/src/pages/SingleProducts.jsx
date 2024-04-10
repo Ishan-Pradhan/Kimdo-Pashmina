@@ -5,15 +5,17 @@ import { useProductContext } from "../context/productcontext";
 
 import PageNavigation from "../components/PageNavigation";
 import Footer from "../components/Footer";
-import AddToCart from "../components/AddToCart";
 import Loading from "../components/Loading";
 import { scrollToTop } from "../utils/scrollTop";
+import FeatureProducts from "../components/FeatureProducts";
+import { useCartContext } from "../context/cartcontext";
 
 const API = "http://localhost:8000/api/v1/product";
 
 function SingleProducts() {
-  const { isSingleLoading, getSingleProduct, singleProduct } =
+  const { isSingleLoading, getSingleProduct, singleProduct, products } =
     useProductContext();
+  const { addToCart } = useCartContext();
 
   const { id } = useParams();
 
@@ -28,11 +30,19 @@ function SingleProducts() {
     size,
     stock,
     weight,
+    generalCategory,
   } = singleProduct;
 
   useEffect(() => {
     getSingleProduct(`${API}/${id}`);
   }, [id]);
+
+  const relatedProducts = products
+    .filter(
+      (product) =>
+        product.generalCategory === generalCategory && product._id != _id
+    )
+    .slice(0, 4);
 
   if (isSingleLoading) {
     return <Loading />;
@@ -85,12 +95,14 @@ function SingleProducts() {
                     </span>
                   </div>
                 </div>
+
                 <div className="flex flex-col gap-5">
                   <div>
                     <p className="text-lg text-justify leading-6">
                       {description}
                     </p>
                   </div>
+
                   <div className="grid grid-cols-2 gap-2">
                     <h3 className="text-lg text-gray-500 border-b-2 py-1 col-span-2 mb-2">
                       DETAILS
@@ -111,21 +123,53 @@ function SingleProducts() {
                 </div>
               </div>
 
-              <NavLink to="/Cart" className="w-full flex justify-end">
-                <button
-                  className={`bg-primary w-full  py-3 px-6 text-md  transition delay-50 hover:bg-primaryShadow hover:ease-in-out  flex gap-3 justify-center items-center `}
-                  onClick={scrollToTop}
+              {stock === 0 ? (
+                <div className="py-3 flex flex-col border-y-2 w-full">
+                  <h4 className="text-secondary text-lg text-bold">
+                    Currently unavailable.
+                  </h4>
+                  <p>
+                    We do not know when or if this item will be back in stock.
+                  </p>
+                </div>
+              ) : (
+                <NavLink
+                  to="/Cart"
+                  className="w-full flex justify-end"
+                  onClick={() => addToCart(_id, stock, price, singleProduct)}
                 >
-                  <span className="text-background font-semibold">
-                    Add to Cart{" "}
-                  </span>{" "}
-                  <i
-                    className="fa-solid fa-cart-shopping text-background
+                  <button
+                    className={`bg-primary w-full  py-3 px-6 text-md  transition delay-50 hover:bg-primaryShadow hover:ease-in-out  flex gap-3 justify-center items-center `}
+                    onClick={scrollToTop}
+                  >
+                    <span className="text-background font-semibold">
+                      Add to Cart{" "}
+                    </span>{" "}
+                    <i
+                      className="fa-solid fa-cart-shopping text-background
 "
-                  ></i>
-                </button>
-              </NavLink>
+                    ></i>
+                  </button>
+                </NavLink>
+              )}
             </div>
+          </div>
+        </section>
+
+        <section className="container m-auto px-16 mt-20">
+          <span className="font-head text-3xl font-semibold text-center">
+            Related Products
+          </span>
+          <div
+            className={`flex flex-col gap-y-14  md:flex-row items-center my-10 flex-wrap ${
+              relatedProducts.length <= 3
+                ? "justify-start gap-x-16"
+                : "justify-between"
+            }`}
+          >
+            {relatedProducts.map((product) => (
+              <FeatureProducts key={product._id} product={product} />
+            ))}
           </div>
         </section>
       </main>

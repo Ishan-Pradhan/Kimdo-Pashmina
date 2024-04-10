@@ -28,9 +28,9 @@ function UserFeedback() {
 
       <section className="flex flex-col container mx-auto md:flex-row justify-start items-start gap-10 px-5 md:px-0">
         <UserMenu />
-        <div className="flex flex-col">
+        <div className="flex flex-col w-full">
           <h2 className="text-2xl font-semibold mb-4">My Feedback</h2>
-          <div className="grid grid-cols-4 my-3 border-b-2 py-4 border-text">
+          <div className="grid grid-cols-4 my-3 border-b-2 py-4 border-text w-full">
             <span className="font-bold">Name</span>
             <span className="hidden font-bold md:flex">Email</span>
             <span className="col-span-3 md:col-span-2 font-bold"> Message</span>
@@ -44,7 +44,9 @@ function UserFeedback() {
               </div>
             ))
           ) : (
-            <p>No feedback provided yet.</p>
+            <div className="flex flex-col justify-center items-center mt-10">
+              <p>No feedback provided yet.</p>
+            </div>
           )}
         </div>
       </section>

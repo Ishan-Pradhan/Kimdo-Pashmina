@@ -33,26 +33,28 @@ function SingleFeedback() {
     try {
       const data = { isFeatured };
       const response = await axios.put(`/api/v1/contact/${id}`, data);
-      console.log(response);
+
       if (response.data.success) {
         toast.success("Feedback updated sucessfully");
       } else {
         throw new Error(data.message);
       }
     } catch (error) {
-      toast.error(error.message);
+      toast.error("error haha");
       console.log(error);
     }
   };
 
-  const handleDelete = async () => {
+  const handleDelete = async (e) => {
+    e.preventDefault();
     try {
       let answer = window.prompt(
         "Are you sure you want to delete this contact?"
       );
       if (!answer) return;
-      const { data } = await axios.delete(`/api/v1/contact/${id}`);
-      toast.success("product deleted successfully");
+      await axios.delete(`/api/v1/contact/${id}`);
+      toast.success("feedback deleted successfully");
+      return;
     } catch (error) {
       console.log(error);
       toast.error("error deleting");

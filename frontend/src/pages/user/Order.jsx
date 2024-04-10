@@ -78,7 +78,11 @@ function Order() {
             </span>
           </div> */}
 
-          {!filteredOrders.length > 0 && <div>You have not ordered yet.</div>}
+          {!filteredOrders.length > 0 && (
+            <div className="flex flex-col justify-center items-center mt-10">
+              <p>You have not ordered yet. </p>{" "}
+            </div>
+          )}
 
           {filteredOrders.map((order) => (
             <div

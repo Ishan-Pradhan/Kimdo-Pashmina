@@ -1,7 +1,6 @@
 /* eslint-disable react/prop-types */
 import { NavLink } from "react-router-dom";
 import AddToCart from "./AddToCart";
-import { scrollToTop } from "../utils/scrollTop";
 import Tippy from "@tippyjs/react";
 import "tippy.js/dist/tippy.css";
 import "tippy.js/themes/light.css";
@@ -9,7 +8,11 @@ import "tippy.js/themes/light.css";
 function FeatureProducts({ product }) {
   if (product.stock === 0) {
     return (
-      <div className="relative brightness-90" data-aos="zoom-in-down">
+      <NavLink
+        to={`/SingleProducts/${product._id} `}
+        data-aos="zoom-in-down"
+        className="relative brightness-90 w-60"
+      >
         <div className="absolute w-full h-full top-0 z-40 flex justify-center items-center ">
           <span className="bg-background rounded-3xl px-3 py-1 -rotate-6">
             currently out of stock
@@ -54,10 +57,11 @@ function FeatureProducts({ product }) {
                 )}
               </div>
             </div>
-            <AddToCart product={product} buttonText={"yes"} />
+
+            <AddToCart product={product} buttonText={"yes"} disabled={true} />
           </div>
         </div>
-      </div>
+      </NavLink>
     );
   }
 
@@ -115,7 +119,7 @@ function FeatureProducts({ product }) {
               )}
             </div>
           </div>
-          <AddToCart product={product} buttonText={"yes"} />
+          <AddToCart product={product} buttonText={"yes"} disabled={false} />
         </div>
       </div>
     </NavLink>
