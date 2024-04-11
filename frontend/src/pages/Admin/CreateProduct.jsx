@@ -3,8 +3,10 @@ import AdminMenu from "../../components/AdminPage/AdminMenu";
 import axios from "axios";
 import Button from "../../components/Button";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 function CreateProduct() {
+  const navigate = useNavigate();
   const [productImg, setProductImg] = useState("");
   const [productName, setProductName] = useState("");
   const [description, setDescription] = useState("");
@@ -107,6 +109,7 @@ function CreateProduct() {
         setWeight("");
         setSize("");
         toast.success("Product created sucessfully");
+        navigate("/dashboard/admin/manage-products");
       }
     } catch (error) {
       toast.error("Fail to create product");

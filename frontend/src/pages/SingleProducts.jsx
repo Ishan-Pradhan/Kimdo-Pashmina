@@ -31,6 +31,7 @@ function SingleProducts() {
     stock,
     weight,
     generalCategory,
+    genderCategory,
   } = singleProduct;
 
   useEffect(() => {
@@ -40,7 +41,9 @@ function SingleProducts() {
   const relatedProducts = products
     .filter(
       (product) =>
-        product.generalCategory === generalCategory && product._id != _id
+        product.generalCategory === generalCategory &&
+        product.genderCategory === genderCategory &&
+        product._id != _id
     )
     .slice(0, 4);
 
@@ -65,6 +68,9 @@ function SingleProducts() {
             </div>
             <div className="flex flex-col gap-10 justify-center items-start md:w-1/2">
               <div className="flex flex-col gap-5">
+                <span className="uppercase text-sm font-bold font-head text-gray-400">
+                  {genderCategory} / {generalCategory}
+                </span>
                 <div className="flex flex-col gap-2">
                   <p className="font-head font-bold capitalize text-4xl">
                     {productName}
@@ -91,7 +97,7 @@ function SingleProducts() {
                         stock < 5 ? "text-red-400" : "text-green-500"
                       }`}
                     >
-                      {stock} in stock
+                      {stock === 0 ? "Out of Stock" : `${stock} in stock`}
                     </span>
                   </div>
                 </div>
@@ -170,6 +176,11 @@ function SingleProducts() {
             {relatedProducts.map((product) => (
               <FeatureProducts key={product._id} product={product} />
             ))}
+            {relatedProducts.length === 0 ? (
+              <span>No products to show.</span>
+            ) : (
+              ""
+            )}
           </div>
         </section>
       </main>

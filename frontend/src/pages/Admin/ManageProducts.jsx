@@ -80,21 +80,17 @@ function ManageProducts() {
             {filteredProducts.map((product) => {
               return (
                 <div
-                  className={`grid grid-cols-5 gap-10 justify-center items-center flex-wrap  mb-10 mt-10 p-2 border-b`}
+                  className={`grid grid-cols-5 gap-10 justify-center items-center flex-wrap  py-10 px-2 border-b`}
                   key={product._id}
                 >
                   <div className="h-32 w-32  overflow-hidden">
                     <img
-                      className="h-full w-full object-contain"
+                      className="h-full w-full object-cover"
                       src={product.productImg}
                       alt=""
                     />
                   </div>
-                  <span
-                    className={` ${product.stock === 0 ? "text-red-500" : ""}`}
-                  >
-                    {product.productName}
-                  </span>
+                  <span>{product.productName}</span>
                   <span>{product.genderCategory}</span>
                   <span
                     className={` ${product.stock === 0 ? "text-red-500" : ""}`}
