@@ -13,22 +13,31 @@ function FeatureProducts({ product }) {
         data-aos="zoom-in-down"
         className="  w-60"
       >
-        <div className="relative hover:-translate-y-3 transition-transform ease-in duration-200 hover:shadow-lg border ">
-          <div className="absolute w-full h-full  top-0 z-40 flex justify-center items-center  ">
+        <div className="hover:-translate-y-3 transition-transform ease-in duration-200 hover:shadow-lg border relative">
+          <div className="absolute w-full h-full  top-0 z-40 flex justify-center items-center ">
             <span className="bg-background border shadow-lg px-3 py-1 -rotate-6">
               currently out of stock
             </span>
           </div>
-          <div className="relative h-60 w-60" data-aos="fade-in">
+          <div className="relative h-60 w-full">
             <img
               src={product.productImg}
               alt=""
-              className="h-full w-full object-cover object-top  relative"
+              className="h-full w-full object-cover object-top overflow-hidden  relative"
             />
           </div>
           <div className="px-3 py-3 bg-white border-t flex flex-col  ">
-            <h3 className="text-lg  font-head font-extrabold mb-1">
-              {product.productName}
+            <h3 className="flex text-lg font-head font-extrabold mb-1 overflow-hidden whitespace-nowrap overflow-ellipsis">
+              <Tippy
+                theme={"light"}
+                interactive={true}
+                content={product.productName}
+              >
+                <span className="overflow-hidden whitespace-nowrap overflow-ellipsis z-40">
+                  {" "}
+                  {product.productName}
+                </span>
+              </Tippy>
             </h3>
             <div className="flex justify-between items-center mb-2">
               {product.discount > 0 ? (
@@ -79,7 +88,7 @@ function FeatureProducts({ product }) {
             className="h-full w-full object-cover object-top overflow-hidden  relative"
           />
         </div>
-        <div className="px-3 py-3 bg-white border-t flex flex-col  ">
+        <div className="px-3 py-3 bg-white border-t flex flex-col  overflow-hidden">
           <h3 className="flex text-lg font-head font-extrabold mb-1 overflow-hidden whitespace-nowrap overflow-ellipsis">
             <Tippy
               theme={"light"}

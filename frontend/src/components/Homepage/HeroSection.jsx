@@ -40,7 +40,7 @@ function HeroSection() {
         }}
       >
         <div
-          className={`container relative flex flex-col justify-between items-start gap-6 mx-auto  `}
+          className={`container px-5 relative flex flex-col justify-between items-start gap-6 mx-auto  `}
         >
           <div
             className={`flex flex-col justify-start items-start md: ${
