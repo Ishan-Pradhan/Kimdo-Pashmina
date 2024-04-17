@@ -126,12 +126,12 @@ function CartProductList() {
         )}
 
         <div className="mt-8">
-          <h3 className="text-xl font-semibold md:px-16">
+          <h3 className="text-xl font-semibold ">
             Order Total: Rs.{total_price}
           </h3>
         </div>
 
-        <div className="flex flex-col container md:px-10 mt-4 ">
+        <div className="flex flex-col container  mt-4 ">
           <div className="flex flex-col justify-center border border-gray-300 md:flex-row">
             {auth.user && (
               <div className="flex flex-col gap-4 px-4 md:px-10 py-5 ">

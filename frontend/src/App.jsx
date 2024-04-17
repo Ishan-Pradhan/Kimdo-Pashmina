@@ -37,12 +37,18 @@ import AdminOrdersDetail from "./pages/Admin/AdminOrdersDetail";
 
 function App() {
   useEffect(() => {
-    Aos.init({ duration: 1000, once: true, mirror: true });
+    Aos.init({
+      once: true,
+      startEvent: "DOMContentLoaded",
+      easing: "ease-in-out",
+      duration: 700,
+    });
   }, []);
   return (
     <BrowserRouter>
       <Routes>
         <Route index element={<Home />}></Route>
+        <Route path="/Home" element={<Home />}></Route>
         <Route path="/WomenProduct" element={<WomenProduct />}></Route>
         <Route path="/MenProduct" element={<MenProduct />}></Route>
         <Route path="/NewArrival" element={<NewArrivalPage />}></Route>

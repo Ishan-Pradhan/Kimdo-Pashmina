@@ -10,7 +10,7 @@ function NewArrival({ product }) {
     return (
       <NavLink
         to={`/SingleProducts/${product._id} `}
-        data-aos="zoom-in-down"
+        // data-aos="zoom-in-down"
         className="  w-60"
       >
         <div className="hover:-translate-y-3 transition-transform ease-in duration-200 hover:shadow-lg border relative">
@@ -81,7 +81,7 @@ function NewArrival({ product }) {
   return (
     <NavLink
       to={`/SingleProducts/${product._id} `}
-      data-aos="zoom-in-down"
+      // data-aos="zoom-in-down"
       className="w-60"
     >
       <div className="hover:-translate-y-3 transition-transform ease-in duration-200 hover:shadow-lg border relative">

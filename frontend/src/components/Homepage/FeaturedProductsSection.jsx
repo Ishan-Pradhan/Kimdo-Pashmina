@@ -35,13 +35,7 @@ function FeaturedProductsSection() {
             </span>
           </NavLink>
         </div>
-        <div
-          className={`flex flex-col gap-y-14  md:flex-row items-center my-10 flex-wrap ${
-            featureProducts.length <= 3
-              ? "justify-start gap-x-16"
-              : "justify-between"
-          }`}
-        >
+        <div className="flex flex-col gap-y-14  md:flex-row items-center my-10 flex-wrap gap-[4rem] justify-start gap-x-16">
           {featureProducts.map((product) => {
             return <FeatureProducts key={product._id} product={product} />;
           })}

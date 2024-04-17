@@ -52,6 +52,7 @@ function HeroSection() {
               <h1
                 className="font-head text-6xl md:text-7xl font-semibold text-background my-5 "
                 data-aos="fade-up"
+                data-aos-once="true"
               >
                 {state.contentType === "women"
                   ? `Elevate Your

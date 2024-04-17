@@ -9,7 +9,6 @@ function Categories({ children, images }) {
       style={{
         backgroundImage: `linear-gradient(to right, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.25)),url(${images})`,
       }}
-      data-aos="fade-up"
     >
       <Link
         to={
