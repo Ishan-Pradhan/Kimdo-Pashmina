@@ -47,14 +47,14 @@ function Login() {
   return (
     <>
       <Header />
-      <div className="flex mt-10 w-fit mx-auto  shadow-2xl shadow-current justify-between gap-10">
+      <div className="flex mt-10  md:w-1/2 mx-5 md:mx-auto border-text border md:border-none shadow-lg md:shadow-2xl justify-between gap-10">
         <img
           src="images/login.jpg"
           alt=""
           className="max-w-80 object-cover brightness-75 hidden md:flex"
           loading="lazy"
         />
-        <div className="max-w-md py-10 pr-10">
+        <div className="w-full md:max-w-md mx-auto p-10 md:pl-0 md:py-10 md:pr-10">
           <h1 className="text-center text-3xl font-bold font-head mb-4">
             Login
           </h1>

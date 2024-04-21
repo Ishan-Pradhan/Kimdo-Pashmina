@@ -7,6 +7,7 @@ app.use(
   cors({
     // origin: process.env.CORS_ORIGIN,
     origin: "http://localhost:3000",
+    // origin: "https://g88bg4sl-3000.inc1.devtunnels.ms",
     credentials: true,
   })
 );

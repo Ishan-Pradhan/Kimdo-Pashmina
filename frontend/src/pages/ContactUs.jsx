@@ -125,10 +125,11 @@ const ContactUsPage = () => {
                 </div>
                 <div className="flex justify-end md:justify-start">
                   <button
-                    className="bg-primary text-white py-2 px-4  hover:bg-primaryShadow transition  "
+                    className="bg-primary flex gap-2 items-center  py-2 px-4  hover:bg-primaryShadow transition  "
                     type="submit"
                   >
-                    Send Message
+                    <span className="text-white  font-bold">Send Message</span>
+                    <i className="fa-solid fa-paper-plane text-white"></i>
                   </button>
                 </div>
               </form>

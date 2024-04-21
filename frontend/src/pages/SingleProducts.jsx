@@ -10,7 +10,7 @@ import { scrollToTop } from "../utils/scrollTop";
 import FeatureProducts from "../components/FeatureProducts";
 import { useCartContext } from "../context/cartcontext";
 
-const API = "http://localhost:8000/api/v1/product";
+const API = "/api/v1/product";
 
 function SingleProducts() {
   const { isSingleLoading, getSingleProduct, singleProduct, products } =
@@ -63,7 +63,7 @@ function SingleProducts() {
               <img
                 src={productImg}
                 alt=""
-                className="w-[500px] h-[500px] object-contain object-top"
+                className="w-[500px] md:h-[500px] object-contain object-top"
               />
             </div>
             <div className="flex flex-col gap-10 justify-center items-start md:w-1/2">
@@ -72,20 +72,20 @@ function SingleProducts() {
                   {genderCategory} / {generalCategory}
                 </span>
                 <div className="flex flex-col gap-2">
-                  <p className="font-head font-bold capitalize text-4xl">
+                  <p className="font-head font-bold capitalize text-3xl md:text-4xl">
                     {productName}
                   </p>
                   <div className="flex justify-between items-center">
                     <div className="flex gap-5 items-center ">
                       <span
-                        className={`text-2xl ${
+                        className={`text-lg font-bold md:font-semibold md:text-2xl ${
                           discount > 0 ? "line-through text-gray-500" : ""
                         }`}
                       >
                         Rs. {price}
                       </span>
                       {discount > 0 ? (
-                        <span className="text-2xl text-secondary font-semibold">
+                        <span className="text-lg font-bold md:text-2xl text-secondary md:font-semibold">
                           Rs. {price - price * (discount / 100)}
                         </span>
                       ) : (
@@ -93,7 +93,7 @@ function SingleProducts() {
                       )}
                     </div>
                     <span
-                      className={`font-bold text-sm ${
+                      className={`font-bold text-[14px] md:text-sm ${
                         stock < 5 ? "text-red-400" : "text-green-500"
                       }`}
                     >

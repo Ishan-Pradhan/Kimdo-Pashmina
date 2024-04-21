@@ -133,7 +133,10 @@ function CreateProduct() {
             className="border-2 shadow-lg bg-white p-10 grid grid-cols-1 gap-4 relative mt-5 "
           >
             <div className="flex gap-10">
-              <label className="text-[#222]" htmlFor="productImg">
+              <label
+                className="text-[#111] font-head font-semibold"
+                htmlFor="productImg"
+              >
                 Product Image
               </label>
               <input
@@ -146,7 +149,10 @@ function CreateProduct() {
             </div>
 
             <div className="flex flex-col mb-2 gap-2">
-              <label className="text-[#222]" htmlFor="productName">
+              <label
+                className="text-[#111] font-head font-semibold"
+                htmlFor="productName"
+              >
                 Product Name
               </label>
               <input
@@ -158,8 +164,11 @@ function CreateProduct() {
             </div>
 
             <div className="flex flex-col mb-2 gap-2">
-              <label className="text-[#222]" htmlFor="description">
-                Description:
+              <label
+                className="text-[#111] font-head font-semibold"
+                htmlFor="description"
+              >
+                Description
               </label>
               <textarea
                 className=" border border-[#888] col-span-2 px-2 py-1"
@@ -170,8 +179,11 @@ function CreateProduct() {
             </div>
 
             <div className="flex flex-col mb-2 gap-2">
-              <label className="text-[#222]" htmlFor="price">
-                Price:
+              <label
+                className="text-[#111] font-head font-semibold"
+                htmlFor="price"
+              >
+                Price
               </label>
               <input
                 className=" border border-[#888] col-span-2  px-2 py-1"
@@ -182,8 +194,11 @@ function CreateProduct() {
             </div>
 
             <div className="flex flex-col mb-2 gap-2">
-              <label className="text-[#222]" htmlFor="discount">
-                Discount:
+              <label
+                className="text-[#111] font-head font-semibold"
+                htmlFor="discount"
+              >
+                Discount
               </label>
               <input
                 className=" border border-[#888] col-span-2 px-2 py-1"
@@ -193,8 +208,11 @@ function CreateProduct() {
               />
             </div>
             <div className="flex  gap-10">
-              <label className="text-[#222]" htmlFor="featured">
-                Featured:
+              <label
+                className="text-[#111] font-head font-semibold"
+                htmlFor="featured"
+              >
+                Featured
               </label>
               <div className="col-span-2 px-2 flex gap-3">
                 <input
@@ -211,8 +229,11 @@ function CreateProduct() {
             </div>
 
             <div className="flex flex-col mb-2 gap-2">
-              <label className="text-[#222]" htmlFor="generalCategory">
-                General Category:
+              <label
+                className="text-[#111] font-head font-semibold"
+                htmlFor="generalCategory"
+              >
+                General Category
               </label>
               <select
                 className=" border border-[#888] px-3 py-1 col-span-2"
@@ -228,8 +249,11 @@ function CreateProduct() {
             </div>
 
             <div className="flex flex-col mb-2 gap-2">
-              <label className="text-[#222]" htmlFor="genderCategory">
-                Gender Category:
+              <label
+                className="text-[#111] font-head font-semibold"
+                htmlFor="genderCategory"
+              >
+                Gender Category
               </label>
               <select
                 className=" border border-[#888] px-3 py-1 col-span-2 "
@@ -243,8 +267,11 @@ function CreateProduct() {
             </div>
 
             <div className="flex flex-col mb-2 gap-2">
-              <label className="text-[#222]" htmlFor="stock">
-                Stock:
+              <label
+                className="text-[#111] font-head font-semibold"
+                htmlFor="stock"
+              >
+                Stock
               </label>
               <input
                 className=" border border-[#888] col-span-2 px-2 py-1"
@@ -255,8 +282,11 @@ function CreateProduct() {
             </div>
 
             <div className="flex flex-col mb-2 gap-2">
-              <label className="text-[#222]" htmlFor="composition">
-                Composition:
+              <label
+                className="text-[#111] font-head font-semibold"
+                htmlFor="composition"
+              >
+                Composition
               </label>
               <input
                 className=" border border-[#888] col-span-2 px-2 py-1"
@@ -267,8 +297,11 @@ function CreateProduct() {
             </div>
 
             <div className="flex flex-col mb-2 gap-2">
-              <label className="text-[#222]" htmlFor="weight">
-                Weight:
+              <label
+                className="text-[#111] font-head font-semibold"
+                htmlFor="weight"
+              >
+                Weight
               </label>
               <input
                 className=" border border-[#888] col-span-2 px-2 py-1"
@@ -279,8 +312,11 @@ function CreateProduct() {
             </div>
 
             <div className="flex flex-col mb-2 gap-2">
-              <label className="text-[#222]" htmlFor="size">
-                Size:
+              <label
+                className="text-[#111] font-head font-semibold"
+                htmlFor="size"
+              >
+                Size
               </label>
               <input
                 className=" border border-[#888] col-span-2 px-2 py-1"
