@@ -110,7 +110,7 @@ function SingleProducts() {
                   </div>
 
                   <div className="grid grid-cols-2 gap-2">
-                    <h3 className="text-lg text-gray-500 border-b-2 py-1 col-span-2 mb-2">
+                    <h3 className="text-lg text-gray-500 border-b-2 py-1 col-span-2 mb-2 font-semibold">
                       DETAILS
                     </h3>
                     <span className="text-gray-500 text-lg">Composition </span>{" "}
