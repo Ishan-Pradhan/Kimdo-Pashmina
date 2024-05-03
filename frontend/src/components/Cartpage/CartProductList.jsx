@@ -95,7 +95,7 @@ function CartProductList() {
     <section>
       <div className="container mx-auto my-10">
         <h2 className="text-3xl font-semibold mb-4">Shopping Cart</h2>
-        <div className="grid grid-cols-4 md:grid-cols-6 gap-4 border-y py-4 ">
+        <div className="grid grid-cols-4 md:grid-cols-6 gap-4 border-y py-4 md:px-8 ">
           <div className="md:col-span-2  font-extrabold text-lg">Product</div>
           <div className="col-span-1 font-extrabold text-lg hidden md:flex">
             Price
