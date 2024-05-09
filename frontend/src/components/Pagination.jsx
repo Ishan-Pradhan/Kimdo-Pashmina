@@ -5,15 +5,15 @@ function Pagination({ currentPage, itemsPerPage, totalItems, onPageChange }) {
   const totalPages = Math.ceil(totalItems / itemsPerPage);
 
   const handlePrevClick = () => {
+    scrollToTop();
     if (currentPage > 1) {
-      scrollToTop();
       onPageChange(currentPage - 1);
     }
   };
 
   const handleNextClick = () => {
+    scrollToTop();
     if (currentPage < totalPages) {
-      scrollToTop();
       onPageChange(currentPage + 1);
     }
   };
@@ -25,8 +25,18 @@ function Pagination({ currentPage, itemsPerPage, totalItems, onPageChange }) {
         onClick={handlePrevClick}
         disabled={currentPage === 1}
       >
-        <i className="fa-solid fa-chevron-left text-secondary text-md"></i>
-        <span className="text-secondary ">Prev</span>{" "}
+        <i
+          className={`fa-solid fa-chevron-left text-secondary text-md ${
+            currentPage === 1 ? "text-secondaryTint" : ""
+          }`}
+        ></i>
+        <span
+          className={`text-secondary ${
+            currentPage === 1 ? "text-secondaryTint" : ""
+          }`}
+        >
+          Prev
+        </span>{" "}
       </button>
       <span>{`Page ${currentPage} of ${totalPages}`}</span>
       <button
@@ -34,8 +44,18 @@ function Pagination({ currentPage, itemsPerPage, totalItems, onPageChange }) {
         onClick={handleNextClick}
         disabled={currentPage === totalPages}
       >
-        <span className="text-secondary ">Next</span>{" "}
-        <i className="fa-solid fa-chevron-right text-secondary text-md "></i>
+        <span
+          className={`text-secondary ${
+            currentPage === totalPages ? "text-secondaryTint" : ""
+          }`}
+        >
+          Next
+        </span>{" "}
+        <i
+          className={`fa-solid fa-chevron-right text-secondary text-md ${
+            currentPage === totalPages ? "text-secondaryTint" : ""
+          }`}
+        ></i>
       </button>
     </div>
   );
