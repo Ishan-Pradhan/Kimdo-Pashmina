@@ -84,76 +84,80 @@ function Order() {
             </div>
           )}
 
-          {filteredOrders.map((order) => (
-            <div
-              className="grid grid-cols-6 gap-4 md:grid-cols-7 md:gap-x-10 items-center justify-center border-b-2 py-4 "
-              key={order._id}
-            >
-              <span className="col-span-6 md:col-span-7">
-                <span className="font-bold">Order_id </span>
-                {order._id}
-                <div className="text-sm text-gray-500">
-                  Placed on{" "}
-                  {new Date(order.createdAt).toLocaleString("en-US", {
-                    day: "2-digit",
-                    month: "short",
-                    year: "numeric",
-                    hour: "numeric",
-                    minute: "numeric",
-                    hour12: true,
-                  })}
-                </div>
-              </span>
-              <div className="flex flex-col col-span-2">
-                {order.products.map((product) => (
-                  <span key={product.identity}>{product.product}</span>
-                ))}
-              </div>
-              <div className="flex flex-col">
-                {order.products.map((product) => (
-                  <span key={product.identity}>
-                    <span className="font-semibold text-gray-500">Qty </span>{" "}
-                    {product.quantity}
-                  </span>
-                ))}
-              </div>
-              <span>
-                {" "}
-                <span className="font-semibold text-gray-500">Total </span>{" "}
-                {order.amount}
-              </span>
-              {/* <span className="hidden md:flex">{order.address}</span> */}
-
-              <div className="flex md:items-center col-span-2 md:col-span-1">
-                <span
-                  className={`rounded text-center uppercase font-semibold text-sm ${
-                    order.status === "paid"
-                      ? "bg-green-300 text-green-800 px-4 md:px-2 w-full py-1"
-                      : order.status === "delivered"
-                      ? "bg-slate-300 text-slate-800 px-1 md:px-2 w-full py-1"
-                      : order.status === "cancelled"
-                      ? "bg-red-300 text-red-800 px-1 md:px-2 w-full py-1"
-                      : "bg-gray-300 text-gray-800 px-4 md:px-2 w-full py-1"
-                  }`}
-                >
-                  {order.status === "cash on delivery" ? "COD" : order.status}
-                </span>
-              </div>
-              <div className="hidden md:flex col-span-3 md:col-span-2 gap-2">
-                {order.status === "delivered" ? (
-                  <div>
-                    <span className="font-semibold">Delivered on</span>{" "}
-                    {new Date(order.updatedAt).toLocaleDateString()}
+          {filteredOrders
+            .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
+            .map((order) => (
+              <div
+                className="grid grid-cols-6 gap-4 md:grid-cols-7 md:gap-x-10 items-center justify-center border-b-2 py-4 "
+                key={order._id}
+              >
+                <span className="col-span-6 md:col-span-7">
+                  <span className="font-bold">Order_id </span>
+                  {order._id}
+                  <div className="text-sm text-gray-500">
+                    Placed on{" "}
+                    {new Date(order.createdAt).toLocaleString("en-US", {
+                      day: "2-digit",
+                      month: "short",
+                      year: "numeric",
+                      hour: "numeric",
+                      minute: "numeric",
+                      hour12: true,
+                    })}
                   </div>
-                ) : order.status === "paid" ||
-                  order.status === "cash on delivery" ? (
-                  <span className="font-semibold">Processing</span>
-                ) : (
-                  <span className="font-semibold">Cancelled</span>
-                )}
+                </span>
+                <div className="flex flex-col col-span-2">
+                  {order.products.map((product) => (
+                    <span key={product.identity}>{product.product}</span>
+                  ))}
+                </div>
+                <div className="flex flex-col">
+                  {order.products.map((product) => (
+                    <span key={product.identity}>
+                      <span className="font-semibold text-gray-500">Qty </span>{" "}
+                      {product.quantity}
+                    </span>
+                  ))}
+                </div>
+                <span>
+                  {" "}
+                  <span className="font-semibold text-gray-500">
+                    Total{" "}
+                  </span>{" "}
+                  {order.amount}
+                </span>
+                {/* <span className="hidden md:flex">{order.address}</span> */}
+
+                <div className="flex md:items-center col-span-2 md:col-span-1">
+                  <span
+                    className={`rounded text-center uppercase font-semibold text-sm ${
+                      order.status === "paid"
+                        ? "bg-green-300 text-green-800 px-4 md:px-2 w-full py-1"
+                        : order.status === "delivered"
+                        ? "bg-slate-300 text-slate-800 px-1 md:px-2 w-full py-1"
+                        : order.status === "cancelled"
+                        ? "bg-red-300 text-red-800 px-1 md:px-2 w-full py-1"
+                        : "bg-gray-300 text-gray-800 px-4 md:px-2 w-full py-1"
+                    }`}
+                  >
+                    {order.status === "cash on delivery" ? "COD" : order.status}
+                  </span>
+                </div>
+                <div className="hidden md:flex col-span-3 md:col-span-2 gap-2">
+                  {order.status === "delivered" ? (
+                    <div>
+                      <span className="font-semibold">Delivered on</span>{" "}
+                      {new Date(order.updatedAt).toLocaleDateString()}
+                    </div>
+                  ) : order.status === "paid" ||
+                    order.status === "cash on delivery" ? (
+                    <span className="font-semibold">Processing</span>
+                  ) : (
+                    <span className="font-semibold">Cancelled</span>
+                  )}
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
         </div>
       </section>
       <Footer />
