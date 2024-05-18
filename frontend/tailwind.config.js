@@ -36,5 +36,11 @@ export default {
       },
     },
   },
+  variants: {
+    extend: {
+      borderColor: ["focus", "focus-visible"],
+      ringWidth: ["focus", "focus-visible"],
+    },
+  },
   plugins: [],
 };

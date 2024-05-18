@@ -217,7 +217,7 @@ function Header() {
               value={text}
               placeholder="Search products..."
               onChange={handleInputChange}
-              className="border-b border-text  bg-background px-4 w-96 font-medium focus:ring-0 focus:border-transparent focus:rounded-none focus-visible:ring-0 focus-visible:ring-primary"
+              className="border-b border-text bg-background px-4 w-96 font-medium focus:outline-none focus:border-b-2 focus:ring-0"
             />
             <i className="fa-solid fa-magnifying-glass absolute top-1/2 transform -translate-y-1/2 right-4 text-gray-400"></i>
             {showModal && text && (

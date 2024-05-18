@@ -41,27 +41,29 @@ function BestsellersPage() {
 
       <div className="container px-16 mx-auto">
         <div className="flex flex-col md:flex-row gap-10 justify-start">
-          <FilterSection />
-        </div>
-        <section className="flex flex-col container mt-10">
-          <div
-            className={`flex flex-col gap-y-14  md:flex-row items-center mb-10 flex-wrap ${
-              bestsellers.length <= 3
-                ? "justify-start gap-x-16"
-                : "justify-between"
-            }`}
-          >
-            {productsForCurrentPage.map((product) => (
-              <FeatureProducts key={product._id} product={product} />
-            ))}
+          <div className="w-100 justify-center items-center">
+            <FilterSection />
           </div>
-          <Pagination
-            currentPage={currentPage}
-            itemsPerPage={itemsPerPage}
-            totalItems={totalItems}
-            onPageChange={handlePageChange}
-          />
-        </section>
+          <section className="flex flex-col container ">
+            <div
+              className={`flex flex-col gap-y-14  md:flex-row items-center mb-10 flex-wrap ${
+                bestsellers.length <= 3
+                  ? "justify-start gap-x-16"
+                  : "justify-between"
+              }`}
+            >
+              {productsForCurrentPage.map((product) => (
+                <FeatureProducts key={product._id} product={product} />
+              ))}
+            </div>
+            <Pagination
+              currentPage={currentPage}
+              itemsPerPage={itemsPerPage}
+              totalItems={totalItems}
+              onPageChange={handlePageChange}
+            />
+          </section>
+        </div>
       </div>
 
       <footer>

@@ -115,9 +115,13 @@ function CartProductList() {
         {cart.length === 0 ? (
           ""
         ) : (
-          <div className="flex justify-end">
+          <div className="flex items-center justify-between mt-16">
+            <h3 className="text-xl">
+              Order Total:{" "}
+              <span className="font-semibold">Rs.{total_price}</span>
+            </h3>
             <button
-              className=" text-red-600 hover:underline  mt-5"
+              className=" text-red-600 hover:underline"
               onClick={clearCart}
             >
               Clear Cart
@@ -125,11 +129,7 @@ function CartProductList() {
           </div>
         )}
 
-        <div className="mt-8">
-          <h3 className="text-xl font-semibold ">
-            Order Total: Rs.{total_price}
-          </h3>
-        </div>
+        <div className="mt-8"></div>
 
         <div className="flex flex-col container  mt-4 ">
           <div className="flex flex-col justify-center border border-gray-300 md:flex-row">
@@ -194,7 +194,7 @@ function CartProductList() {
             )}
           </div>
           <div className="flex flex-col border border-gray-300 border-t-0 ">
-            <div className="flex gap-10 justify-center md:justify-start items-center px-4 md:px-10 py-4 ">
+            <div className="flex gap-10  justify-center md:justify-center items-center px-4 md:px-10 py-4 ">
               <div className="flex items-center">
                 <input
                   type="radio"
