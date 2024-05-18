@@ -106,7 +106,7 @@ function SingleProducts() {
 
                 <div className="flex flex-col gap-5">
                   <div>
-                    <p className="text-lg text-justify leading-6">
+                    <p className="text-lg md:text-justify leading-6">
                       {description}
                     </p>
                   </div>
