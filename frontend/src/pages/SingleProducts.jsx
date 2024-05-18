@@ -78,7 +78,9 @@ function SingleProducts() {
                   <div className="flex justify-between items-center">
                     <div className="flex gap-5 items-center ">
                       <span
-                        className={`text-lg font-bold md:font-semibold md:text-2xl ${
+                        className={`${
+                          !discount ? "text-secondary" : ""
+                        } text-lg font-bold md:font-semibold md:text-2xl ${
                           discount > 0 ? "line-through text-gray-500" : ""
                         }`}
                       >

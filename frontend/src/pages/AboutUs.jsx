@@ -25,6 +25,7 @@ function AboutUs() {
               alt="Kimdo Pashmina"
               className="w-full object-cover h-[200px] md:h-[400px]"
               data-aos="fade-right"
+              loading="lazy"
             />
           </div>
           <div className="md:w-1/2" data-aos="fade-left">

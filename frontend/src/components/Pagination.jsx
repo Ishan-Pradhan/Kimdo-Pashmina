@@ -1,18 +1,21 @@
+import { useEffect } from "react";
 import { scrollToTop } from "../utils/scrollTop";
 
 /* eslint-disable  */
 function Pagination({ currentPage, itemsPerPage, totalItems, onPageChange }) {
   const totalPages = Math.ceil(totalItems / itemsPerPage);
+  useEffect(() => {
+    scrollToTop();
+  }, [currentPage]);
 
   const handlePrevClick = () => {
-    scrollToTop();
     if (currentPage > 1) {
       onPageChange(currentPage - 1);
     }
   };
 
   const handleNextClick = () => {
-    scrollToTop();
+    console.log("scrollToTop called from pagination");
     if (currentPage < totalPages) {
       onPageChange(currentPage + 1);
     }
