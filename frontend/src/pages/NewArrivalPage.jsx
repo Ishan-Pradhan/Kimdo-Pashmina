@@ -64,7 +64,7 @@ function NewArrivalPage() {
           </div>
 
           <section className="flex flex-col container ">
-            <div className="flex items-center justify-between gap-16 flex-wrap container">
+            <div className="flex items-center justify-center md:justify-between gap-16 flex-wrap container">
               {productsForCurrentPage.map((product) => (
                 <NewArrival key={product._id} product={product} />
               ))}
