@@ -14,9 +14,9 @@ function Feedbacks() {
 
   return (
     <>
-      <section className="container  flex justify-start items-start gap-10 mb-10">
+      <section className="  flex justify-start items-start gap-10 mb-10">
         <AdminMenu />
-        <div className="mt-10">
+        <div className="mt-10 container mx-auto">
           <h2 className="text-2xl uppercase font-head font-bold mb-1 text-center">
             Feedbacks
           </h2>

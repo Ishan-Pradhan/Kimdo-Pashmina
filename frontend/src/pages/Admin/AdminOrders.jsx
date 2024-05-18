@@ -88,7 +88,7 @@ function AdminOrders() {
     <>
       <section className=" flex justify-start items-start gap-10 mr-8 relative">
         <AdminMenu />
-        <div className="mt-10">
+        <div className="mt-10 container mx-auto">
           <h2 className="text-2xl uppercase font-head font-bold mb-1 text-center">
             {" "}
             orders
