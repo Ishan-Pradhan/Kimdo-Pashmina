@@ -27,7 +27,6 @@ function Users() {
       <section className="container flex justify-start items-start gap-10">
         <AdminMenu />
         <div className="mt-10 w-full">
-          {/* <div className="flex justify-between items-center"> */}
           <h2 className="text-2xl uppercase font-head font-bold mb-1 text-center">
             Users
           </h2>
