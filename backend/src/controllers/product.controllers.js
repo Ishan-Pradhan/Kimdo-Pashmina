@@ -168,10 +168,10 @@ const updateProduct = async (req, res) => {
 
 const newArrivalProduct = async (req, res) => {
   try {
-    const twoMonthAgo = new Date();
-    twoMonthAgo.setDate(twoMonthAgo.getDate() - 60);
+    const fourMonthsAgo = new Date();
+    fourMonthsAgo.setDate(fourMonthsAgo.getDate() - 120);
     const newArrivalProducts = await Product.find({
-      createdAt: { $gte: twoMonthAgo },
+      createdAt: { $gte: fourMonthsAgo },
     })
       .sort({ createdAt: -1 })
       .limit(10)
