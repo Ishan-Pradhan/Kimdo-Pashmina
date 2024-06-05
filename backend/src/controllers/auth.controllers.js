@@ -45,6 +45,7 @@ const registerController = async (req, res) => {
       success: false,
       message: "fail to Register",
     });
+    console.log(error);
   }
 };
 

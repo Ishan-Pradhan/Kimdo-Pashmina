@@ -72,6 +72,7 @@ function Register() {
     } catch (error) {
       if (error.response && error.response.status === 400) {
         toast.error(error.response.data.message);
+        console.log(error);
       } else {
         toast.error("An error occurred while processing your request.");
       }
