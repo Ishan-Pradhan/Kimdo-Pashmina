@@ -221,7 +221,13 @@ function Header() {
             />
             <i className="fa-solid fa-magnifying-glass absolute top-1/2 transform -translate-y-1/2 right-4 text-gray-400"></i>
             {showModal && text && (
-              <div className="absolute top-full left-0 w-full z-50 modal-content shadow-lg mt-4 overflow-y-scroll h-96">
+              <div
+                className={`absolute top-full left-0 w-full z-50 modal-content shadow-lg mt-4 ${
+                  filter_products.length > 8
+                    ? "overflow-y-scroll "
+                    : "overflow-hidden"
+                }h-${filter_products.length > 8 ? "96" : ""}`}
+              >
                 <div className="bg-white  w-full p-4">
                   <ul className="flex flex-col ">
                     {filter_products.length > 0 ? (
