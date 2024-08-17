@@ -3,6 +3,7 @@ import AdminMenu from "../../components/AdminPage/AdminMenu";
 import { useProductContext } from "../../context/productcontext";
 import { NavLink } from "react-router-dom";
 import { scrollToTop } from "../../utils/scrollTop";
+import Pagination from "../../components/Pagination";
 
 function ManageProducts() {
   const { products } = useProductContext();
@@ -26,6 +27,18 @@ function ManageProducts() {
     setSelectedCategory(e.target.value);
   };
 
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 9;
+
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
+  const totalItems = filteredProducts.length;
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const productsForCurrentPage = filteredProducts.slice(startIndex, endIndex);
+
   return (
     <>
       <section className="container flex justify-start items-start gap-10 ">
@@ -35,7 +48,7 @@ function ManageProducts() {
             Manage Products
           </h2>
 
-          <div className="flex flex-col justify-center">
+          <div className="flex flex-col justify-center mb-4">
             <div className="flex justify-between items-center">
               <input
                 type="text"
@@ -77,7 +90,7 @@ function ManageProducts() {
               <span className="font-bold">Stock left</span>
             </div>
 
-            {filteredProducts.map((product) => {
+            {productsForCurrentPage.map((product) => {
               return (
                 <div
                   className={`grid grid-cols-5 gap-10 justify-center items-center flex-wrap  py-10 px-2 border-b`}
@@ -107,6 +120,12 @@ function ManageProducts() {
                 </div>
               );
             })}
+            <Pagination
+              currentPage={currentPage}
+              itemsPerPage={itemsPerPage}
+              totalItems={totalItems}
+              onPageChange={handlePageChange}
+            />
           </div>
         </div>
       </section>
