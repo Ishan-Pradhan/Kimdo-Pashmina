@@ -4,6 +4,7 @@ import Header from "../../components/Header";
 import UserMenu from "../../components/User/UserMenu";
 import { useEffect, useState } from "react";
 import { useAuthContext } from "../../context/authcontext";
+import Pagination from "../../components/Pagination";
 
 function Order() {
   const [userOrders, setUserOrders] = useState([]);
@@ -39,6 +40,19 @@ function Order() {
       return order.status === selectedStatus;
     }
   });
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 9;
+
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
+  const totalItems = userOrders.length;
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const orderForCurrentPage = filteredOrders.slice(startIndex, endIndex);
+
   return (
     <>
       <Header />
@@ -61,30 +75,14 @@ function Order() {
               </select>
             </div>
           </div>
-          {/* <div className="grid grid-cols-6 gap-10 md:grid-cols-9 mb-5 md:gap-5 ">
-            <span className="font-bold font-head col-span-2">
-              Transaction_id
-            </span>
-            <span className="font-bold font-head">Products</span>
-            <span className="font-bold font-head">Quantity</span>
-            <span className="font-bold font-head">Total Price</span>
-            <span className="hidden font-bold font-head md:flex">Address</span>
-            <span className="hidden font-bold font-head md:flex">
-              Paid-Through
-            </span>
-            <span className="font-bold font-head">Status</span>
-            <span className="font-bold font-head hidden md:flex">
-              Ordered on
-            </span>
-          </div> */}
 
-          {!filteredOrders.length > 0 && (
+          {!orderForCurrentPage.length > 0 && (
             <div className="flex flex-col justify-center items-center mt-10">
               <p>You have not ordered yet. </p>{" "}
             </div>
           )}
 
-          {filteredOrders
+          {orderForCurrentPage
             .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
             .map((order) => (
               <div
@@ -158,6 +156,12 @@ function Order() {
                 </div>
               </div>
             ))}
+          <Pagination
+            currentPage={currentPage}
+            itemsPerPage={itemsPerPage}
+            totalItems={totalItems}
+            onPageChange={handlePageChange}
+          />
         </div>
       </section>
       <Footer />

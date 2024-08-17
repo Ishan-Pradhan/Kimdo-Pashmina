@@ -15,7 +15,6 @@ function Pagination({ currentPage, itemsPerPage, totalItems, onPageChange }) {
   };
 
   const handleNextClick = () => {
-    console.log("scrollToTop called from pagination");
     if (currentPage < totalPages) {
       onPageChange(currentPage + 1);
     }
