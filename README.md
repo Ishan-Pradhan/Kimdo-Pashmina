@@ -57,7 +57,7 @@ REACT_APP_API=
 2. Start the backend server:
    npm run dev
 
-##Screenshots
+## Screenshots
 
 ![image](https://github.com/user-attachments/assets/c5ddf56a-cf53-4871-abd2-1aa545c7998b)
 ##
