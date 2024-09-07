@@ -11,7 +11,7 @@ E-commerce website for viewing and purchasing shawls, mufflers, poncho and blank
 ## Installation
 
 1. Clone the repository:
-   git clone https://github.com/Ishan-Pradhan/kimdo-pashmina-rework.git
+   git clone https://github.com/Ishan-Pradhan/kimdo-pashmina.git
 
 2. Navigate into the project directory:
    cd yourrepository
