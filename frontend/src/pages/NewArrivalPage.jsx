@@ -3,7 +3,7 @@ import Header from "../components/Header";
 import PageNavigation from "../components/PageNavigation";
 import { useProductContext } from "../context/productcontext";
 import { useState } from "react";
-import NewArrival from "../components/Homepage/newArrival";
+import NewArrival from "../components/Homepage/NewArrival";
 import Pagination from "../components/Pagination";
 import Loading from "../components/Loading";
 import FilterSection from "../components/FilterSection";
