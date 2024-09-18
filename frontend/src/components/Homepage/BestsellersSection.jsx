@@ -6,7 +6,9 @@ import { scrollToTop } from "../../utils/scrollTop";
 
 function BestsellersSection() {
   const { isLoading, products } = useProductContext();
-  const bestsellers = products.filter((products) => products.quantitySold >= 5);
+  const bestsellers = Array.isArray(products)
+    ? products.filter((product) => product.quantitySold >= 5)
+    : [];
 
   if (isLoading) {
     return <Loading />;
