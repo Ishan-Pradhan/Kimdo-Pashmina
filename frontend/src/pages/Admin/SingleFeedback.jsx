@@ -12,7 +12,8 @@ function SingleFeedback() {
   const [message, setMessage] = useState("");
   const [isFeatured, setIsFeatured] = useState(false);
 
-  const API = "http://localhost:8000/api/v1/contact";
+  // const API = "localhost:8000/api/v1/contact";
+  const API = "https://kimdo-pashmina-api.vercel.app/api/v1/contact";
   const { getSingleContact, singleContact } = useContactContext();
   const { id } = useParams();
   useEffect(() => {

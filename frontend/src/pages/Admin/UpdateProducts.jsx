@@ -5,7 +5,7 @@ import AdminMenu from "../../components/AdminPage/AdminMenu";
 import { useProductContext } from "../../context/productcontext";
 import { useNavigate, useParams } from "react-router-dom";
 
-const API = "http://localhost:8000/api/v1/product";
+const API = "https://kimdo-pashmina-api.vercel.app/api/v1/product";
 
 function UpdateProducts() {
   const navigate = useNavigate();
