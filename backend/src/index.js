@@ -5,6 +5,7 @@ dotenv.config({
 
 import connectDB from "./db/index.js";
 import app from "./app.js";
+import { Product } from "./models/product.models.js";
 
 app.get("/", (req, res) => {
   res.status(200).json("Kimdo Pashmina");
