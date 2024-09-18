@@ -7,7 +7,7 @@ import connectDB from "./db/index.js";
 import app from "./app.js";
 
 app.get("/", (req, res) => {
-  res.status(200).json("Kimdo Pashmina");
+  res.status(200).json(`Kimdo Pashmina ${process.env.PORT}`);
 });
 
 connectDB()
