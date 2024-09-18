@@ -1,19 +1,22 @@
-/* eslint-disable */
+// Function declaration outside of switch statement
+const filterFeaturedProducts = (payload) => {
+  return Array.isArray(payload)
+    ? payload.filter((curEl) => curEl.featured === true)
+    : [];
+};
+
 const ProductReducer = (state, action) => {
   switch (action.type) {
     case "SET_LOADING":
       return { ...state, isLoading: true };
 
     case "PRODUCTS":
-      const featureData = action.payload
-        ? action.payload.filter((curEl) => curEl.featured === true)
-        : [];
-
+      filterFeaturedProducts(action.payload);
       return {
         ...state,
         isLoading: false,
         products: action.payload,
-        featureProducts: featureData,
+        featureProducts: filterFeaturedProducts(action.payload),
       };
 
     case "API_ERROR":

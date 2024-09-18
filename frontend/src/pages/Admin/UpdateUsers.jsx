@@ -43,7 +43,6 @@ function UpdateUsers() {
       const data = { role };
 
       const response = await axios.put(
-        // `http://localhost:8000/api/v1/auth/users/${id}`,
         `https://kimdo-pashmina-api.vercel.app/api/v1/auth/users/${id}`,
         data
       );
@@ -73,7 +72,6 @@ function UpdateUsers() {
       }
 
       const { data } = await axios.delete(
-        // `http://localhost:8000/api/v1/auth/users/${id}`
         `https://kimdo-pashmina-api.vercel.app/api/v1/auth/users/${id}`
       );
       if (data.success) {
