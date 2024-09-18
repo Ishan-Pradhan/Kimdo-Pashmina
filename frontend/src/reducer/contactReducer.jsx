@@ -1,20 +1,24 @@
 const ContactReducer = (state, action) => {
   switch (action.type) {
-    case "CONTACTS":
+    case "CONTACTS": {
+      const featureData = action.payload
+        ? action.payload.filter((curEl) => curEl.isFeatured)
+        : [];
+
       return {
         ...state,
         isLoading: false,
-        contacts: action.payload,
-        featuredContacts: action.payload
-          ? action.payload.filter((curEl) => curEl.isFeatured === true)
-          : [],
+        contacts: action.payload || [],
+        featuredContacts: featureData,
       };
+    }
 
-    case "SET_SINGLE_CONTACT":
+    case "SET_SINGLE_CONTACT": {
       return {
         ...state,
         singleContact: action.payload,
       };
+    }
 
     default:
       return state;
