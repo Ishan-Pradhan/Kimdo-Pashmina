@@ -5,7 +5,7 @@ const ProductReducer = (state, action) => {
     }
 
     case "PRODUCTS": {
-      const featureData = action.payload
+      const featureData = Array.isArray(action.payload)
         ? action.payload.filter((curEl) => curEl.featured)
         : [];
 
