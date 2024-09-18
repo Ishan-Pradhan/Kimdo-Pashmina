@@ -1,16 +1,13 @@
-/* eslint-disable */
 const ContactReducer = (state, action) => {
   switch (action.type) {
     case "CONTACTS":
-      const featureData = action.payload
-        ? action.payload.filter((curEl) => curEl.isFeatured === true)
-        : [];
-
       return {
         ...state,
         isLoading: false,
         contacts: action.payload,
-        featuredContacts: featureData,
+        featuredContacts: action.payload
+          ? action.payload.filter((curEl) => curEl.isFeatured === true)
+          : [],
       };
 
     case "SET_SINGLE_CONTACT":
