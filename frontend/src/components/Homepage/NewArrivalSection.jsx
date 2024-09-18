@@ -11,6 +11,11 @@ function NewArrivalSection() {
     return <Loading />;
   }
 
+  // Ensure newArrivalProducts is an array before slicing and mapping
+  const productsToDisplay = Array.isArray(newArrivalProducts)
+    ? newArrivalProducts.slice(0, 8)
+    : [];
+
   return (
     <section id="feature-products" className="my-20" data-aos="zoom-in-down">
       <div className="container mx-auto px-16">
@@ -30,11 +35,10 @@ function NewArrivalSection() {
             </span>
           </NavLink>
         </div>
-        <div className="flex flex-col gap-y-10  md:flex-row items-center justify-start gap-[4rem] my-10 flex-wrap">
-          {newArrivalProducts &&
-            newArrivalProducts.slice(0, 8).map((product) => {
-              return <NewArrival key={product._id} product={product} />;
-            })}
+        <div className="flex flex-col gap-y-10 md:flex-row items-center justify-start gap-[4rem] my-10 flex-wrap">
+          {productsToDisplay.map((product) => (
+            <NewArrival key={product._id} product={product} />
+          ))}
         </div>
         <NavLink
           to="/NewArrival"
