@@ -5,7 +5,8 @@ import react from "@vitejs/plugin-react";
 export default defineConfig({
   server: {
     proxy: {
-      "/api/v1": "https://kimdo-pashmina-api.vercel.app", // "http://localhost:8000"
+      "/api/v1": "https://kimdo-pashmina-api.vercel.app",
+      // "/api/v1": "http://localhost:8000",
     },
   },
   plugins: [react()],
