@@ -1,7 +1,7 @@
 const ContactReducer = (state, action) => {
   switch (action.type) {
     case "CONTACTS": {
-      const featureData = action.payload
+      const featureData = Array.isArray(action.payload)
         ? action.payload.filter((curEl) => curEl.isFeatured)
         : [];
 
