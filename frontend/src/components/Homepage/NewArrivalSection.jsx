@@ -7,6 +7,7 @@ import { scrollToTop } from "../../utils/scrollTop";
 function NewArrivalSection() {
   const { isLoading, newArrivalProducts } = useProductContext();
 
+  // Show loading spinner if data is still being fetched
   if (isLoading) {
     return <Loading />;
   }
@@ -26,7 +27,7 @@ function NewArrivalSection() {
 
           <NavLink
             to="/NewArrival"
-            className="hidden uppercase text-sm font-bold md:flex gap-2 "
+            className="hidden uppercase text-sm font-bold md:flex gap-2"
             onClick={scrollToTop}
           >
             View More
@@ -35,11 +36,17 @@ function NewArrivalSection() {
             </span>
           </NavLink>
         </div>
+
         <div className="flex flex-col gap-y-10 md:flex-row items-center justify-start gap-[4rem] my-10 flex-wrap">
-          {productsToDisplay.map((product) => (
-            <NewArrival key={product._id} product={product} />
-          ))}
+          {productsToDisplay.length > 0 ? (
+            productsToDisplay.map((product) => (
+              <NewArrival key={product._id} product={product} />
+            ))
+          ) : (
+            <p>No new arrivals available at this time.</p> // Fallback message
+          )}
         </div>
+
         <NavLink
           to="/NewArrival"
           className="flex items-center justify-center uppercase text-sm font-bold md:hidden gap-2 mt-10"
