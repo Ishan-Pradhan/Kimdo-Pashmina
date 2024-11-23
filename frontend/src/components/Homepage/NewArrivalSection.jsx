@@ -30,12 +30,18 @@ function NewArrivalSection() {
             </span>
           </NavLink>
         </div>
-        <div className="flex flex-col gap-y-10  md:flex-row items-center justify-start gap-[4rem] my-10 flex-wrap">
-          {newArrivalProducts &&
-            newArrivalProducts.slice(0, 8).map((product) => {
-              return <NewArrival key={product._id} product={product} />;
-            })}
-        </div>
+        {newArrivalProducts.length === 0 ? (
+          <h2 className="mt-8 text-lg">
+            No new arrivals available at this time.
+          </h2>
+        ) : (
+          <div className="flex flex-col gap-y-10  md:flex-row items-center justify-start gap-[4rem] my-10 flex-wrap">
+            {newArrivalProducts &&
+              newArrivalProducts.slice(0, 8).map((product) => {
+                return <NewArrival key={product._id} product={product} />;
+              })}
+          </div>
+        )}
         <NavLink
           to="/NewArrival"
           className="flex items-center justify-center uppercase text-sm font-bold md:hidden gap-2 mt-10"
