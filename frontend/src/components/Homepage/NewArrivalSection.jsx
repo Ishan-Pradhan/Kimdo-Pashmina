@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { useProductContext } from "../../context/productcontext";
 import Loading from "../Loading";
-import NewArrival from "./newArrival";
+import NewArrival from "./NewArrival";
 import { scrollToTop } from "../../utils/scrollTop";
 
 function NewArrivalSection() {
