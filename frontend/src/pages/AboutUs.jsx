@@ -3,7 +3,7 @@ import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Features from "../components/Homepage/Features";
 import PageNavigation from "../components/PageNavigation";
-import TestimonialSection from "../components/Homepage/testimonialSection";
+import TestimonialSection from "../components/Homepage/TestimonialSection";
 
 function AboutUs() {
   return (
