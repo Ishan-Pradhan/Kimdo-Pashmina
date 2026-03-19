@@ -9,6 +9,11 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { AuthProvider } from "./context/authcontext.jsx";
 import { ContactProvider } from "./context/contactcontext.jsx";
+import axios from "axios";
+
+// Configure default base URL for all Axios requests
+axios.defaults.baseURL = import.meta.env.VITE_API_URL || "";
+axios.defaults.withCredentials = true;
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>

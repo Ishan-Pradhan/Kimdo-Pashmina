@@ -5,9 +5,7 @@ const app = express();
 
 app.use(
   cors({
-    // origin: process.env.CORS_ORIGIN,
-    origin: "http://localhost:3000",
-    // origin: "https://g88bg4sl-3000.inc1.devtunnels.ms",
+    origin: true, // This dynamically mirrors the origin, safely allowing credentials across different domains (Vercel, localhost, etc)
     credentials: true,
   })
 );
