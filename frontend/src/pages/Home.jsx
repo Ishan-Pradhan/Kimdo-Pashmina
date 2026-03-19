@@ -5,7 +5,7 @@ import HeroSection from "../components/Homepage/HeroSection";
 import Features from "../components/Homepage/Features";
 import GridCategoriesSection from "../components/Homepage/GridCategoriesSection";
 import FeaturedProductsSection from "../components/Homepage/FeaturedProductsSection";
-import TestimonialSection from "../components/Homepage/testimonialSection";
+import TestimonialSection from "../components/Homepage/TestimonialSection";
 import Footer from "../components/Footer";
 import { useEffect, useState } from "react";
 import NewArrivalSection from "../components/Homepage/NewArrivalSection";
