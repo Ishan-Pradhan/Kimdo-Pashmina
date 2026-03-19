@@ -48,13 +48,13 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route index element={<Home />}></Route>
-        <Route path="/Home" element={<Home />}></Route>
-        <Route path="/WomenProduct" element={<WomenProduct />}></Route>
-        <Route path="/MenProduct" element={<MenProduct />}></Route>
-        <Route path="/NewArrival" element={<NewArrivalPage />}></Route>
-        <Route path="/Bestsellers" element={<BestsellersPage />}></Route>
-        <Route path="/Register" element={<Register />}></Route>
-        <Route path="/Login" element={<Login />}></Route>
+        <Route path="/home" element={<Home />}></Route>
+        <Route path="/womenproduct" element={<WomenProduct />}></Route>
+        <Route path="/menproduct" element={<MenProduct />}></Route>
+        <Route path="/newarrival" element={<NewArrivalPage />}></Route>
+        <Route path="/bestsellers" element={<BestsellersPage />}></Route>
+        <Route path="/register" element={<Register />}></Route>
+        <Route path="/login" element={<Login />}></Route>
         <Route path="/success" element={<PaymentSuccess />}></Route>
         <Route path="/*" element={<NotFound />}></Route>
 
@@ -81,14 +81,14 @@ function App() {
           <Route path="admin/users/:id" element={<UpdateUsers />} />
         </Route>
 
-        <Route path="/AboutUs" element={<AboutUs />}></Route>
+        <Route path="/aboutus" element={<AboutUs />}></Route>
         <Route
-          path="/ReturnAndExchange"
+          path="/returnandexchange"
           element={<ReturnAndExchange />}
         ></Route>
-        <Route path="/ContactUs" element={<ContactUs />}></Route>
-        <Route path="/Cart" element={<Cart />}></Route>
-        <Route path="/SingleProducts/:id" element={<SingleProducts />}></Route>
+        <Route path="/contactus" element={<ContactUs />}></Route>
+        <Route path="/cart" element={<Cart />}></Route>
+        <Route path="/singleproducts/:id" element={<SingleProducts />}></Route>
       </Routes>
     </BrowserRouter>
   );
