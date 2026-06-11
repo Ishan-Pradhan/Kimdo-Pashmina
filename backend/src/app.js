@@ -30,6 +30,7 @@ import userRouter from "./routes/auth.routes.js";
 import contactRouter from "./routes/contact.routes.js";
 import paymentRouter from "./routes/payment.routes.js";
 import orderRouter from "./routes/order.routes.js";
+import healthRoute from "./routes/health.routes.js";
 
 //routes declaration
 app.use("/api/v1/", paymentRouter);
@@ -37,6 +38,8 @@ app.use("/api/v1/", orderRouter);
 app.use("/api/v1/", productRouter);
 app.use("/api/v1/", contactRouter);
 app.use("/api/v1/auth", userRouter);
+app.use("/api/v1/health", healthRoute);
+
 
 app.use((err, req, res, next) => {
   console.error(err.stack);
