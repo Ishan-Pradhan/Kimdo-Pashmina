@@ -38,7 +38,7 @@ app.use("/api/v1/", orderRouter);
 app.use("/api/v1/", productRouter);
 app.use("/api/v1/", contactRouter);
 app.use("/api/v1/auth", userRouter);
-app.use("/api/v1/health", healthRoute);
+app.use("/api/v1/", healthRoute);
 
 
 app.use((err, req, res, next) => {
